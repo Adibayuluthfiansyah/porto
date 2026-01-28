@@ -1,79 +1,143 @@
 "use client";
-import { useState } from "react";
+
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
+  const [time, setTime] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTime(
+        now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" }),
+      );
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const navVariants: Variants = {
+    hidden: { y: -100, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const mobileMenuVariants: Variants = {
+    closed: { height: 0, opacity: 0 },
+    open: {
+      height: "100vh",
+      opacity: 1,
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
   return (
-    <header className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-black">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex shrink-0 items-center tracking-widest">
-            <Link
-              href="/"
-              className="text-2xl font-semibold font-sans text-gray-800"
-            >
-              LOREM IPSUM
-            </Link>
-          </div>
+    <motion.header
+      initial="hidden"
+      animate="visible"
+      variants={navVariants}
+      className="fixed top-0 w-full z-50 bg-transparent mix-blend-difference text-white px-4 py-6 md:px-8 md:py-8"
+    >
+      <nav className="w-full grid grid-cols-2 md:grid-cols-3 items-center">
+        {/* LOGO */}
+        <div className="flex shrink-0 items-center tracking-widest justify-start">
+          <Link
+            href="/"
+            className="text-2xl font-medium font-sans tracking-wide uppercase"
+          >
+            ADIBAYU
+          </Link>
+        </div>
+
+        {/* TIME & LOCATION */}
+        <div className="hidden md:flex flex-col items-center justify-center gap-1 text-center opacity-80">
+          <span className="font-sans text-[10px] uppercase tracking-[0.2em] opacity-60">
+            Pontianak, ID
+          </span>
+          <span className="font-serif italic text-sm">{time}</span>
+        </div>
+
+        {/* MENU */}
+        <div className="flex justify-end items-center">
           <div className="hidden md:flex space-x-8 items-center">
-            <Link
-              href="/about"
-              className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              ABOUT
-            </Link>
-            <Link
-              href="/projects"
-              className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              PROJECTS
-            </Link>
-            <Link
-              href="/contact"
-              className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              CONTACT
-            </Link>
+            {["ABOUT", "PROJECTS", "CONTACT"].map((item) => (
+              <Link
+                key={item}
+                href={`/${item.toLowerCase()}`}
+                className="group relative overflow-hidden h-5"
+              >
+                <span className="block font-sans text-xs font-medium uppercase tracking-[0.1em] group-hover:-translate-y-full transition-transform duration-300">
+                  {item}
+                </span>
+                <span className="absolute top-full left-0 block font-sans text-xs font-medium uppercase tracking-[0.1em] group-hover:-translate-y-full transition-transform duration-300">
+                  {item}
+                </span>
+              </Link>
+            ))}
           </div>
+
+          {/* MOBILE HAMBURGER BUTTON */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 focus:outline-none transition-colors"
             >
               <span className="sr-only">Open main menu</span>
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
-
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link
-                href="/about"
-                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
-              >
-                ABOUT
-              </Link>
-              <Link
-                href="/projects"
-                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
-              >
-                PROJECTS
-              </Link>
-              <Link
-                href="/contact"
-                className="block text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium"
-              >
-                CONTACT
-              </Link>
-            </div>
-          </div>
-        )}
       </nav>
-    </header>
+
+      {/* MOBILE MENU DROPDOWN (FULLSCREEN STYLE) */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={mobileMenuVariants}
+            style={{ mixBlendMode: "normal" }}
+            className="fixed inset-0 top-0 left-0 w-full bg-[#0a0a0a] text-white z-[60] flex flex-col justify-center items-center md:hidden"
+          >
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-6 right-4 p-2"
+            >
+              <X size={32} />
+            </button>
+
+            <div className="flex flex-col gap-8 text-center">
+              {["ABOUT", "PROJECTS", "CONTACT"].map((item) => (
+                <Link
+                  key={item}
+                  href={`/${item.toLowerCase()}`}
+                  onClick={() => setIsOpen(false)}
+                  className="font-serif text-4xl italic hover:text-gray-400 transition-colors"
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
+
+            <div className="absolute bottom-12 flex flex-col items-center gap-2 opacity-50">
+              <span className="text-[10px] uppercase tracking-widest">
+                Pontianak, ID
+              </span>
+              <span className="text-xs">{time}</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
