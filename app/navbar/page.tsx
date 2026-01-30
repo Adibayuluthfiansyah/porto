@@ -51,7 +51,7 @@ export default function Navbar() {
         <div className="flex shrink-0 items-center tracking-widest justify-start">
           <Link
             href="/"
-            className="text-2xl font-medium font-sans tracking-wide uppercase"
+            className="text-2xl font-semibold font-sans tracking-widest uppercase"
           >
             ADIBAYU
           </Link>
@@ -74,10 +74,10 @@ export default function Navbar() {
                 href={`/${item.toLowerCase()}`}
                 className="group relative overflow-hidden h-5"
               >
-                <span className="block font-sans text-xs font-medium uppercase tracking-[0.1em] group-hover:-translate-y-full transition-transform duration-300">
+                <span className="block font-sans text-xs font-semibold uppercase tracking-widest group-hover:-translate-y-full transition-transform duration-300">
                   {item}
                 </span>
-                <span className="absolute top-full left-0 block font-sans text-xs font-medium uppercase tracking-[0.1em] group-hover:-translate-y-full transition-transform duration-300">
+                <span className="absolute top-full left-0 block font-sans text-xs font-semibold uppercase tracking-widest group-hover:-translate-y-full transition-transform duration-300">
                   {item}
                 </span>
               </Link>
@@ -98,7 +98,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* MOBILE MENU DROPDOWN (FULLSCREEN STYLE) */}
+      {/* MOBILE MENU DROPDOWN  */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -107,7 +107,7 @@ export default function Navbar() {
             exit="closed"
             variants={mobileMenuVariants}
             style={{ mixBlendMode: "normal" }}
-            className="fixed inset-0 top-0 left-0 w-full bg-[#0a0a0a] text-white z-[60] flex flex-col justify-center items-center md:hidden"
+            className="fixed inset-0 top-0 left-0 w-full bg-[#0a0a0a] text-white z-60 flex flex-col justify-center items-center md:hidden"
           >
             <button
               onClick={() => setIsOpen(false)}

@@ -8,9 +8,10 @@ import {
   useSpring,
   Variants,
 } from "framer-motion";
-import { MoveDown } from "lucide-react";
+import { Link, MoveDown } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
+import { IntersectingDots } from "./IntersectingDots";
 
 const CircularText = ({ text = "MBOLEH • DEV • 2026 •", radius = 50 }) => {
   const characters = text.split("");
@@ -124,24 +125,40 @@ export default function Hero() {
           <h1 className="font-serif uppercase text-gray-900 text-center text-[2.5rem] sm:text-[3.2rem] md:text-[4.5rem] lg:text-[clamp(5.5rem,7vw,10rem)] leading-[0.9] tracking-[-0.04em]">
             Adibayu luthfiansyah
           </h1>
-
-          {/* ANIMASI PUTAR PUTAR*/}
+        </div>
+        <div className="relative mt-6 flex flex-col items-center">
+          <p className="font-serif italic font-semibold text-gray-900 text-base sm:text-lg md:text-3xl lg:text-4xl xl:text-5xl text-center">
+            {"Hello I'm a fullstack developer"}
+          </p>
+          {/* ANIMASI PUTAR PUTAR*/}{" "}
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 1, type: "spring" }}
-            className="absolute z-20 
-                          -right-2 -top-4
-                          md:-right-12 md:-top-8"
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+            className="mt-4"
           >
-            <CircularText text="MBOLEH • DEV • 2026 •" radius={40} />
+            <IntersectingDots />
           </motion.div>
         </div>
-        <p className="mt-4 font-serif italic text-xs md:text-sm tracking-[0.4em] uppercase text-gray-500 font-medium">
-          {"Hello I'm a fullstack developer"}
-        </p>
       </motion.div>
 
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="text-center z-10 relative w-full flex flex-col items-center"
+      >
+        <div className="relative z-10 w-full mt-16 grid grid-cols-12">
+          <div className="col-span-12 md:col-span-4 md:col-start-2">
+            <p className="text-sm font-serif leading-relaxed italic md:text-base lg:text-lg">
+              {`"I firmly believe that exceptional code should tackle genuine
+            problems and generate meaningful impact. I'm driven by the vision of
+            creating software that enhances communities and accelerates business
+            success"`}
+            </p>
+          </div>
+        </div>
+      </motion.div>
       <div className="absolute bottom-8 left-0 w-full px-6 md:px-12 z-30 grid grid-cols-1 md:grid-cols-3 items-end gap-6 md:gap-0">
         <div className="hidden md:block max-w-xs">
           <motion.p
@@ -150,7 +167,11 @@ export default function Hero() {
             transition={{ delay: 1.4 }}
             className="font-serif italic text-sm text-[#1a1a1a]/60"
           >
-            {"Coding with empathy."}
+            <span>Contact</span>
+            <br />
+            <span className="font-semibold text-black/80">
+              adibayuluthfiansyah@gmail.com
+            </span>
           </motion.p>
         </div>
         <div className="flex flex-col items-center justify-end order-3 md:order-2">
@@ -171,9 +192,6 @@ export default function Hero() {
               <MoveDown size={20} />
             </motion.div>
           </motion.div>
-        </div>
-        <div className="flex justify-center md:justify-end order-2 md:order-3">
-          <h2>Lets Connect</h2>
         </div>
       </div>
     </section>
