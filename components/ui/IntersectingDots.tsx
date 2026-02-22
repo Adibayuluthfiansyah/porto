@@ -15,8 +15,8 @@ export const IntersectingDots = () => {
           absolute
           w-5 h-5
           rounded-full
-          border border-black
-          bg-transparent
+          border border-#F4F4F4
+          bg-#1a1a1a
         "
       />
 
@@ -32,7 +32,7 @@ export const IntersectingDots = () => {
           absolute
           w-5 h-5
           rounded-full
-          bg-black
+          bg-white
           mix-blend-multiply
         "
       />

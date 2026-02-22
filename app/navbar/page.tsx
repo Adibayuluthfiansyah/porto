@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const [time, setTime] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const updateTime = () => {
@@ -19,6 +20,36 @@ export default function Navbar() {
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const sections = ["home", "about", "projects", "contact"];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-40% 0px -40% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const navVariants: Variants = {
@@ -44,10 +75,10 @@ export default function Navbar() {
       initial="hidden"
       animate="visible"
       variants={navVariants}
-      className="fixed top-0 w-full z-50 bg-transparent mix-blend-difference text-white px-4 py-6 md:px-8 md:py-8"
+      className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md text-white px-4 py-4 md:px-8 md:py-4"
     >
       <nav className="w-full grid grid-cols-2 md:grid-cols-3 items-center">
-        {/* LOGO */}
+        {/* logo */}
         <div className="flex shrink-0 items-center tracking-widest justify-start">
           <Link
             href="/"
@@ -57,7 +88,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* TIME & LOCATION */}
+        {/* time and location */}
         <div className="hidden md:flex flex-col items-center justify-center gap-1 text-center opacity-80">
           <span className="font-sans text-[10px] uppercase tracking-[0.2em] opacity-60">
             Pontianak, ID
@@ -65,40 +96,56 @@ export default function Navbar() {
           <span className="font-serif italic text-sm">{time}</span>
         </div>
 
-        {/* MENU */}
+        {/* menu */}
         <div className="flex justify-end items-center">
           <div className="hidden md:flex space-x-8 items-center">
-            {["ABOUT", "PROJECTS", "CONTACT"].map((item) => (
-              <Link
-                key={item}
-                href={`/${item.toLowerCase()}`}
-                className="group relative overflow-hidden h-5"
-              >
-                <span className="block font-sans text-xs font-semibold uppercase tracking-widest group-hover:-translate-y-full transition-transform duration-300">
-                  {item}
-                </span>
-                <span className="absolute top-full left-0 block font-sans text-xs font-semibold uppercase tracking-widest group-hover:-translate-y-full transition-transform duration-300">
-                  {item}
-                </span>
-              </Link>
-            ))}
+            {["ABOUT", "PROJECTS", "CONTACT"].map((item) => {
+              const targetId = item.toLowerCase();
+              const isActive = activeSection === targetId;
+
+              return (
+                <Link
+                  key={item}
+                  href={`#${targetId}`}
+                  className="group relative overflow-hidden h-6 flex flex-col items-center"
+                >
+                  <span
+                    className={`block font-sans text-xs font-semibold uppercase tracking-widest transition-all duration-300 ${isActive ? "text-white" : "text-gray-500 group-hover:text-white"}`}
+                  >
+                    {item}
+                  </span>
+
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeDot"
+                        className="w-1 h-2 bg-white rounded-full mt-1"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                      />
+                    )}
+                  </AnimatePresence>
+                </Link>
+              );
+            })}
           </div>
 
-          {/* MOBILE HAMBURGER BUTTON */}
+          {/* mobile hamburger menu */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
               className="inline-flex items-center justify-center p-2 focus:outline-none transition-colors"
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">Menu</span>
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* MOBILE MENU DROPDOWN  */}
+      {/* mobile menu  */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -107,7 +154,7 @@ export default function Navbar() {
             exit="closed"
             variants={mobileMenuVariants}
             style={{ mixBlendMode: "normal" }}
-            className="fixed inset-0 top-0 left-0 w-full bg-[#0a0a0a] text-white z-60 flex flex-col justify-center items-center md:hidden"
+            className="fixed inset-0 top-0 left-0 w-full bg-[#0a0a0a] text-white z-[60] flex flex-col justify-center items-center md:hidden"
           >
             <button
               onClick={() => setIsOpen(false)}
@@ -120,7 +167,7 @@ export default function Navbar() {
               {["ABOUT", "PROJECTS", "CONTACT"].map((item) => (
                 <Link
                   key={item}
-                  href={`/${item.toLowerCase()}`}
+                  href={`#${item.toLowerCase()}`}
                   onClick={() => setIsOpen(false)}
                   className="font-serif text-4xl italic hover:text-gray-400 transition-colors"
                 >
