@@ -26,7 +26,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24 bg-[#1a1a1a] overflow-hidden py-24 md:py-0">
+    <section className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24 bg-transparent transition-colors duration-500 overflow-hidden py-24 md:py-0">
       <div className="absolute top-24 md:top-28 left-0 w-full flex justify-center z-0 pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 6 }}
@@ -55,15 +55,15 @@ export default function Hero() {
 
           {/* main name */}
           <motion.div variants={itemVariants}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic text-white leading-[0.9] tracking-tight mb-6">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif italic text-neutral-900 dark:text-white transition-colors  leading-[0.9] tracking-tight mb-6">
               Adibayu <br />
               <span className="text-gray-500">Luthfiansyah.</span>
             </h1>
           </motion.div>
 
           {/* quote */}
-          <motion.div variants={itemVariants} className="max-w-lg ml-1">
-            <p className="text-gray-400 font-serif text-base md:text-lg leading-relaxed font-light tracking-wide">
+          <motion.div variants={itemVariants} className="max-w-lg ml-1 ">
+            <p className="text-neutral-600 dark:text-gray-400 transition-colors font-serif text-base md:text-lg leading-relaxed font-light tracking-wide">
               {`"I firmly believe that exceptional code should tackle genuine
             problems and generate meaningful impact. I'm driven by the vision of
             creating software that enhances communities and accelerates business

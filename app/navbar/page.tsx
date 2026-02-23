@@ -3,14 +3,21 @@
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [time, setTime] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
     const updateTime = () => {
       const now = new Date();
       setTime(
@@ -23,32 +30,21 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (pathname !== "/") return;
     const sections = ["home", "about", "projects", "contact"];
-
-    const observerOptions = {
-      root: null,
-      rootMargin: "-40% 0px -40% 0px",
-      threshold: 0,
-    };
-
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
     const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions,
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -40% 0px" },
     );
 
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
     });
-
     return () => observer.disconnect();
   }, []);
 
@@ -61,100 +57,113 @@ export default function Navbar() {
     },
   };
 
-  const mobileMenuVariants: Variants = {
-    closed: { height: 0, opacity: 0 },
-    open: {
-      height: "100vh",
-      opacity: 1,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
+  const menuItems = ["ABOUT", "PROJECTS", "CONTACT"];
+  const isResumeActive = pathname === "/resume";
 
   return (
     <motion.header
       initial="hidden"
       animate="visible"
       variants={navVariants}
-      className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md text-white px-4 py-4 md:px-8 md:py-4"
+      className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md text-neutral-900 dark:text-white px-4 py-4 md:px-8 md:py-4 transition-colors duration-500"
     >
       <nav className="w-full grid grid-cols-2 md:grid-cols-3 items-center">
         {/* logo */}
-        <div className="flex shrink-0 items-center tracking-widest justify-start">
+        <div className="flex items-center">
           <Link
-            href="/"
+            href="/#home"
             className="text-2xl font-semibold font-sans tracking-widest uppercase"
           >
             ADIBAYU
           </Link>
         </div>
 
-        {/* time and location */}
-        <div className="hidden md:flex flex-col items-center justify-center gap-1 text-center opacity-80">
+        {/* time */}
+        <div className="hidden md:flex flex-col items-center justify-center gap-1 opacity-80">
           <span className="font-sans text-[10px] uppercase tracking-[0.2em] opacity-60">
             Pontianak, ID
           </span>
           <span className="font-serif italic text-sm">{time}</span>
         </div>
 
-        {/* menu */}
-        <div className="flex justify-end items-center">
-          <div className="hidden md:flex space-x-8 items-center">
-            {["ABOUT", "PROJECTS", "CONTACT"].map((item) => {
+        {/* menu toggle */}
+        <div className="flex justify-end items-center gap-6">
+          <div className="hidden md:flex space-x-6 items-center">
+            {/* scroll links */}
+            {menuItems.map((item) => {
               const targetId = item.toLowerCase();
-              const isActive = activeSection === targetId;
+              const isActive = pathname === "/" && activeSection === targetId;
 
               return (
                 <Link
                   key={item}
-                  href={`#${targetId}`}
-                  className="group relative overflow-hidden h-6 flex flex-col items-center"
+                  href={`/#${targetId}`}
+                  className="group relative flex flex-col items-center h-6"
                 >
                   <span
-                    className={`block font-sans text-xs font-semibold uppercase tracking-widest transition-all duration-300 ${isActive ? "text-white" : "text-gray-500 group-hover:text-white"}`}
+                    className={`block font-sans text-xs font-semibold uppercase tracking-widest transition-colors ${isActive ? "text-neutral-900 dark:text-white" : "text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white"}`}
                   >
                     {item}
                   </span>
-
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeDot"
-                        className="w-1 h-2 bg-white rounded-full mt-1"
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        exit={{ scale: 0 }}
-                      />
-                    )}
-                  </AnimatePresence>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeDot"
+                      className="w-1 h-1 bg-neutral-900 dark:bg-white rounded-full mt-1"
+                    />
+                  )}
                 </Link>
               );
             })}
+
+            {/* resume */}
+            <Link
+              href="/resume"
+              className="group relative flex flex-col items-center h-6"
+            >
+              <span
+                className={`block font-sans text-xs font-semibold uppercase tracking-widest transition-colors ${isResumeActive ? "text-neutral-900 dark:text-white" : "text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white"}`}
+              >
+                RESUME
+              </span>
+              {isResumeActive && (
+                <motion.div
+                  layoutId="activeDot"
+                  className="w-1 h-1 bg-neutral-900 dark:bg-white rounded-full mt-1"
+                />
+              )}
+            </Link>
           </div>
 
-          {/* mobile hamburger menu */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              className="inline-flex items-center justify-center p-2 focus:outline-none transition-colors"
-            >
-              <span className="sr-only">Menu</span>
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+          {/* theme toggle */}
+          <div className="flex flex-col items-center justify-start h-6">
+            {mounted ? (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors focus:outline-none"
+                aria-label="Toggle Dark Mode"
+              >
+                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+              </button>
+            ) : (
+              <div className="w-4 h-4"></div>
+            )}
           </div>
+
+          {/* mobile menu toggle */}
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2">
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </nav>
 
-      {/* mobile menu  */}
+      {/* mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={mobileMenuVariants}
-            style={{ mixBlendMode: "normal" }}
-            className="fixed inset-0 top-0 left-0 w-full bg-[#0a0a0a] text-white z-[60] flex flex-col justify-center items-center md:hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "100vh", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="fixed inset-0 w-full bg-neutral-50 dark:bg-[#0a0a0a] z-[60] flex flex-col justify-center items-center md:hidden"
           >
             <button
               onClick={() => setIsOpen(false)}
@@ -162,25 +171,24 @@ export default function Navbar() {
             >
               <X size={32} />
             </button>
-
             <div className="flex flex-col gap-8 text-center">
-              {["ABOUT", "PROJECTS", "CONTACT"].map((item) => (
+              {menuItems.map((item) => (
                 <Link
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={`/#${item.toLowerCase()}`}
                   onClick={() => setIsOpen(false)}
-                  className="font-serif text-4xl italic hover:text-gray-400 transition-colors"
+                  className="font-serif text-4xl italic text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white"
                 >
                   {item}
                 </Link>
               ))}
-            </div>
-
-            <div className="absolute bottom-12 flex flex-col items-center gap-2 opacity-50">
-              <span className="text-[10px] uppercase tracking-widest">
-                Pontianak, ID
-              </span>
-              <span className="text-xs">{time}</span>
+              <Link
+                href="/resume"
+                onClick={() => setIsOpen(false)}
+                className="font-serif text-4xl italic text-black dark:text-white underline underline-offset-8 mt-4"
+              >
+                RESUME
+              </Link>
             </div>
           </motion.div>
         )}

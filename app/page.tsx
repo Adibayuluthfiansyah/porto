@@ -7,7 +7,7 @@ import Footer from "./footer/page";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-transparent transition-colors duration-500">
       <Navbar />
       <section id="home">
         <Hero />

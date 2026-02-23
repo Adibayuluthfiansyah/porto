@@ -13,7 +13,7 @@ export default function About() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24 bg-[#1a1a1a] text-white py-20 md:py-32 overflow-hidden">
+    <section className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24 bg-transparent text-neutral-900 dark:text-white transition-colors duration-500 py-20 md:py-32 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 lg:gap-20 items-start">
         {/* left*/}
         <motion.div
@@ -23,10 +23,10 @@ export default function About() {
           variants={fadeUp}
           className="md:col-span-4 md:sticky md:top-32"
         >
-          <h2 className="text-xs md:text-sm font-sans uppercase tracking-[0.3em] text-gray-500 mb-4 md:mb-6 ml-1">
+          <h2 className="text-xs md:text-sm font-sans uppercase tracking-[0.3em] text-neutral-700 dark:text-gray-300 transition-colors mb-4 md:mb-6 ml-1">
             About Me
           </h2>
-          <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif italic text-white leading-tight">
+          <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif italic text-neutral-700 dark:text-gray-300 transition-colors leading-tight">
             Get To Know <br />
             <span className="text-gray-500">Me.</span>
           </h3>
@@ -49,11 +49,11 @@ export default function About() {
           {/* bio */}
           <motion.div
             variants={fadeUp}
-            className="text-base md:text-lg lg:text-xl font-light leading-relaxed text-gray-300 font-sans"
+            className="text-base md:text-lg lg:text-xl font-light leading-relaxed text-neutral-700 dark:text-gray-300 transition-colors font-sans"
           >
             <p className="mb-6">
               I am a{" "}
-              <span className="text-white font-medium">
+              <span className="text-neutral-900 dark:text-white transition-colors font-medium">
                 Full Stack Developer
               </span>{" "}
               Focused on building modern, scalable, and well-structured web
@@ -81,13 +81,12 @@ export default function About() {
           {/* dot*/}
           <motion.div
             variants={fadeUp}
-            className="w-full h-[1px] bg-white/10"
+            className="w-full h-[1px] bg-neutral-300 dark:bg-white/10 transition-colors"
           />
 
           {/* Tech Stack & Fokus */}
           <motion.div
             variants={fadeUp}
-            // grid-cols-1 untuk HP, sm:grid-cols-2 untuk tablet/desktop
             className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-12"
           >
             {/* Backend & Web3 */}
@@ -95,7 +94,7 @@ export default function About() {
               <h4 className="text-xs font-sans uppercase tracking-[0.2em] text-gray-500 mb-4 md:mb-6">
                 Backend & Web3
               </h4>
-              <ul className="space-y-3 md:space-y-4 font-serif italic text-base md:text-lg text-gray-300">
+              <ul className="space-y-3 md:space-y-4 font-serif italic text-base md:text-lg text-neutral-700 dark:text-gray-300 transition-colors">
                 <li className="hover:text-white transition-colors duration-300 cursor-default">
                   TypeScript
                 </li>
@@ -116,7 +115,7 @@ export default function About() {
               <h4 className="text-xs font-sans uppercase tracking-[0.2em] text-gray-500 mb-4 md:mb-6">
                 Frontend & Tools
               </h4>
-              <ul className="space-y-3 md:space-y-4 font-sans font-light text-base md:text-lg text-gray-300">
+              <ul className="space-y-3 md:space-y-4 font-sans font-light text-base md:text-lg text-neutral-700 dark:text-gray-300 transition-colors">
                 <li className="hover:text-white transition-colors duration-300 cursor-default">
                   React / Next.js
                 </li>

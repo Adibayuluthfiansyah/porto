@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-white/10 bg-[#1a1a1a] py-8 md:py-10">
+    <footer className="w-full border-t bg-neutral-100 dark:bg-[#1a1a1a] border-neutral-200 dark:border-white/10 transition-colors py-8 md:py-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-gray-500 font-sans">
         <div className="flex items-center">
           <p>© {new Date().getFullYear()} Adibayu Luthfiansyah.</p>
