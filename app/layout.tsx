@@ -58,28 +58,29 @@ export const metadata: Metadata = {
   creator: "Adibayu Luthfiansyah Setyawan",
   publisher: "Adibayu Luthfiansyah Setyawan",
   openGraph: {
+    type: "website",
     url: "https://adibayuluthfiansyah.dev",
     siteName: "Adibayu Luthfiansyah",
-    images: [
-      {
-        url: "https://adibayuluthfiansyah.dev/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Adibayu Luthfiansyah - Full Stack Developer Portfolio",
-      },
-    ],
     title: "Adibayu Luthfiansyah — FullStack Developer",
     description:
       "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS, and Web3 technologies.",
     locale: "id_ID",
-    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Adibayu Luthfiansyah - Full Stack Developer Portfolio",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Adibayu Luthfiansyah — FullStack Developer",
     description:
       "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS, and Web3 technologies.",
-    images: ["https://adibayuluthfiansyah.dev/og-image.png"],
+    images: ["/og-image.png"],
     creator: "@adibayuluthfiansyah",
   },
   robots: {
