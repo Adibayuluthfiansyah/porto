@@ -16,7 +16,7 @@ export default function Contact() {
   const contactLinks = [
     {
       label: "Email",
-      value: "adibayuluthfiansyah@gmail.com",
+      value: "adibayu@adibayuluthfiansyah.dev",
       href: "mailto:adibayuluthfiansyah@gmail.com",
     },
     {
@@ -81,7 +81,7 @@ export default function Contact() {
                 </span>
                 <ArrowUpRight className="w-4 h-4 text-neutral-500 dark:text-gray-500 group-hover:text-neutral-900 dark:group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
               </div>
-              <span className="text-xl md:text-2xl font-serif italic text-neutral-700 dark:text-white/80 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">
+              <span className="text-xl md:text-2xl font-serif italic text-neutral-700 dark:text-white/80 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors break-all">
                 {link.value}
               </span>
             </motion.a>

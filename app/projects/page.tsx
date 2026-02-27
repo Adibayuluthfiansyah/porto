@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -19,33 +19,57 @@ interface ProjectItem {
 const projects: ProjectItem[] = [
   {
     id: 1,
-    title: "Shop API Ecosystem",
-    type: "Backend Architecture",
+    title: "Full-Stack E-Commerce Platform",
+    type: "Fullstack Web Application",
     description:
-      "Sistem backend e-commerce yang komprehensif. Menangani autentikasi, manajemen produk, hingga pemrosesan transaksi yang aman. Proyek ini dibangun dengan arsitektur yang bersih dan siap untuk diskalakan.",
-    techStack: ["NestJS", "TypeScript", "PostgreSQL", "Midtrans", "Cloudinary"],
-    link: "https://github.com/Adibayuluthfiansyah/shop-api",
-    images: ["/project-1.jpg", "/project-1b.jpg"],
+      "A comprehensive end to end e-commerce solution featuring a highly responsive frontend and a robust backend architecture. Engineered with Next.js and NestJS, the platform offers secure role-based dashboards (Admin, Seller, Customer), dynamic state management, seamless media handling via Cloudinary, and reliable payment integration using Midtrans.",
+    techStack: [
+      "Next.js",
+      "NestJS",
+      "TypeScript",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Prisma",
+    ],
+    link: "https://github.com/Adibayuluthfiansyah/shop-frontend",
+    images: ["/shop1.png", "/shop2.png", "/shop3.png"],
   },
   {
     id: 2,
-    title: "Dinsos Frontend",
-    type: "Frontend Development",
+    title: "Dinsos Management System",
+    type: "Frontend Web Application",
     description:
-      "Eksplorasi ekosistem Web3 dengan membangun platform desentralisasi untuk mencetak (minting) dan memperdagangkan NFT. Dilengkapi dengan antarmuka modern yang terhubung langsung ke blockchain.",
+      "A comprehensive document management and administration dashboard engineered for a regional Social Services Department. It features secure role-based authentication, seamless document tracking, detailed activity logging, and an intuitive user management interface.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    link: "https://github.com/Adibayuluthfiansyah/NFT-Marketplace-fe",
+    link: "https://github.com/DinsosKubuRaya/DinsosFrontend",
     images: ["/dashboard-dinsos.png", "/lp-dinsos.png"],
   },
   {
     id: 3,
-    title: "Invoice SaaS",
+    title: "Automated Invoicing SaaS",
     type: "Fullstack Web Application",
     description:
-      "Aplikasi SaaS (Software as a Service) untuk manajemen dan pembuatan faktur secara otomatis. Membantu bisnis kecil melacak pembayaran dan mengelola klien dalam satu dashboard yang efisien.",
-    techStack: ["Next.js", "Prisma ORM", "PostgreSQL", "Tailwind CSS"],
-    link: "https://github.com/Adibayuluthfiansyah/invoice-saas",
-    images: ["/project-3.jpg", "/project-3b.jpg"],
+      "A comprehensive Software-as-a-Service (SaaS) platform designed to streamline billing and client management for small businesses. It features automated invoice generation, dynamic PDF exports, scheduled email reminders via Cron jobs, and secure payment processing integrated with Midtrans. Built with a modern architecture leveraging Next.js Server Actions and Prisma ORM.",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Midtrans",
+      "Tailwind",
+    ],
+    link: "https://o7ong.me/",
+    images: ["/inv-lp.png", "/inv-lp2.png", "/inv-lp3.png"],
+  },
+  {
+    id: 4,
+    title: "Cangkir Tech",
+    type: "Technology Agency",
+    description:
+      "Co-founded 'Cangkir' alongside a compact team of three, driven by a mission to empower local MSMEs (UMKM) in Pontianak through modern digital transformation. Serving as the Lead Engineer, I orchestrate the foundational system architecture, oversee full-stack development, and align technical strategies with business objectives to deliver high-performance web applications.",
+    techStack: ["Business Strategy", "System Architecture", "Fullstack"],
+    link: "https://cangkir.tech/id",
+    images: ["/cangkir1.png", "/cangkir2.png", "/cangkir3.png"],
   },
 ];
 
@@ -66,20 +90,13 @@ function ProjectCard({
   isEven: boolean;
 }) {
   const [imgIndex, setImgIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const changeImg = (newIndex: number) => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setImgIndex(newIndex);
-      setIsTransitioning(false);
-    }, 300);
-  };
-
-  const nextImg = () => changeImg((imgIndex + 1) % project.images.length);
+  const nextImg = () =>
+    setImgIndex((prev) => (prev + 1) % project.images.length);
   const prevImg = () =>
-    changeImg((imgIndex - 1 + project.images.length) % project.images.length);
+    setImgIndex(
+      (prev) => (prev - 1 + project.images.length) % project.images.length,
+    );
 
   return (
     <motion.div
@@ -91,51 +108,74 @@ function ProjectCard({
         isEven ? "lg:flex-row" : "lg:flex-row-reverse"
       } gap-10 lg:gap-20 items-center group`}
     >
-      {/*image slider*/}
-      <div className="w-full lg:w-1/2 aspect-video relative overflow-hidden rounded-xl border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md">
-        <Image
-          src={project.images[imgIndex]}
-          alt={`${project.title} - Slide ${imgIndex + 1}`}
-          fill
-          className={`object-contain transition-all duration-300 ease-in-out z-10
-        ${isTransitioning ? "opacity-0 scale-95" : "opacity-90 scale-100"}
-        group-hover:opacity-100`}
-        />
+      {/* image slider - Apple Glass Effect */}
+      <div className="w-full lg:w-1/2 relative group/img">
+        {/* Outer glass container with glow */}
+        <div className="relative rounded-2xl bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:via-white/5 dark:to-transparent p-[1px] shadow-2xl shadow-black/5 dark:shadow-black/20 backdrop-blur-3xl transition-all duration-500 group-hover/img:shadow-indigo-500/10 dark:group-hover/img:shadow-indigo-500/20">
+          {/* Inner glass layer */}
+          <div className="relative rounded-2xl bg-white/60 dark:bg-black/40 backdrop-blur-xl overflow-hidden border border-white/20 dark:border-white/10">
+            {/* Content area with padding */}
+            <div className="aspect-video relative p-4">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={imgIndex}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative w-full h-full rounded-xl overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-50 dark:from-neutral-900 dark:to-neutral-800"
+                >
+                  <Image
+                    src={project.images[imgIndex]}
+                    alt={`${project.title} - Slide ${imgIndex + 1}`}
+                    fill
+                    priority
+                    className="object-contain group-hover/img:scale-[1.02] transition-transform duration-700"
+                  />
+                </motion.div>
+              </AnimatePresence>
 
-        <div className="absolute inset-0 group-hover:bg-transparent transition-colors duration-700 pointer-events-none z-20"></div>
+              {/* Navigation buttons - only if multiple images */}
+              {project.images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImg}
+                    className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-black/60 hover:bg-white dark:hover:bg-black/80 text-neutral-900 dark:text-white p-2.5 rounded-full opacity-0 group-hover/img:opacity-100 transition-all duration-300 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg z-10"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={nextImg}
+                    className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-black/60 hover:bg-white dark:hover:bg-black/80 text-neutral-900 dark:text-white p-2.5 rounded-full opacity-0 group-hover/img:opacity-100 transition-all duration-300 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg z-10"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
 
-        {/* slider dot */}
-        {project.images.length > 1 && (
-          <>
-            <button
-              onClick={prevImg}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 dark:bg-black/50 hover:bg-white/80 dark:hover:bg-black/80 text-black dark:text-white p-2 rounded-full opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm z-10"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button
-              onClick={nextImg}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 dark:bg-black/50 hover:bg-white/80 dark:hover:bg-black/80 text-black dark:text-white p-2 rounded-full opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm z-10"
-            >
-              <ChevronRight size={24} />
-            </button>
-
-            {/* dots */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-              {project.images.map((_: string, idx: number) => (
-                <div
-                  key={idx}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    idx === imgIndex ? "bg-white w-6" : "bg-white/50 w-2"
-                  }`}
-                />
-              ))}
+                  {/* Dots indicator - Apple style */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 bg-white/80 dark:bg-black/60 backdrop-blur-2xl px-3 py-2 rounded-full border border-white/40 dark:border-white/10 shadow-lg z-10">
+                    {project.images.map((_: string, idx: number) => (
+                      <button
+                        key={idx}
+                        onClick={() => setImgIndex(idx)}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          idx === imgIndex
+                            ? "bg-neutral-900 dark:bg-white w-6"
+                            : "bg-neutral-400 dark:bg-neutral-500 w-1.5 hover:bg-neutral-600 dark:hover:bg-neutral-400"
+                        }`}
+                        aria-label={`Go to image ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
-          </>
-        )}
+          </div>
+        </div>
       </div>
 
-      {/* text */}
+      {/* content */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center">
         <p className="text-xs font-sans uppercase tracking-[0.2em] text-neutral-500 dark:text-gray-400 transition-colors mb-4">
           {project.type}
@@ -147,7 +187,7 @@ function ProjectCard({
           {project.description}
         </p>
 
-        {/* tech list */}
+        {/* tech */}
         <div className="flex flex-wrap gap-3 mb-10">
           {project.techStack.map((tech: string) => (
             <span
@@ -159,7 +199,6 @@ function ProjectCard({
           ))}
         </div>
 
-        {/* link */}
         <div>
           <Link
             href={project.link}
@@ -176,12 +215,11 @@ function ProjectCard({
   );
 }
 
-// wrapper page
 export default function Project() {
   return (
     <section className="relative min-h-screen bg-transparent text-neutral-900 dark:text-white transition-colors duration-500 py-20 md:py-32 px-6 md:px-12 lg:px-24 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto">
-        {/* Header */}
+        {/* header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -198,7 +236,7 @@ export default function Project() {
           </h3>
         </motion.div>
 
-        {/* list project */}
+        {/* list */}
         <div className="flex flex-col gap-24 md:gap-40">
           {projects.map((project, index) => (
             <ProjectCard
