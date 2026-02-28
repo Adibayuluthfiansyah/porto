@@ -1,6 +1,4 @@
-# Allow all crawlers
 User-agent: *
 Allow: /
 
-# Sitemap location
 Sitemap: https://adibayuluthfiansyah.dev/sitemap.xml

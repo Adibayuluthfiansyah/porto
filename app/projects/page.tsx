@@ -32,7 +32,7 @@ const projects: ProjectItem[] = [
       "Prisma",
     ],
     link: "https://github.com/Adibayuluthfiansyah/shop-frontend",
-    images: ["/shop1.png", "/shop2.png", "/shop3.png"],
+    images: ["/shop1.webp", "/shop2.png", "/shop3.png"],
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ const projects: ProjectItem[] = [
       "A comprehensive document management and administration dashboard engineered for a regional Social Services Department. It features secure role-based authentication, seamless document tracking, detailed activity logging, and an intuitive user management interface.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
     link: "https://github.com/DinsosKubuRaya/DinsosFrontend",
-    images: ["/dashboard-dinsos.png", "/lp-dinsos.png"],
+    images: ["/dashboard-dinsos.webp", "/lp-dinsos.webp"],
   },
   {
     id: 3,
@@ -59,7 +59,7 @@ const projects: ProjectItem[] = [
       "Tailwind",
     ],
     link: "https://o7ong.me/",
-    images: ["/inv-lp.png", "/inv-lp2.png", "/inv-lp3.png"],
+    images: ["/inv-lp.webp", "/inv-lp2.webp", "/inv-lp3.webp"],
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ const projects: ProjectItem[] = [
       "Co-founded 'Cangkir' alongside a compact team of three, driven by a mission to empower local MSMEs (UMKM) in Pontianak through modern digital transformation. Serving as the Lead Engineer, I orchestrate the foundational system architecture, oversee full-stack development, and align technical strategies with business objectives to deliver high-performance web applications.",
     techStack: ["Business Strategy", "System Architecture", "Fullstack"],
     link: "https://cangkir.tech/id",
-    images: ["/cangkir1.png", "/cangkir2.png", "/cangkir3.png"],
+    images: ["/cangkir1.webp", "/cangkir2.webp", "/cangkir3.webp"],
   },
 ];
 
@@ -135,7 +135,7 @@ function ProjectCard({
                 </motion.div>
               </AnimatePresence>
 
-              {/* Navigation buttons - only if multiple images */}
+              {/* navigation buttons */}
               {project.images.length > 1 && (
                 <>
                   <button
@@ -153,7 +153,7 @@ function ProjectCard({
                     <ChevronRight size={20} />
                   </button>
 
-                  {/* Dots indicator - Apple style */}
+                  {/* Dots indicator */}
                   <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 bg-white/80 dark:bg-black/60 backdrop-blur-2xl px-3 py-2 rounded-full border border-white/40 dark:border-white/10 shadow-lg z-10">
                     {project.images.map((_: string, idx: number) => (
                       <button

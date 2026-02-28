@@ -150,7 +150,12 @@ export default function Navbar() {
           </div>
 
           {/* mobile menu toggle */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2">
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="md:hidden p-2"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -168,6 +173,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-6 right-4 p-2"
+              aria-label="Close menu"
             >
               <X size={32} />
             </button>

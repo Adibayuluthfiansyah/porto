@@ -3,7 +3,6 @@ import { Poppins, Fraunces, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/ui/ThemeProvide";
-import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -97,6 +96,16 @@ export const metadata: Metadata = {
   verification: {
     google: "ONZuM0_P9Ru2Ghg4oC4o9CHljxECU6MXONQ8qxmiLhE",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -121,17 +130,16 @@ export default function RootLayout({
         </Script>
       </head>
       <body
+        suppressHydrationWarning
         className={`${poppins.variable} ${fraunces.variable} ${cormorant.variable} bg-neutral-50 dark:bg-[#1a1a1a] text-neutral-900 dark:text-white transition-colors duration-500 antialiased `}
       >
-        <SmoothScrollProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem={false}
-          >
-            {children}
-          </ThemeProvider>
-        </SmoothScrollProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,10 +1,6 @@
 "use client";
 
 import { useEffect, useRef, ReactNode } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface ScaleInScrollProps {
   children: ReactNode;
@@ -19,36 +15,43 @@ export default function ScaleInScroll({
   className = "",
   scale = 0.8,
 }: ScaleInScrollProps) {
-  const elementRef = useRef(null);
+  const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
 
-    gsap.fromTo(
-      element,
-      {
-        opacity: 0,
-        scale: scale,
+    // Use Intersection Observer instead of GSAP for better performance
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              element.style.opacity = "1";
+              element.style.transform = "scale(1)";
+            }, delay * 1000);
+            observer.unobserve(element);
+          }
+        });
       },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        delay,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: element,
-          start: "top 85%",
-          end: "top 65%",
-          toggleActions: "play none none reverse",
-        },
-      }
+      { threshold: 0.1 }
     );
-  }, [delay, scale]);
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [delay]);
 
   return (
-    <div ref={elementRef} className={className}>
+    <div
+      ref={elementRef}
+      className={className}
+      style={{
+        opacity: 0,
+        transform: `scale(${scale})`,
+        transition: "opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)",
+      }}
+    >
       {children}
     </div>
   );

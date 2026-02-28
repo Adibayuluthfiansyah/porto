@@ -1,10 +1,6 @@
 "use client";
 
 import { useEffect, useRef, ReactNode } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface FadeInScrollProps {
   children: ReactNode;
@@ -19,7 +15,7 @@ export default function FadeInScroll({
   delay = 0,
   className = "",
 }: FadeInScrollProps) {
-  const elementRef = useRef(null);
+  const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -34,32 +30,46 @@ export default function FadeInScroll({
 
     const { x, y } = directionMap[direction];
 
-    gsap.fromTo(
-      element,
-      {
-        opacity: 0,
-        y,
-        x,
+    // Use Intersection Observer for better performance
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              element.style.opacity = "1";
+              element.style.transform = "translate(0, 0)";
+            }, delay * 1000);
+            observer.unobserve(element);
+          }
+        });
       },
-      {
-        opacity: 1,
-        y: 0,
-        x: 0,
-        duration: 1,
-        delay,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: element,
-          start: "top 85%",
-          end: "top 65%",
-          toggleActions: "play none none reverse",
-        },
-      }
+      { threshold: 0.1 }
     );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
   }, [direction, delay]);
 
+  const directionMap = {
+    up: { y: 50, x: 0 },
+    down: { y: -50, x: 0 },
+    left: { y: 0, x: 50 },
+    right: { y: 0, x: -50 },
+  };
+
+  const { x, y } = directionMap[direction];
+
   return (
-    <div ref={elementRef} className={className}>
+    <div
+      ref={elementRef}
+      className={className}
+      style={{
+        opacity: 0,
+        transform: `translate(${x}px, ${y}px)`,
+        transition: "opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1)",
+      }}
+    >
       {children}
     </div>
   );

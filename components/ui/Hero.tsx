@@ -136,7 +136,7 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
           whileHover={{ scale: 1.02 }}
-          className="relative h-100 md:h-125 w-full order-1 md:order-2 flex items-center"
+          className="relative h-[400px] md:h-[500px] w-full order-1 md:order-2 flex items-center"
           style={{
             maskImage:
               "linear-gradient(to bottom, black 85%, transparent 100%)",
@@ -145,11 +145,14 @@ export default function Hero() {
           }}
         >
           <Image
-            src="/hero.png"
+            src="/hero.webp"
             alt="Foto profil Adibayu Luthfiansyah"
-            fill
-            className="object-contain object-center grayscale-20 hover:grayscale-0 transition-all duration-700 ease-in-out"
+            width={432}
+            height={578}
+            className="object-contain object-center grayscale-20 hover:grayscale-0 transition-all duration-700 ease-in-out mx-auto"
             priority
+            fetchPriority="high"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </motion.div>
       </motion.div>

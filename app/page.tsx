@@ -31,7 +31,7 @@ export default function Home() {
         <ScrollBasedAnimated
           text="SOFTWARE ENGINEER • FULLSTACK DEVELOPER • "
           default_velocity={1}
-          className="text-4xl md:text-6xl font-serif italic tracking-widest text-neutral-500 dark:text-white/20 mx-4"
+          className="text-4xl md:text-6xl font-serif italic tracking-widest text-neutral-400 dark:text-neutral-600 mx-4"
         />
       </section>
       <section id="about">
