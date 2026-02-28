@@ -32,7 +32,7 @@ const projects: ProjectItem[] = [
       "Prisma",
     ],
     link: "https://github.com/Adibayuluthfiansyah/shop-frontend",
-    images: ["/shop1.webp", "/shop2.png", "/shop3.png"],
+    images: ["/shop1.webp", "/shop1.webp", "/shop1.webp"],
   },
   {
     id: 2,
@@ -70,6 +70,16 @@ const projects: ProjectItem[] = [
     techStack: ["Business Strategy", "System Architecture", "Fullstack"],
     link: "https://cangkir.tech/id",
     images: ["/cangkir1.webp", "/cangkir2.webp", "/cangkir3.webp"],
+  },
+  {
+    id: 5,
+    title: "PhysicsHub Open Source",
+    type: "Open Source Contribution",
+    description:
+      "Contributed to an interactive physics simulation platform built with Next.js. Improved the Developer Experience (DX) by re-configuring the Husky pre-commit hook. Implemented an automated Node.js script to detect and gracefully unstage 'package-lock.json', preventing accidental commits and failing CI pipelines without halting the contributors' workflow.",
+    techStack: ["Next.js", "Node.js", "Husky", "Git", "TypeScript"],
+    link: "https://github.com/physicshub/physicshub.github.io/pull/203",
+    images: ["/opensource3.webp", "/opensource2.webp", "/opensource1.webp"],
   },
 ];
 
