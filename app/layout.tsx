@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     locale: "id_ID",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.png?v=2",
         width: 1200,
         height: 630,
         alt: "Adibayu Luthfiansyah - Full Stack Developer Portfolio",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     title: "Adibayu Luthfiansyah — FullStack Developer",
     description:
       "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS, and Web3 technologies.",
-    images: ["/og-image.png"],
+    images: ["/og-image.png?v=2"],
     creator: "@adibayuluthfiansyah",
   },
   robots: {
