@@ -324,7 +324,7 @@ export default function Resume() {
                     GitHub
                   </a>
                   <a
-                    href="https://linkedin.com/in/adibayuluthfiansyah"
+                    href="https://www.linkedin.com/in/adibayu-luthfiansyah-setyawan-35251a220/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 hover:text-neutral-900 dark:hover:text-white transition-colors group"

@@ -36,7 +36,7 @@ export default function Footer() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/in/adibayuluthfiansyah"
+            href="https://www.linkedin.com/in/adibayu-luthfiansyah-setyawan-35251a220/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-400 hover:underline transition-colors"
