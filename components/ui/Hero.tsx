@@ -13,7 +13,7 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0]);
 
   const containerVariants = {
@@ -42,7 +42,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex flex-col justify-center px-4 md:px-6 lg:px-12 bg-transparent transition-colors duration-500 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center pb-24 dan md:pb-0 px-4 md:px-6 lg:px-12 bg-transparent transition-colors duration-500 overflow-hidden"
     >
       {/*dots*/}
       <div className="absolute top-24 md:top-28 left-0 w-full flex justify-center z-0 pointer-events-none">

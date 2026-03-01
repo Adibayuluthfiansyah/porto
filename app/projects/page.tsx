@@ -118,13 +118,11 @@ function ProjectCard({
         isEven ? "lg:flex-row" : "lg:flex-row-reverse"
       } gap-10 lg:gap-20 items-center group`}
     >
-      {/* image slider - Apple Glass Effect */}
+      {/* image slider */}
       <div className="w-full lg:w-1/2 relative group/img">
-        {/* Outer glass container with glow */}
         <div className="relative rounded-2xl bg-gradient-to-br from-white/40 via-white/30 to-white/20 dark:from-white/10 dark:via-white/5 dark:to-transparent p-[1px] shadow-2xl shadow-black/5 dark:shadow-black/20 backdrop-blur-3xl transition-all duration-500 group-hover/img:shadow-indigo-500/10 dark:group-hover/img:shadow-indigo-500/20">
-          {/* Inner glass layer */}
           <div className="relative rounded-2xl bg-white/60 dark:bg-black/40 backdrop-blur-xl overflow-hidden border border-white/20 dark:border-white/10">
-            {/* Content area with padding */}
+            {/* content */}
             <div className="aspect-video relative p-4">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -150,14 +148,14 @@ function ProjectCard({
                 <>
                   <button
                     onClick={prevImg}
-                    className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-black/60 hover:bg-white dark:hover:bg-black/80 text-neutral-900 dark:text-white p-2.5 rounded-full opacity-0 group-hover/img:opacity-100 transition-all duration-300 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg z-10"
+                    className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-black/60 hover:bg-white dark:hover:bg-black/80 text-neutral-900 dark:text-white p-2.5 rounded-full opacity-100 md:opacity-0 md:group-hover/img:opacity-100 transition-all duration-300 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg z-10"
                     aria-label="Previous image"
                   >
                     <ChevronLeft size={20} />
                   </button>
                   <button
                     onClick={nextImg}
-                    className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-black/60 hover:bg-white dark:hover:bg-black/80 text-neutral-900 dark:text-white p-2.5 rounded-full opacity-0 group-hover/img:opacity-100 transition-all duration-300 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg z-10"
+                    className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-black/60 hover:bg-white dark:hover:bg-black/80 text-neutral-900 dark:text-white p-2.5 rounded-full opacity-100 md:opacity-0 md:group-hover/img:opacity-100 transition-all duration-300 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg z-10"
                     aria-label="Next image"
                   >
                     <ChevronRight size={20} />

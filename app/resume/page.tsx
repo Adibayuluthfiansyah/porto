@@ -290,7 +290,7 @@ export default function Resume() {
                       Universitas Muhammadiyah Pontianak
                     </h3>
                     <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1 md:mt-0">
-                      2022 - 2026
+                      2022 - Present (Expected Graduation: 2026)
                     </span>
                   </div>
                   <p className="text-neutral-600 dark:text-gray-400 font-light text-sm md:text-base">
@@ -298,7 +298,7 @@ export default function Resume() {
                     Universitas Muhammadiyah Pontianak
                   </p>
                   <p className="text-neutral-500 dark:text-gray-500 font-light text-sm mt-1">
-                    IPK: 3.93 / 4.00
+                    IPK: 3.xx / 4.00
                   </p>
                 </div>
               </section>

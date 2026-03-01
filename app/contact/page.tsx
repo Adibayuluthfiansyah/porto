@@ -17,12 +17,12 @@ export default function Contact() {
     {
       label: "Email",
       value: "adibayu@adibayuluthfiansyah.dev",
-      href: "mailto:adibayuluthfiansyah@gmail.com",
+      href: "mailto:adibayu@adibayuluthfiansyah.dev",
     },
     {
       label: "WhatsApp",
       value: "+62 895 7041 xxxx",
-      href: "https://wa.me/0895704119180",
+      href: "https://wa.me/62895704119180",
     },
     {
       label: "Instagram",
