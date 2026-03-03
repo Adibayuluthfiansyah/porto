@@ -59,15 +59,16 @@ export default function Navbar() {
 
   const menuItems = ["ABOUT", "PROJECTS", "CONTACT"];
   const isResumeActive = pathname === "/resume";
+  const isBlogActive = pathname.startsWith("/blog");
 
   return (
     <motion.header
-      initial="hidden"
-      animate="visible"
+      initial={false}
+      animate={mounted ? "visible" : false}
       variants={navVariants}
-      className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md text-neutral-900 dark:text-white px-4 py-4 md:px-8 md:py-4 transition-colors duration-500"
+      className="fixed top-0 w-full z-[100] bg-transparent backdrop-blur-md text-neutral-900 dark:text-white px-4 py-4 md:px-8 md:py-4 transition-colors duration-500"
     >
-      <nav className="w-full grid grid-cols-2 md:grid-cols-3 items-center">
+      <nav className="w-full flex items-center justify-between">
         {/* logo */}
         <div className="flex items-center">
           <Link
@@ -79,11 +80,11 @@ export default function Navbar() {
         </div>
 
         {/* time */}
-        <div className="hidden md:flex flex-col items-center justify-center gap-1 opacity-80">
+        <div className="hidden lg:flex flex-col items-center justify-center gap-1 opacity-80 absolute left-1/2 -translate-x-1/2">
           <span className="font-sans text-[10px] uppercase tracking-[0.2em] opacity-60">
             Pontianak, ID
           </span>
-          <span className="font-serif italic text-sm">{time}</span>
+          {mounted && <span className="font-serif italic text-sm">{time}</span>}
         </div>
 
         {/* menu toggle */}
@@ -132,14 +133,32 @@ export default function Navbar() {
                 />
               )}
             </Link>
+
+            {/* blog */}
+            <Link
+              href="/blog"
+              className="group relative flex flex-col items-center h-6"
+            >
+              <span
+                className={`block font-sans text-xs font-semibold uppercase tracking-widest transition-colors ${isBlogActive ? "text-neutral-900 dark:text-white" : "text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white"}`}
+              >
+                BLOG
+              </span>
+              {isBlogActive && (
+                <motion.div
+                  layoutId="activeDot"
+                  className="w-1 h-1 bg-neutral-900 dark:bg-white rounded-full mt-1"
+                />
+              )}
+            </Link>
           </div>
 
           {/* theme toggle */}
-          <div className="flex flex-col items-center justify-start h-6">
+          <div className="flex flex-col justify-start items-center h-6">
             {mounted ? (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors focus:outline-none"
+                className="h-4 flex items-center justify-center text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors focus:outline-none"
                 aria-label="Toggle Dark Mode"
               >
                 {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
@@ -150,9 +169,9 @@ export default function Navbar() {
           </div>
 
           {/* mobile menu toggle */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)} 
-            className="md:hidden p-2"
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >
@@ -168,7 +187,7 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "100vh", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="fixed inset-0 w-full bg-neutral-50 dark:bg-[#0a0a0a] z-[60] flex flex-col justify-center items-center md:hidden"
+            className="fixed inset-0 w-full bg-neutral-50 dark:bg-[#0a0a0a] z-[110] flex flex-col justify-center items-center md:hidden"
           >
             <button
               onClick={() => setIsOpen(false)}
@@ -194,6 +213,13 @@ export default function Navbar() {
                 className="font-serif text-4xl italic text-black dark:text-white underline underline-offset-8 mt-4"
               >
                 RESUME
+              </Link>
+              <Link
+                href="/blog"
+                onClick={() => setIsOpen(false)}
+                className="font-serif text-4xl italic text-black dark:text-white underline underline-offset-8 mt-4"
+              >
+                BLOG
               </Link>
             </div>
           </motion.div>

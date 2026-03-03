@@ -336,7 +336,7 @@ export default function Resume() {
                     LinkedIn
                   </a>
                   <a
-                    href="https://linkedin.com/in/adibayuluthfiansyah"
+                    href="https://instagram.com/adibayuluthfiansyah"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 hover:text-neutral-900 dark:hover:text-white transition-colors group"
