@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Resume | Adibayu Luthfiansyah - Full Stack Developer CV",
     description:
       "View my professional resume. Full Stack Developer with experience in Next.js, NestJS, TypeScript, PostgreSQL. Co-Founder at Cangkir Tech.",
-    url: "https://www.adibayuluthfiansyah.dev/resume",
+    url: "https://adibayuluthfiansyah.dev/resume",
     type: "profile",
   },
 };

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",
     description:
       "Full-Stack Developer specializing in building scalable web applications with Next.js, NestJS, TypeScript, and Web3 technologies.",
-    url: "https://www.adibayuluthfiansyah.dev",
+    url: "https://adibayuluthfiansyah.dev",
     type: "website",
   },
 };

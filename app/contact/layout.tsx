@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Contact | Adibayu Luthfiansyah - Let's Build Something Great",
     description:
       "Get in touch with me for freelance opportunities, collaboration, or project inquiries. Available via email, WhatsApp, and Instagram.",
-    url: "https://www.adibayuluthfiansyah.dev/contact",
+    url: "https://adibayuluthfiansyah.dev/contact",
     type: "website",
   },
 };

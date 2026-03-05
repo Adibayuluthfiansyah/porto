@@ -25,7 +25,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.adibayuluthfiansyah.dev"),
+  metadataBase: new URL("https://adibayuluthfiansyah.dev"),
   alternates: {
     canonical: "/",
   },
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   publisher: "Adibayu Luthfiansyah Setyawan",
   openGraph: {
     type: "website",
-    url: "https://www.adibayuluthfiansyah.dev",
+    url: "https://adibayuluthfiansyah.dev",
     siteName: "Adibayu Luthfiansyah",
     title: "Adibayu Luthfiansyah — FullStack Developer",
     description:
