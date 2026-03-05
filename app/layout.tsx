@@ -26,9 +26,6 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://adibayuluthfiansyah.dev"),
-  alternates: {
-    canonical: "/",
-  },
   title: "Adibayu Luthfiansyah - FullStack Developer",
   description:
     "Adibayu Luthfiansyah — Full-Stack Developer - Software Engineer specializing in backend architecture and modern web applications. Focused on building scalable systems and exploring Web3 technologies.",
