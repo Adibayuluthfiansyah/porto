@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.adibayuluthfiansyah.dev"
+        }
+      ],
+      "destination": "https://adibayuluthfiansyah.dev/:path*",
+      "permanent": true
+    }
+  ]
+}

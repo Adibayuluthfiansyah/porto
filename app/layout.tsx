@@ -26,6 +26,9 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://adibayuluthfiansyah.dev"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Adibayu Luthfiansyah - FullStack Developer",
   description:
     "Adibayu Luthfiansyah — Full-Stack Developer - Software Engineer specializing in backend architecture and modern web applications. Focused on building scalable systems and exploring Web3 technologies.",
@@ -64,22 +67,14 @@ export const metadata: Metadata = {
     description:
       "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS, and Web3 technologies.",
     locale: "id_ID",
-    images: [
-      {
-        url: "/og-image.png?v=2",
-        width: 1200,
-        height: 630,
-        alt: "Adibayu Luthfiansyah - Full Stack Developer Portfolio",
-        type: "image/png",
-      },
-    ],
+    images: "/og-image.png?v=3",
   },
   twitter: {
     card: "summary_large_image",
     title: "Adibayu Luthfiansyah — FullStack Developer",
     description:
       "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS, and Web3 technologies.",
-    images: ["/og-image.png?v=2"],
+    images: ["/og-image.png?v=3"],
     creator: "@adibayuluthfiansyah",
   },
   robots: {
