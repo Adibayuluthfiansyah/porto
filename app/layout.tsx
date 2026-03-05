@@ -64,14 +64,14 @@ export const metadata: Metadata = {
     description:
       "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS, and Web3 technologies.",
     locale: "id_ID",
-    images: "/og-image.png?v=3",
+    images: "/og-image.png?v=4",
   },
   twitter: {
     card: "summary_large_image",
     title: "Adibayu Luthfiansyah — FullStack Developer",
     description:
       "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS, and Web3 technologies.",
-    images: ["/og-image.png?v=3"],
+    images: ["/og-image.png?v=4"],
     creator: "@adibayuluthfiansyah",
   },
   robots: {
