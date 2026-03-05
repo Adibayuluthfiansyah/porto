@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Projects | Adibayu Luthfiansyah - E-Commerce, SaaS & Web Apps",
     description:
       "Explore my portfolio of full-stack projects including E-Commerce platforms, Automated Invoicing SaaS, and more. Built with Next.js, NestJS, TypeScript, and PostgreSQL.",
-    url: "https://adibayuluthfiansyah.dev/projects",
+    url: "https://www.adibayuluthfiansyah.dev/projects",
     type: "website",
   },
 };
