@@ -25,6 +25,66 @@ export default function Resume() {
 
   return (
     <main className="min-h-screen bg-neutral-100 dark:bg-[#0a0a0a] text-neutral-900 dark:text-white font-sans transition-colors duration-500">
+      <style jsx global>{`
+        @media print {
+          /* Hide non-essential elements for print */
+          nav,
+          footer,
+          .no-print {
+            display: none !important;
+          }
+
+          /* Ensure proper page breaks */
+          section {
+            page-break-inside: avoid;
+          }
+
+          /* Optimize for print: use black text on white background */
+          * {
+            color: black !important;
+            background: white !important;
+          }
+
+          /* Ensure borders remain visible in print */
+          .border-l,
+          [class*="border-"] {
+            border-color: #333 !important;
+          }
+
+          /* Keep timeline dots visible */
+          .rounded-full {
+            background-color: #000 !important;
+          }
+
+          /* Remove shadows and transitions for print */
+          * {
+            box-shadow: none !important;
+            transition: none !important;
+          }
+
+          /* Reset padding for print */
+          main {
+            padding: 0 !important;
+          }
+
+          /* Ensure content fits on page */
+          .max-w-5xl {
+            max-width: 100% !important;
+            margin: 0 !important;
+          }
+
+          /* Remove ring effects from timeline dots */
+          .ring-4 {
+            box-shadow: none !important;
+          }
+
+          /* Ensure proper spacing in print */
+          body {
+            margin: 0;
+            padding: 20px;
+          }
+        }
+      `}</style>
       <Navbar />
 
       <div className="pt-32 pb-12 md:pt-40 md:pb-20 px-4 md:px-8">
@@ -103,7 +163,7 @@ export default function Resume() {
                   Profile
                   <span className="h-[1px] flex-1 bg-neutral-200 dark:bg-white/10"></span>
                 </h2>
-                <p className="text-neutral-700 dark:text-gray-300 font-light leading-relaxed text-base md:text-lg">
+                <p className="text-neutral-700 dark:text-gray-300 font-light leading-relaxed text-base md:text-lg max-w-prose">
                   Dedicated Software Engineer with a strong foundation in
                   building scalable architectures and modern full-stack
                   applications. Passionate about translating complex technical
@@ -121,9 +181,9 @@ export default function Resume() {
                   <span className="h-[1px] flex-1 bg-neutral-200 dark:bg-white/10"></span>
                 </h2>
 
-                <div className="space-y-10">
+                <div className="space-y-10 md:space-y-14">
                   {/* item */}
-                  <div className="relative border-l border-neutral-300 dark:border-neutral-700 ml-2 pl-8 pb-2">
+                  <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
                     <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
@@ -139,30 +199,23 @@ export default function Resume() {
                     </p>
                     <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
                       <li>
-                        Architected and developed a responsive, role-based
-                        administration dashboard utilizing{" "}
-                        <strong className="font-medium text-neutral-900 dark:text-gray-200">
-                          Next.js
-                        </strong>
-                        {", "}
-                        <strong className="font-medium text-neutral-900 dark:text-gray-200">
-                          TypeScript
-                        </strong>
-                        , and Tailwind CSS.
+                        Designed and delivered a full-featured role-based admin
+                        dashboard for government social services, enabling
+                        secure document management across multiple user roles.
                       </li>
                       <li>
-                        Engineered a secure document management system featuring
-                        structured file uploads, real-time tracking, and
-                        comprehensive user administration.
+                        Built a structured file upload system with real-time
+                        tracking and comprehensive user administration,
+                        streamlining internal workflows for case management.
                       </li>
                       <li>
-                        Implemented automated activity logging and guarded
-                        routes to ensure strict data privacy and system
-                        security.
+                        Strengthened data privacy and system security through
+                        automated activity logging and protected route
+                        architecture.
                       </li>
                     </ul>
                   </div>
-                  <div className="relative border-l border-neutral-300 dark:border-neutral-700 ml-2 pl-8 pb-2">
+                  <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
                     <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
@@ -178,21 +231,20 @@ export default function Resume() {
                     </p>
                     <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
                       <li>
-                        Co-founded a technology agency with a dedicated 3-person
-                        team, spearheading the technical vision to drive digital
-                        transformation for local MSMEs (UMKM) in Pontianak.
+                        Co-founded a digital agency serving local small and
+                        medium businesses (MSMEs) in Pontianak, defining the
+                        technical vision and engineering standards from day one.
                       </li>
                       <li>
-                        Leading the end-to-end development of scalable,
-                        accessible digital solutions—handling everything from
-                        foundational system architecture to full-stack
-                        deployment.
+                        Led full-stack development from architecture through
+                        deployment, delivering scalable and accessible solutions
+                        tailored to each client&apos;s operational needs.
                       </li>
                       <li>
-                        Establishing robust engineering practices and aligning
-                        technical strategies with business objectives to deliver
-                        high-impact, cost-effective products for regional
-                        clients.
+                        Aligned technical roadmaps with business priorities,
+                        establishing engineering practices that balance speed,
+                        quality, and cost-effectiveness for growing regional
+                        enterprises.
                       </li>
                     </ul>
                   </div>
@@ -206,9 +258,9 @@ export default function Resume() {
                   <span className="h-[1px] flex-1 bg-neutral-200 dark:bg-white/10"></span>
                 </h2>
 
-                <div className="space-y-10">
+                <div className="space-y-10 md:space-y-14">
                   {/* E-Commerce Platform */}
-                  <div className="relative border-l border-neutral-300 dark:border-neutral-700 ml-2 pl-8 pb-2">
+                  <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
                     <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
@@ -224,25 +276,26 @@ export default function Resume() {
                     </p>
                     <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
                       <li>
-                        Developed a comprehensive end-to-end e-commerce solution
-                        with secure role-based dashboards for Admin, Seller, and
-                        Customer roles.
+                        Built a production-ready e-commerce platform with
+                        distinct dashboards for Admin, Seller, and Customer
+                        roles, enabling multi-vendor product management and
+                        secure transactions.
                       </li>
                       <li>
-                        Implemented dynamic state management, seamless media
-                        handling via Cloudinary, and reliable payment
-                        integration using Midtrans.
+                        Integrated cloud-based media storage and payment
+                        processing to support seamless checkout experiences and
+                        reliable order fulfillment.
                       </li>
                       <li>
-                        Built robust backend architecture with NestJS and
-                        PostgreSQL, featuring RESTful APIs and Prisma ORM for
-                        type-safe database queries.
+                        Designed a type-safe backend with NestJS, PostgreSQL,
+                        and Prisma ORM, ensuring data integrity and maintainable
+                        API contracts across the stack.
                       </li>
                     </ul>
                   </div>
 
                   {/* Invoicing SaaS */}
-                  <div className="relative border-l border-neutral-300 dark:border-neutral-700 ml-2 pl-8 pb-2">
+                  <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
                     <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
@@ -258,17 +311,19 @@ export default function Resume() {
                     </p>
                     <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
                       <li>
-                        Designed and deployed a SaaS platform for streamlining
-                        billing and client management for small businesses.
+                        Developed an automated invoicing SaaS that simplifies
+                        billing and client management for small businesses,
+                        reducing manual administrative overhead.
                       </li>
                       <li>
-                        Implemented automated invoice generation, dynamic PDF
-                        exports, and scheduled email reminders via Cron jobs.
+                        Enabled scheduled invoice generation and email reminders
+                        through Cron-based automation, improving payment
+                        collection timelines for users.
                       </li>
                       <li>
-                        Integrated secure payment processing with Midtrans using
-                        Next.js Server Actions and modern authentication
-                        patterns.
+                        Integrated secure payment flows using Midtrans and
+                        Next.js Server Actions, providing a seamless checkout
+                        experience with modern authentication safeguards.
                       </li>
                     </ul>
                   </div>
@@ -282,7 +337,7 @@ export default function Resume() {
                   <span className="h-[1px] flex-1 bg-neutral-200 dark:bg-white/10"></span>
                 </h2>
 
-                <div className="relative border-l border-neutral-300 dark:border-neutral-700 ml-2 pl-8">
+                <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8">
                   <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600 ring-4 ring-white dark:ring-[#141414]"></span>
 
                   <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
@@ -365,6 +420,7 @@ export default function Resume() {
                     "PostgreSQL",
                     "Prisma",
                     "Solidity",
+                    "Go (Golang)",
                   ].map((skill) => (
                     <span
                       key={skill}

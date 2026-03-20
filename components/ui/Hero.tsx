@@ -42,7 +42,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex flex-col justify-center pb-24 dan md:pb-0 px-4 md:px-6 lg:px-12 bg-transparent transition-colors duration-500 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center pb-24 md:pb-0 px-4 md:px-6 lg:px-12 bg-transparent transition-colors duration-500 overflow-hidden"
     >
       {/*dots*/}
       <div className="absolute top-24 md:top-28 left-0 w-full flex justify-center z-0 pointer-events-none">
@@ -57,7 +57,7 @@ export default function Hero() {
 
       {/* main container */}
       <motion.div
-        style={{ y, opacity }}
+        style={{ y, opacity, willChange: "transform, opacity" }}
         className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-12 items-center z-10 pt-16 md:pt-0"
       >
         {/* left */}
@@ -117,15 +117,14 @@ export default function Hero() {
           {/* quote */}
           <motion.div variants={itemVariants} className="max-w-lg ml-1">
             <motion.p
-              className="text-neutral-600 dark:text-gray-400 transition-colors font-serif text-base md:text-lg leading-relaxed font-light tracking-wide"
+              className="text-neutral-600 dark:text-gray-400 transition-colors font-sans text-base md:text-lg leading-relaxed font-light"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.1, duration: 1 }}
             >
-              {`"I firmly believe that exceptional code should tackle genuine
-            problems and generate meaningful impact. I'm driven by the vision of
-            creating software that enhances communities and accelerates business
-            success"`}
+              I build full-stack web applications that solve real business
+              problems - from e-commerce platforms to SaaS automation tools.
+              TypeScript, Next.js, and NestJS are my weapons of choice.
             </motion.p>
           </motion.div>
         </motion.div>

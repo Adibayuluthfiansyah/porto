@@ -9,12 +9,14 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-poppins",
   display: "swap",
+  preload: true,
 });
 
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
   display: "swap",
+  preload: true,
 });
 
 const cormorant = Cormorant_Garamond({
@@ -22,13 +24,14 @@ const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-cormorant",
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://adibayuluthfiansyah.dev"),
   title: "Adibayu Luthfiansyah - FullStack Developer",
   description:
-    "Adibayu Luthfiansyah — Full-Stack Developer - Software Engineer specializing in backend architecture and modern web applications. Focused on building scalable systems and exploring Web3 technologies.",
+    "Adibayu Luthfiansyah — Full-Stack Developer - Software Engineer specializing in backend architecture and modern web applications. Focused on building scalable systems",
   keywords: [
     "Pontianak",
     "Indonesia",
@@ -44,9 +47,10 @@ export const metadata: Metadata = {
     "Frontend Developer",
     "Pontianak Developer",
     "Indonesia Developer",
-    "Web3 Developer",
-    "Blockchain Developer",
-    "Solidity",
+    "AI-Assisted Coding",
+    "Modern Web Development",
+    "Go Developer",
+    "Golang",
     "PostgreSQL",
     "Prisma ORM",
     "RESTful API",
@@ -62,7 +66,7 @@ export const metadata: Metadata = {
     siteName: "Adibayu Luthfiansyah",
     title: "Adibayu Luthfiansyah — FullStack Developer",
     description:
-      "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS, and Web3 technologies.",
+      "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS.",
     locale: "id_ID",
     images: "/og-image.png?v=4",
   },
@@ -70,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Adibayu Luthfiansyah — FullStack Developer",
     description:
-      "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS, and Web3 technologies.",
+      "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS.",
     images: ["/og-image.png?v=4"],
     creator: "@adibayuluthfiansyah",
   },
@@ -120,6 +124,37 @@ export default function RootLayout({
             gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
           `}
         </Script>
+        <Script
+          id="json-ld"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Adibayu Luthfiansyah Setyawan",
+              url: "https://adibayuluthfiansyah.dev",
+              jobTitle: "Full Stack Developer",
+              description:
+                "Full-Stack Developer & Software Engineer with 1+ years experience specializing in TypeScript, Next.js, NestJS, and modern web applications.",
+              sameAs: [
+                "https://github.com/adibayuuuu",
+                "https://linkedin.com/in/adibayu-luthfiansyah",
+              ],
+              knowsAbout: [
+                "TypeScript",
+                "Next.js",
+                "React",
+                "NestJS",
+                "Node.js",
+                "PostgreSQL",
+                "Prisma",
+                "Go",
+                "AI-Assisted Coding",
+              ],
+            }),
+          }}
+        />
       </head>
       <body
         suppressHydrationWarning

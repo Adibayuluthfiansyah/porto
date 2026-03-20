@@ -19,7 +19,7 @@ export default function About() {
 
   return (
     <section className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24 bg-transparent text-neutral-900 dark:text-white transition-colors duration-500 py-20 md:py-32 overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 lg:gap-20 items-start">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-start">
         {/* left*/}
         <FadeInScroll
           direction="left"
@@ -35,30 +35,34 @@ export default function About() {
         </FadeInScroll>
 
         {/* right */}
-        <StaggerContainer className="md:col-span-8 space-y-12 md:space-y-16 mt-2 md:mt-0">
+        <StaggerContainer className="md:col-span-8 space-y-8 md:space-y-12 mt-2 md:mt-0">
           {/* bio */}
           <StaggerItem className="text-base md:text-lg lg:text-xl font-light leading-relaxed text-neutral-700 dark:text-gray-300 transition-colors font-sans">
             <p className="mb-6">
-              I am a{" "}
+              {" I'm a "}
               <span className="text-neutral-900 dark:text-white transition-colors font-medium">
                 Full Stack Developer
               </span>{" "}
-              Focused on building modern, scalable, and well-structured web
-              applications. I believe good software is not just about writing
-              code that works, but about delivering solutions that solve
-              real-world problems effectively.
+              with 1+ years of experience building production-grade web
+              applications. My journey started with a passion for coding and a
+              curiosity about how the web works, which quickly evolved into a
+              career focused on backend architecture and scalable systems.
+              transactions to government management systems. My specialty?
+              Turning complex business requirements into clean, scalable code.
             </p>
             <p>
-              I have experience developing end-to-end systems — from designing
-              APIs and managing databases to implementing responsive and
-              efficient user interfaces. My projects include building modern API
-              ecosystems and full-stack applications using TypeScript-based
-              stacks.
+              I have hands-on experience developing end-to-end systems - from
+              designing RESTful APIs and managing databases to implementing
+              responsive and performant user interfaces. My projects span modern
+              e-commerce ecosystems, SaaS platforms with automated workflows,
+              and government digital transformation initiatives.
               <br />
               <br />
-              Currently, I am also exploring Web3 technologies and smart
-              contract development to deepen my understanding of decentralized
-              systems and blockchain architecture.
+              {` Currently, I'm actively exploring AI-assisted coding workflows -
+              learning how tools like GitHub Copilot and AI-powered IDEs can
+              accelerate development while maintaining code quality. The future
+              of software development is collaborative intelligence between
+              humans and AI, and I'm positioning myself at that intersection.`}
               <br />
               <br />I am open to freelance opportunities, collaboration, and
               continuous growth as an engineer.
@@ -71,11 +75,11 @@ export default function About() {
           </StaggerItem>
 
           {/* Tech Stack & Fokus */}
-          <StaggerItem className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-12">
-            {/* Backend & Web3 */}
+          <StaggerItem className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
+            {/* Backend & Database */}
             <FadeInScroll direction="up" delay={0.1}>
               <h4 className="text-xs font-sans uppercase tracking-[0.2em] text-gray-500 mb-4 md:mb-6">
-                Backend & Web3
+                Backend & Database
               </h4>
               <ul className="space-y-3 md:space-y-4 font-serif italic text-base md:text-lg text-neutral-700 dark:text-gray-300 transition-colors">
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
@@ -85,10 +89,13 @@ export default function About() {
                   Node.js / NestJS
                 </li>
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
+                  Go (Golang)
+                </li>
+                <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
                   Prisma / PostgreSQL
                 </li>
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Solidity (Learning)
+                  RESTful APIs
                 </li>
               </ul>
             </FadeInScroll>

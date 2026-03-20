@@ -22,7 +22,7 @@ const projects: ProjectItem[] = [
     title: "Full-Stack E-Commerce Platform",
     type: "Fullstack Web Application",
     description:
-      "A comprehensive end to end e-commerce solution featuring a highly responsive frontend and a robust backend architecture. Engineered with Next.js and NestJS, the platform offers secure role-based dashboards (Admin, Seller, Customer), dynamic state management, seamless media handling via Cloudinary, and reliable payment integration using Midtrans.",
+      "A complete e-commerce platform supporting multi-vendor transactions with role-based dashboards for Admins, Sellers, and Customers. Features secure payment integration via Midtrans and cloud-based media management - built to handle high-volume traffic with Next.js and NestJS for optimal performance and scalability.",
     techStack: [
       "Next.js",
       "NestJS",
@@ -39,7 +39,7 @@ const projects: ProjectItem[] = [
     title: "Dinsos Management System",
     type: "Frontend Web Application",
     description:
-      "A comprehensive document management and administration dashboard engineered for a regional Social Services Department. It features secure role-based authentication, seamless document tracking, detailed activity logging, and an intuitive user management interface.",
+      "A document management system built for Kubu Raya's Social Services Department, streamlining workflows for government staff managing citizen documents. Reduced manual paperwork by enabling digital tracking and role-based access control - built with Next.js and TypeScript to modernize public services.",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
     link: "https://github.com/DinsosKubuRaya/DinsosFrontend",
     images: ["/dashboard-dinsos.webp", "/lp-dinsos.webp"],
@@ -49,7 +49,7 @@ const projects: ProjectItem[] = [
     title: "Automated Invoicing SaaS",
     type: "Fullstack Web Application",
     description:
-      "A comprehensive Software-as-a-Service (SaaS) platform designed to streamline billing and client management for small businesses. It features automated invoice generation, dynamic PDF exports, scheduled email reminders via Cron jobs, and secure payment processing integrated with Midtrans. Built with a modern architecture leveraging Next.js Server Actions and Prisma ORM.",
+      "A SaaS invoicing platform helping small businesses automate billing workflows. Generates invoices, exports PDFs, and sends scheduled payment reminders via email - cutting manual admin time by hours per week. Built with Next.js Server Actions and integrated with Midtrans for seamless payment processing.",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -66,7 +66,7 @@ const projects: ProjectItem[] = [
     title: "Cangkir Tech",
     type: "Technology Agency",
     description:
-      "Co-founded 'Cangkir' alongside a compact team of three, driven by a mission to empower local MSMEs (UMKM) in Pontianak through modern digital transformation. Serving as the Lead Engineer, I orchestrate the foundational system architecture, oversee full-stack development, and align technical strategies with business objectives to deliver high-performance web applications.",
+      "Co-founded Cangkir alongside a compact team of three, driven by a mission to empower local MSMEs in Pontianak through modern digital transformation. As Lead Engineer, I architect the system foundation, oversee full-stack development, and align technical strategies with business objectives to deliver high-performance web applications that drive real business growth.",
     techStack: ["Business Strategy", "System Architecture", "Fullstack"],
     link: "https://cangkir.tech/id",
     images: ["/cangkir1.webp", "/cangkir2.webp", "/cangkir3.webp"],
@@ -76,7 +76,7 @@ const projects: ProjectItem[] = [
     title: "PhysicsHub Open Source",
     type: "Open Source Contribution",
     description:
-      "Contributed to an interactive physics simulation platform built with Next.js. Improved the Developer Experience (DX) by re-configuring the Husky pre-commit hook. Implemented an automated Node.js script to detect and gracefully unstage 'package-lock.json', preventing accidental commits and failing CI pipelines without halting the contributors' workflow.",
+      "Contributed to an interactive physics simulation platform built with Next.js. Improved the Developer Experience by re-configuring the Husky pre-commit hook. Implemented an automated Node.js script to detect and gracefully unstage 'package-lock.json', preventing accidental commits and failing CI pipelines without halting contributors' workflow.",
     techStack: ["Next.js", "Node.js", "Husky", "Git", "TypeScript"],
     link: "https://github.com/physicshub/physicshub.github.io/pull/203",
     images: ["/opensource3.webp", "/opensource2.webp", "/opensource1.webp"],
@@ -137,7 +137,11 @@ function ProjectCard({
                     src={project.images[imgIndex]}
                     alt={`${project.title} - Slide ${imgIndex + 1}`}
                     fill
-                    priority
+                    priority={project.id === 1 && imgIndex === 0}
+                    loading={
+                      project.id === 1 && imgIndex === 0 ? undefined : "lazy"
+                    }
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
                     className="object-contain group-hover/img:scale-[1.02] transition-transform duration-700"
                   />
                 </motion.div>
@@ -148,14 +152,14 @@ function ProjectCard({
                 <>
                   <button
                     onClick={prevImg}
-                    className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-black/60 hover:bg-white dark:hover:bg-black/80 text-neutral-900 dark:text-white p-2.5 rounded-full opacity-100 md:opacity-0 md:group-hover/img:opacity-100 transition-all duration-300 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg z-10"
+                    className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-black/60 hover:bg-white dark:hover:bg-black/80 text-neutral-900 dark:text-white p-2.5 rounded-full opacity-100 md:opacity-0 md:group-hover/img:opacity-100 md:focus:opacity-100 transition-all duration-300 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg z-10"
                     aria-label="Previous image"
                   >
                     <ChevronLeft size={20} />
                   </button>
                   <button
                     onClick={nextImg}
-                    className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-black/60 hover:bg-white dark:hover:bg-black/80 text-neutral-900 dark:text-white p-2.5 rounded-full opacity-100 md:opacity-0 md:group-hover/img:opacity-100 transition-all duration-300 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg z-10"
+                    className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-black/60 hover:bg-white dark:hover:bg-black/80 text-neutral-900 dark:text-white p-2.5 rounded-full opacity-100 md:opacity-0 md:group-hover/img:opacity-100 md:focus:opacity-100 transition-all duration-300 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-lg z-10"
                     aria-label="Next image"
                   >
                     <ChevronRight size={20} />
