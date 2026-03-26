@@ -33,7 +33,7 @@ export default function Home() {
       >
         <ScrollBasedAnimatedWrapper
           text="BUILDING SCALABLE WEB APPS • FULL STACK DEVELOPER • "
-          default_velocity={1}
+          default_velocity={5}
           className="text-4xl md:text-6xl font-serif italic tracking-widest text-neutral-400 dark:text-neutral-600 mx-4"
         />
       </section>

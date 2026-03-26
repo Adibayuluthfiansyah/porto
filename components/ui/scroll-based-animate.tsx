@@ -42,16 +42,19 @@ export default function ScrollBasedAnimated({
   const x = useTransform(baseX, (v: number) => `${wrap(-20, -45, v)}%`);
   const directionFactor = useRef<number>(1);
 
-  // Throttled animation frame for better performance
+  // Smooth animation frame for 60fps performance
   useAnimationFrame((t, delta) => {
-    // Skip frames if delta is too small (throttle to ~30fps minimum)
-    if (delta < 33) return;
-    
+    // Calculate base movement
     let moveBy = directionFactor.current * default_velocity * (delta / 1000);
-    if (velocityFactor.get() < 0) directionFactor.current = -1;
-    else if (velocityFactor.get() > 0) directionFactor.current = 1;
+    
+    // Update direction based on scroll velocity
+    const velocity = velocityFactor.get();
+    if (velocity < 0) directionFactor.current = -1;
+    else if (velocity > 0) directionFactor.current = 1;
 
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    // Add scroll-based velocity (reduced impact for smoother animation)
+    moveBy += directionFactor.current * moveBy * Math.abs(velocity) * 0.3;
+    
     baseX.set(baseX.get() + moveBy);
   });
 
