@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://adibayuluthfiansyah.dev"),
   title: "Resume | Adibayu Luthfiansyah - Full Stack Developer CV",
   description:
     "View my professional resume and CV. Full Stack Developer with experience in Next.js, NestJS, TypeScript, PostgreSQL. Frontend Developer Intern at Dinas Sosial Kubu Raya, Co-Founder at Cangkir Tech. Download PDF resume.",

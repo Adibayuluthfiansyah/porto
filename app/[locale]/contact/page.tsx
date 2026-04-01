@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { ArrowUpRight } from "lucide-react";
 
 export default function Contact() {
+  const t = useTranslations("contact");
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -15,18 +17,18 @@ export default function Contact() {
 
   const contactLinks = [
     {
-      label: "Email",
-      value: "adibayu@adibayuluthfiansyah.dev",
+      label: t("emailLabel"),
+      value: t("emailValue"),
       href: "mailto:adibayu@adibayuluthfiansyah.dev",
     },
     {
-      label: "WhatsApp",
-      value: "+62 895 7041 xxxx",
+      label: t("whatsappLabel"),
+      value: t("whatsappValue"),
       href: "https://wa.me/62895704119180",
     },
     {
-      label: "Instagram",
-      value: "@adibayuluthfiansyah",
+      label: t("instagramLabel"),
+      value: t("instagramValue"),
       href: "https://instagram.com/adibayuluthfiansyah",
     },
   ];
@@ -43,13 +45,13 @@ export default function Contact() {
           className="mb-16 md:mb-24"
         >
           <h2 className="text-sm font-sans uppercase tracking-[0.3em] text-neutral-500 dark:text-gray-400 transition-colors mb-6 ml-1">
-            Contact
+            {t("label")}
           </h2>
           <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-serif italic text-neutral-900 dark:text-white transition-colors leading-[0.85] tracking-tight">
-            {`Let's build `}
+            {t("heading1")}
             <br />
             <span className="text-neutral-500 dark:text-gray-500 transition-colors">
-              something great.
+              {t("heading2")}
             </span>
           </h3>
         </motion.div>

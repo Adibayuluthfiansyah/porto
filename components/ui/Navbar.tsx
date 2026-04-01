@@ -2,12 +2,14 @@
 
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 export default function Navbar() {
+  const t = useTranslations("nav");
   const [time, setTime] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -57,7 +59,11 @@ export default function Navbar() {
     },
   };
 
-  const menuItems = ["ABOUT", "PROJECTS", "CONTACT"];
+  const menuItems = [
+    { key: "about", label: t("about") },
+    { key: "projects", label: t("projects") },
+    { key: "contact", label: t("contact") },
+  ];
   const isResumeActive = pathname === "/resume";
   const isBlogActive = pathname.startsWith("/blog");
 
@@ -75,14 +81,14 @@ export default function Navbar() {
             href="/#home"
             className="text-2xl font-semibold font-sans tracking-widest uppercase"
           >
-            ADIBAYU
+            {t("logo")}
           </Link>
         </div>
 
         {/* time */}
         <div className="hidden lg:flex flex-col items-center justify-center gap-1 opacity-80 absolute left-1/2 -translate-x-1/2">
           <span className="font-sans text-[10px] uppercase tracking-[0.2em] opacity-60">
-            Pontianak, ID
+            {t("location")}
           </span>
           {mounted && <span className="font-serif italic text-sm">{time}</span>}
         </div>
@@ -92,19 +98,18 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-6 items-center">
             {/* scroll links */}
             {menuItems.map((item) => {
-              const targetId = item.toLowerCase();
-              const isActive = pathname === "/" && activeSection === targetId;
+              const isActive = pathname === "/" && activeSection === item.key;
 
               return (
                 <Link
-                  key={item}
-                  href={`/#${targetId}`}
+                  key={item.key}
+                  href={`/#${item.key}`}
                   className="group relative flex flex-col items-center h-6"
                 >
                   <span
                     className={`block font-sans text-xs font-semibold uppercase tracking-widest transition-colors ${isActive ? "text-neutral-900 dark:text-white" : "text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white"}`}
                   >
-                    {item}
+                    {item.label}
                   </span>
                   {isActive && (
                     <motion.div
@@ -124,7 +129,7 @@ export default function Navbar() {
               <span
                 className={`block font-sans text-xs font-semibold uppercase tracking-widest transition-colors ${isResumeActive ? "text-neutral-900 dark:text-white" : "text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white"}`}
               >
-                RESUME
+                {t("resume")}
               </span>
               {isResumeActive && (
                 <motion.div
@@ -142,7 +147,7 @@ export default function Navbar() {
               <span
                 className={`block font-sans text-xs font-semibold uppercase tracking-widest transition-colors ${isBlogActive ? "text-neutral-900 dark:text-white" : "text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white"}`}
               >
-                BLOG
+                {t("blog")}
               </span>
               {isBlogActive && (
                 <motion.div
@@ -153,13 +158,18 @@ export default function Navbar() {
             </Link>
           </div>
 
+          {/* language switcher */}
+          <div className="flex flex-col justify-start items-center h-6">
+            <LanguageSwitcher />
+          </div>
+
           {/* theme toggle */}
           <div className="flex flex-col justify-start items-center h-6">
             {mounted ? (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="h-4 flex items-center justify-center text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors focus:outline-none"
-                aria-label="Toggle Dark Mode"
+                aria-label={t("toggleDarkMode")}
               >
                 {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
               </button>
@@ -172,7 +182,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-label={isOpen ? t("closeMenu") : t("openMenu")}
             aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -192,19 +202,19 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-6 right-4 p-2"
-              aria-label="Close menu"
+              aria-label={t("closeMenu")}
             >
               <X size={32} />
             </button>
             <div className="flex flex-col gap-8 text-center">
               {menuItems.map((item) => (
                 <Link
-                  key={item}
-                  href={`/#${item.toLowerCase()}`}
+                  key={item.key}
+                  href={`/#${item.key}`}
                   onClick={() => setIsOpen(false)}
                   className="font-serif text-4xl italic text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
               <Link
@@ -212,14 +222,14 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="font-serif text-4xl italic text-black dark:text-white underline underline-offset-8 mt-4"
               >
-                RESUME
+                {t("resume")}
               </Link>
               <Link
                 href="/blog"
                 onClick={() => setIsOpen(false)}
                 className="font-serif text-4xl italic text-black dark:text-white underline underline-offset-8 mt-4"
               >
-                BLOG
+                {t("blog")}
               </Link>
             </div>
           </motion.div>

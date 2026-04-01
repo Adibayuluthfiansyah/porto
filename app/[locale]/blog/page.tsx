@@ -1,8 +1,20 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import Navbar from "../navbar/page";
+import Navbar from "@/components/ui/Navbar";
 import BlogGrid from "@/components/ui/BlogGrid";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://adibayuluthfiansyah.dev"),
+  title: "Blog | Adibayu Luthfiansyah",
+  description: "Tech insights, tutorials, and thoughts on modern web development, fullstack engineering, and software architecture.",
+  openGraph: {
+    title: "Blog | Adibayu Luthfiansyah",
+    description: "Tech insights, tutorials, and thoughts on modern web development, fullstack engineering, and software architecture.",
+    type: "website",
+  },
+};
 
 export default function BlogMainPage() {
   const blogDir = path.join(process.cwd(), "app/content/blog");

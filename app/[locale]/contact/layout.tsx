@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://adibayuluthfiansyah.dev"),
   title: "Contact | Adibayu Luthfiansyah - Let's Build Something Great",
   description:
     "Get in touch with me for freelance opportunities, collaboration, or project inquiries. Available via email, WhatsApp, and Instagram. Based in Pontianak, Indonesia.",

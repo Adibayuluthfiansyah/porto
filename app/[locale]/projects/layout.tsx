@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://adibayuluthfiansyah.dev"),
   title: "Projects | Adibayu Luthfiansyah - E-Commerce, SaaS & Web Applications",
   description:
     "Explore my portfolio of full-stack projects including E-Commerce platforms, Automated Invoicing SaaS, Government Management Systems, and Cangkir Tech agency. Built with Next.js, NestJS, TypeScript, and PostgreSQL.",

@@ -2,9 +2,10 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import Navbar from "@/app/navbar/page";
+import Navbar from "@/components/ui/Navbar";
 import PageTransition from "@/components/ui/PageTransition";
 import FadeInScroll from "@/components/ui/FadeInScroll";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join(process.cwd(), "app/content/blog"));
@@ -12,6 +13,44 @@ export async function generateStaticParams() {
   return files.map((filename) => ({
     slug: filename.replace(".mdx", ""),
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: string }>;
+}): Promise<Metadata> {
+  const { slug, locale } = await params;
+  const filePath = path.join(process.cwd(), "app/content/blog", `${slug}.mdx`);
+  const fileContent = fs.readFileSync(filePath, "utf-8");
+  const { data } = matter(fileContent);
+
+  return {
+    metadataBase: new URL("https://adibayuluthfiansyah.dev"),
+    title: `${data.title} | Adibayu Luthfiansyah`,
+    description: data.description || "Read this article on my blog",
+    openGraph: {
+      title: `${data.title} | Adibayu Luthfiansyah`,
+      description: data.description || "Read this article on my blog",
+      type: "article",
+      publishedTime: data.date,
+      url: `https://adibayuluthfiansyah.dev/${locale}/blog/${slug}`,
+      images: [
+        {
+          url: data.image || "/default-blog-image.webp",
+          width: 1200,
+          height: 630,
+          alt: data.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${data.title} | Adibayu Luthfiansyah`,
+      description: data.description || "Read this article on my blog",
+      images: [data.image || "/default-blog-image.webp"],
+    },
+  };
 }
 
 export default async function BlogPost({

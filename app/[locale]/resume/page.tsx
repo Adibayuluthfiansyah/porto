@@ -10,8 +10,8 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import Navbar from "../navbar/page";
-import Footer from "../footer/page";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 
 export default function Resume() {
   const fadeUp = {

@@ -8,7 +8,6 @@ export default function SmoothScrollProvider({
   children: ReactNode;
 }) {
   useEffect(() => {
-    // Dynamic import to reduce initial bundle size
     import("lenis").then(({ default: Lenis }) => {
       const lenis = new Lenis({
         duration: 1.2,
@@ -24,8 +23,6 @@ export default function SmoothScrollProvider({
       }
 
       requestAnimationFrame(raf);
-
-      // Cleanup on unmount
       return () => {
         lenis.destroy();
       };

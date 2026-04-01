@@ -1,0 +1,124 @@
+{
+  "nav": {
+    "logo": "ADIBAYU",
+    "location": "Pontianak, ID",
+    "about": "TENTANG",
+    "projects": "PROJEK",
+    "contact": "KONTAK",
+    "resume": "RESUME",
+    "blog": "BLOG",
+    "toggleDarkMode": "Toggle Mode Gelap",
+    "openMenu": "Buka menu",
+    "closeMenu": "Tutup menu"
+  },
+  "hero": {
+    "title": "INSINYUR PERANGKAT LUNAK",
+    "firstName": "Adibayu",
+    "middleName": "Luthfiansyah",
+    "lastName": "Setyawan",
+    "description": "Saya membangun aplikasi web berkinerja tinggi yang memecahkan masalah bisnis nyata dan mendorong pertumbuhan. Berspesialisasi dalam arsitektur API yang terukur, platform SaaS, dan sistem fullstack modern menggunakan TypeScript, Next.js, dan NestJS.",
+    "cta1": "Mari Bekerja Sama",
+    "cta2": "Lihat Projek",
+    "imageAlt": "Foto profil Adibayu Luthfiansyah"
+  },
+  "about": {
+    "label": "Tentang Saya",
+    "heading1": "Mari",
+    "heading2": "Berkenalan.",
+    "bio1": "Saya adalah <b>Full Stack Developer</b> dengan pengalaman 1+ tahun membangun aplikasi web tingkat produksi. Perjalanan saya dimulai dengan passion untuk coding dan rasa penasaran tentang cara kerja web, yang dengan cepat berkembang menjadi karir yang berfokus pada arsitektur backend dan sistem yang terukur. Dari transaksi e-commerce hingga sistem manajemen pemerintahan. Spesialisasi saya? Mengubah kebutuhan bisnis yang kompleks menjadi kode yang bersih dan terukur.",
+    "bio2": "Saya memiliki pengalaman hands-on dalam mengembangkan sistem end-to-end - dari mendesain RESTful API dan mengelola database hingga mengimplementasikan user interface yang responsif dan berkinerja tinggi. Projek saya mencakup ekosistem e-commerce modern, platform SaaS dengan workflow otomatis, dan inisiatif transformasi digital pemerintahan.",
+    "bio3": "Saat ini, saya aktif mengeksplorasi workflow coding berbasis AI - mempelajari bagaimana tools seperti GitHub Copilot dan IDE bertenaga AI dapat mempercepat development sambil mempertahankan kualitas kode. Masa depan pengembangan perangkat lunak adalah kolaborasi cerdas antara manusia dan AI, dan saya memposisikan diri di persimpangan tersebut.",
+    "bio4": "Saya terbuka untuk peluang freelance, kolaborasi, dan pertumbuhan berkelanjutan sebagai engineer.",
+    "techStack1Title": "Backend & Database",
+    "techStack2Title": "Frontend & Tools"
+  },
+  "projects": {
+    "label": "Projek",
+    "heading1": "Karya",
+    "heading2": "Terpilih.",
+    "viewProject": "Lihat Projek",
+    "prevImage": "Gambar sebelumnya",
+    "nextImage": "Gambar berikutnya",
+    "goToImage": "Ke gambar {number}",
+    "items": [
+      {
+        "id": "project-1",
+        "title": "Platform E-Commerce Full-Stack",
+        "type": "Aplikasi Web Fullstack",
+        "description": "Platform e-commerce lengkap yang mendukung transaksi multi-vendor dengan dashboard berbasis role untuk Admin, Seller, dan Customer. Fitur integrasi pembayaran aman via Midtrans dan manajemen media berbasis cloud - dibangun untuk menangani traffic volume tinggi dengan Next.js dan NestJS untuk performa dan skalabilitas optimal.",
+        "techStack": ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "Tailwind CSS", "Prisma"]
+      },
+      {
+        "id": "project-2",
+        "title": "Sistem Manajemen Dinsos",
+        "type": "Aplikasi Web Frontend",
+        "description": "Sistem manajemen dokumen yang dibangun untuk Dinas Sosial Kubu Raya, menyederhanakan workflow bagi staff pemerintah yang mengelola dokumen warga. Mengurangi pekerjaan manual dengan memungkinkan tracking digital dan kontrol akses berbasis role - dibangun dengan Next.js dan TypeScript untuk modernisasi layanan publik.",
+        "techStack": ["Next.js", "TypeScript", "Tailwind CSS"]
+      },
+      {
+        "id": "project-3",
+        "title": "SaaS Invoicing Otomatis",
+        "type": "Aplikasi Web Fullstack",
+        "description": "Platform invoicing SaaS yang membantu bisnis kecil mengotomasi workflow penagihan. Menghasilkan invoice, ekspor PDF, dan mengirim pengingat pembayaran terjadwal via email - memangkas waktu admin manual hingga berjam-jam per minggu. Dibangun dengan Next.js Server Actions dan terintegrasi dengan Midtrans untuk pemrosesan pembayaran yang seamless.",
+        "techStack": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Midtrans", "Tailwind"]
+      },
+      {
+        "id": "project-4",
+        "title": "Cangkir Tech",
+        "type": "Agensi Teknologi",
+        "description": "Co-founder Cangkir bersama tim kompak beranggotakan tiga orang, didorong oleh misi untuk memberdayakan UMKM lokal di Pontianak melalui transformasi digital modern. Sebagai Lead Engineer, saya merancang fondasi sistem, mengawasi pengembangan full-stack, dan menyelaraskan strategi teknis dengan tujuan bisnis untuk menghasilkan aplikasi web berkinerja tinggi yang mendorong pertumbuhan bisnis nyata.",
+        "techStack": ["Strategi Bisnis", "Arsitektur Sistem", "Fullstack"]
+      },
+      {
+        "id": "project-5",
+        "title": "PhysicsHub Open Source",
+        "type": "Kontribusi Open Source",
+        "description": "Berkontribusi pada platform simulasi fisika interaktif yang dibangun dengan Next.js. Meningkatkan Developer Experience dengan mengkonfigurasi ulang Husky pre-commit hook. Mengimplementasikan script Node.js otomatis untuk mendeteksi dan unstage 'package-lock.json' dengan graceful, mencegah commit tidak disengaja dan failing CI pipeline tanpa menghentikan workflow kontributor.",
+        "techStack": ["Next.js", "Node.js", "Husky", "Git", "TypeScript"]
+      }
+    ]
+  },
+  "contact": {
+    "label": "Kontak",
+    "heading1": "Mari bangun",
+    "heading2": "sesuatu yang hebat.",
+    "emailLabel": "Email",
+    "emailValue": "adibayu@adibayuluthfiansyah.dev",
+    "whatsappLabel": "WhatsApp",
+    "whatsappValue": "+62 895 7041 xxxx",
+    "instagramLabel": "Instagram",
+    "instagramValue": "@adibayuluthfiansyah"
+  },
+  "contactModal": {
+    "title": "Mari Bangun Sesuatu yang Hebat Bersama.",
+    "description": "Saya tersedia untuk projek freelance, peran full-time, atau sekadar obrolan santai tentang teknologi. Pilih cara yang Anda sukai untuk terhubung.",
+    "emailLabel": "Email Saya",
+    "emailSubtext": "Respon < 24 jam",
+    "whatsappLabel": "WhatsApp",
+    "whatsappSubtext": "Respon tercepat",
+    "instagramLabel": "Instagram",
+    "instagramSubtext": "Follow untuk update"
+  },
+  "footer": {
+    "copyright": "© {year} Adibayu Luthfiansyah Setyawan",
+    "about": "Tentang",
+    "projects": "Projek",
+    "contact": "Kontak",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "gmail": "Gmail"
+  },
+  "metadata": {
+    "homeTitle": "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",
+    "homeDescription": "Selamat datang di portfolio saya. Saya Full-Stack Developer yang berspesialisasi dalam membangun aplikasi web terukur dengan Next.js, NestJS, TypeScript, dan GO. Jelajahi projek dan pengalaman saya.",
+    "homeOgDescription": "Saya membangun aplikasi web terukur berkinerja tinggi dan sistem backend. Spesialisasi di Next.js, NestJS, TypeScript dan Go(Golang) untuk startup dan bisnis B2B.",
+    "scrollingText": "MEMBANGUN APLIKASI WEB TERUKUR • FULL STACK DEVELOPER • ",
+    "ariaHero": "Bagian hero",
+    "ariaTitles": "Judul profesional",
+    "ariaAbout": "Tentang saya",
+    "ariaProjects": "Projek portfolio",
+    "ariaContact": "Informasi kontak",
+    "ariaFooter": "Footer"
+  }
+}

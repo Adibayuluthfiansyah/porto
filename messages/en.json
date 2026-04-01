@@ -1,0 +1,124 @@
+{
+  "nav": {
+    "logo": "ADIBAYU",
+    "location": "Pontianak, ID",
+    "about": "ABOUT",
+    "projects": "PROJECTS",
+    "contact": "CONTACT",
+    "resume": "RESUME",
+    "blog": "BLOG",
+    "toggleDarkMode": "Toggle Dark Mode",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "title": "SOFTWARE ENGINEER",
+    "firstName": "Adibayu",
+    "middleName": "Luthfiansyah",
+    "lastName": "Setyawan",
+    "description": "I build high-performance web applications that solve real business problems and drive growth. Specialized in scalable API architecture, SaaS platforms, and modern fullstack systems using TypeScript, Next.js, and NestJS.",
+    "cta1": "Let's Work Together",
+    "cta2": "View Projects",
+    "imageAlt": "Profile photo of Adibayu Luthfiansyah"
+  },
+  "about": {
+    "label": "About Me",
+    "heading1": "Get To Know",
+    "heading2": "Me.",
+    "bio1": "I'm a <b>Full Stack Developer</b> with 1+ years of experience building production-grade web applications. My journey started with a passion for coding and a curiosity about how the web works, which quickly evolved into a career focused on backend architecture and scalable systems. transactions to government management systems. My specialty? Turning complex business requirements into clean, scalable code.",
+    "bio2": "I have hands-on experience developing end-to-end systems - from designing RESTful APIs and managing databases to implementing responsive and performant user interfaces. My projects span modern e-commerce ecosystems, SaaS platforms with automated workflows, and government digital transformation initiatives.",
+    "bio3": "Currently, I'm actively exploring AI-assisted coding workflows - learning how tools like GitHub Copilot and AI-powered IDEs can accelerate development while maintaining code quality. The future of software development is collaborative intelligence between humans and AI, and I'm positioning myself at that intersection.",
+    "bio4": "I am open to freelance opportunities, collaboration, and continuous growth as an engineer.",
+    "techStack1Title": "Backend & Database",
+    "techStack2Title": "Frontend & Tools"
+  },
+  "projects": {
+    "label": "Projects",
+    "heading1": "Selected",
+    "heading2": "Works.",
+    "viewProject": "View Project",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "goToImage": "Go to image {number}",
+    "items": [
+      {
+        "id": "project-1",
+        "title": "Full-Stack E-Commerce Platform",
+        "type": "Fullstack Web Application",
+        "description": "A complete e-commerce platform supporting multi-vendor transactions with role-based dashboards for Admins, Sellers, and Customers. Features secure payment integration via Midtrans and cloud-based media management - built to handle high-volume traffic with Next.js and NestJS for optimal performance and scalability.",
+        "techStack": ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "Tailwind CSS", "Prisma"]
+      },
+      {
+        "id": "project-2",
+        "title": "Dinsos Management System",
+        "type": "Frontend Web Application",
+        "description": "A document management system built for Kubu Raya's Social Services Department, streamlining workflows for government staff managing citizen documents. Reduced manual paperwork by enabling digital tracking and role-based access control - built with Next.js and TypeScript to modernize public services.",
+        "techStack": ["Next.js", "TypeScript", "Tailwind CSS"]
+      },
+      {
+        "id": "project-3",
+        "title": "Automated Invoicing SaaS",
+        "type": "Fullstack Web Application",
+        "description": "A SaaS invoicing platform helping small businesses automate billing workflows. Generates invoices, exports PDFs, and sends scheduled payment reminders via email - cutting manual admin time by hours per week. Built with Next.js Server Actions and integrated with Midtrans for seamless payment processing.",
+        "techStack": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Midtrans", "Tailwind"]
+      },
+      {
+        "id": "project-4",
+        "title": "Cangkir Tech",
+        "type": "Technology Agency",
+        "description": "Co-founded Cangkir alongside a compact team of three, driven by a mission to empower local MSMEs in Pontianak through modern digital transformation. As Lead Engineer, I architect the system foundation, oversee full-stack development, and align technical strategies with business objectives to deliver high-performance web applications that drive real business growth.",
+        "techStack": ["Business Strategy", "System Architecture", "Fullstack"]
+      },
+      {
+        "id": "project-5",
+        "title": "PhysicsHub Open Source",
+        "type": "Open Source Contribution",
+        "description": "Contributed to an interactive physics simulation platform built with Next.js. Improved the Developer Experience by re-configuring the Husky pre-commit hook. Implemented an automated Node.js script to detect and gracefully unstage 'package-lock.json', preventing accidental commits and failing CI pipelines without halting contributors' workflow.",
+        "techStack": ["Next.js", "Node.js", "Husky", "Git", "TypeScript"]
+      }
+    ]
+  },
+  "contact": {
+    "label": "Contact",
+    "heading1": "Let's build",
+    "heading2": "something great.",
+    "emailLabel": "Email",
+    "emailValue": "adibayu@adibayuluthfiansyah.dev",
+    "whatsappLabel": "WhatsApp",
+    "whatsappValue": "+62 895 7041 xxxx",
+    "instagramLabel": "Instagram",
+    "instagramValue": "@adibayuluthfiansyah"
+  },
+  "contactModal": {
+    "title": "Let's Build Something Great Together.",
+    "description": "I'm available for freelance projects, full-time roles, or just a friendly chat about tech. Choose your preferred way to connect.",
+    "emailLabel": "Email Me",
+    "emailSubtext": "Response < 24h",
+    "whatsappLabel": "WhatsApp",
+    "whatsappSubtext": "Fastest response",
+    "instagramLabel": "Instagram",
+    "instagramSubtext": "Follow for updates"
+  },
+  "footer": {
+    "copyright": "© {year} Adibayu Luthfiansyah Setyawan",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "gmail": "Gmail"
+  },
+  "metadata": {
+    "homeTitle": "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",
+    "homeDescription": "Welcome to my portfolio. I'm a Full-Stack Developer specializing in building scalable web applications with Next.js, NestJS, TypeScript, and GO. Explore my projects and experience.",
+    "homeOgDescription": "I build scalable, high-performance web applications and backend systems. Specialized in Next.js, NestJS, TypeScript and Go(Golang) for startups and B2B businesses.",
+    "scrollingText": "BUILDING SCALABLE WEB APPS • FULL STACK DEVELOPER • ",
+    "ariaHero": "Hero section",
+    "ariaTitles": "Professional titles",
+    "ariaAbout": "About me",
+    "ariaProjects": "Portfolio projects",
+    "ariaContact": "Contact information",
+    "ariaFooter": "Footer"
+  }
+}
