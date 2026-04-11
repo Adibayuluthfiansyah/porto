@@ -27,58 +27,39 @@ export default function Resume() {
     <main className="min-h-screen bg-neutral-100 dark:bg-[#0a0a0a] text-neutral-900 dark:text-white font-sans transition-colors duration-500">
       <style jsx global>{`
         @media print {
-          /* Hide non-essential elements for print */
           nav,
           footer,
           .no-print {
             display: none !important;
           }
-
-          /* Ensure proper page breaks */
           section {
             page-break-inside: avoid;
           }
-
-          /* Optimize for print: use black text on white background */
           * {
             color: black !important;
             background: white !important;
           }
-
-          /* Ensure borders remain visible in print */
           .border-l,
           [class*="border-"] {
             border-color: #333 !important;
           }
-
-          /* Keep timeline dots visible */
           .rounded-full {
             background-color: #000 !important;
           }
-
-          /* Remove shadows and transitions for print */
           * {
             box-shadow: none !important;
             transition: none !important;
           }
-
-          /* Reset padding for print */
           main {
             padding: 0 !important;
           }
-
-          /* Ensure content fits on page */
           .max-w-5xl {
             max-width: 100% !important;
             margin: 0 !important;
           }
-
-          /* Remove ring effects from timeline dots */
           .ring-4 {
             box-shadow: none !important;
           }
-
-          /* Ensure proper spacing in print */
           body {
             margin: 0;
             padding: 20px;
@@ -113,7 +94,7 @@ export default function Resume() {
           </motion.a>
         </motion.div>
 
-        {/* resume*/}
+        {/* resume */}
         <motion.div
           initial="hidden"
           animate="visible"
@@ -128,13 +109,13 @@ export default function Resume() {
                   Adibayu Luthfiansyah Setyawan
                 </h1>
                 <p className="text-sm font-sans uppercase tracking-[0.3em] text-neutral-500 dark:text-gray-400">
-                  Full Stack Developer & Software Engineer
+                  Co-Founder & Full Stack Developer
                 </p>
               </div>
 
               <div className="flex flex-col gap-3 text-sm text-neutral-600 dark:text-gray-400 font-light w-full">
                 <a
-                  href="mailto:adibayuluthfiansyah@gmail.com"
+                  href="mailto:adibayu@adibayuluthfiansyah.dev"
                   className="flex items-start sm:items-center gap-3 hover:text-neutral-900 dark:hover:text-white transition-colors"
                 >
                   <Mail size={16} className="shrink-0 mt-0.5 sm:mt-0" />
@@ -156,25 +137,27 @@ export default function Resume() {
 
           {/* main container */}
           <div className="px-8 md:px-16 py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-20">
-            {/* exp and education */}
+            {/* left col: exp, projects, education */}
             <div className="md:col-span-8 space-y-16">
+              {/* profile */}
               <section>
                 <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6 flex items-center gap-4">
                   Profile
                   <span className="h-[1px] flex-1 bg-neutral-200 dark:bg-white/10"></span>
                 </h2>
                 <p className="text-neutral-700 dark:text-gray-300 font-light leading-relaxed text-base md:text-lg max-w-prose">
-                  Dedicated Software Engineer with a strong foundation in
-                  building scalable architectures and modern full-stack
-                  applications. Passionate about translating complex technical
-                  challenges into efficient, user-centric solutions. Adept at
-                  leveraging modern web technologies and best engineering
-                  practices to deliver secure, high-performance systems that
-                  drive business value and continuous growth.
+                  Co-founder and Full Stack Developer with hands-on experience
+                  delivering production systems for government clients and
+                  growing MSMEs. I own the full delivery lifecycle — from
+                  architecture and backend design to frontend implementation and
+                  deployment — using Next.js, NestJS, and TypeScript. Built and
+                  shipped real products under real constraints. Self-driven,
+                  client-focused, and open to full-time roles where technical
+                  ownership matters.
                 </p>
               </section>
 
-              {/* exp */}
+              {/* experience */}
               <section>
                 <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6 flex items-center gap-4">
                   Experience
@@ -182,39 +165,7 @@ export default function Resume() {
                 </h2>
 
                 <div className="space-y-10 md:space-y-14">
-                  {/* item */}
-                  <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
-                    <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
-
-                    <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-                      <h3 className="text-xl font-serif italic text-neutral-900 dark:text-white">
-                        Frontend Developer Intern
-                      </h3>
-                      <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1 md:mt-0">
-                        November 2025 - Januari 2026
-                      </span>
-                    </div>
-                    <p className="text-neutral-900 dark:text-white font-medium text-sm mb-4">
-                      Dinas Sosial Kabupaten Kubu Raya - Pontianak, Indonesia
-                    </p>
-                    <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
-                      <li>
-                        Designed and delivered a full-featured role-based admin
-                        dashboard for government social services, enabling
-                        secure document management across multiple user roles.
-                      </li>
-                      <li>
-                        Built a structured file upload system with real-time
-                        tracking and comprehensive user administration,
-                        streamlining internal workflows for case management.
-                      </li>
-                      <li>
-                        Strengthened data privacy and system security through
-                        automated activity logging and protected route
-                        architecture.
-                      </li>
-                    </ul>
-                  </div>
+                  {/* PT Cangkir Tech */}
                   <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
                     <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
 
@@ -223,28 +174,67 @@ export default function Resume() {
                         Co-Founder & Lead Engineer
                       </h3>
                       <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1 md:mt-0">
-                        Januari 2026 - Present
+                        January 2026 – Present
                       </span>
                     </div>
                     <p className="text-neutral-900 dark:text-white font-medium text-sm mb-4">
-                      PT Cangkir (Cangkir Tech) — Pontianak, Indonesia
+                      PT Cangkir Tech — Pontianak, Indonesia
                     </p>
                     <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
                       <li>
-                        Co-founded a digital agency serving local small and
-                        medium businesses (MSMEs) in Pontianak, defining the
-                        technical vision and engineering standards from day one.
+                        Co-founded PT Cangkir Tech from zero — handling
+                        everything from client acquisition and technical scoping
+                        to architecture decisions and deployment, serving as the
+                        sole engineer responsible for the full delivery
+                        lifecycle.
                       </li>
                       <li>
-                        Led full-stack development from architecture through
-                        deployment, delivering scalable and accessible solutions
-                        tailored to each client&apos;s operational needs.
+                        Shipped production-grade web systems for multiple MSME
+                        clients across Pontianak, translating business
+                        requirements into scalable, maintainable solutions under
+                        real deadlines.
                       </li>
                       <li>
-                        Aligned technical roadmaps with business priorities,
-                        establishing engineering practices that balance speed,
-                        quality, and cost-effectiveness for growing regional
-                        enterprises.
+                        Established engineering standards and technical roadmaps
+                        that balance speed, quality, and cost-effectiveness —
+                        enabling a small agency to compete and deliver at a
+                        professional level.
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Dinas Sosial */}
+                  <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
+                    <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
+
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                      <h3 className="text-xl font-serif italic text-neutral-900 dark:text-white">
+                        Frontend Developer Intern
+                      </h3>
+                      <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1 md:mt-0">
+                        November 2025 – January 2026
+                      </span>
+                    </div>
+                    <p className="text-neutral-900 dark:text-white font-medium text-sm mb-4">
+                      Dinas Sosial Kabupaten Kubu Raya — Pontianak, Indonesia
+                    </p>
+                    <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
+                      <li>
+                        Replaced a manual document workflow with a role-based
+                        digital dashboard for a government social services
+                        agency — enabling secure document management and
+                        reducing processing friction across multiple user roles.
+                      </li>
+                      <li>
+                        Built a structured file upload system with real-time
+                        tracking and user administration, streamlining internal
+                        case management workflows that previously relied on
+                        manual coordination.
+                      </li>
+                      <li>
+                        Implemented automated activity logging and protected
+                        route architecture that met government-level data
+                        security and audit trail requirements.
                       </li>
                     </ul>
                   </div>
@@ -259,7 +249,7 @@ export default function Resume() {
                 </h2>
 
                 <div className="space-y-10 md:space-y-14">
-                  {/* E-Commerce Platform */}
+                  {/* E-Commerce */}
                   <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
                     <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
 
@@ -272,24 +262,26 @@ export default function Resume() {
                       </span>
                     </div>
                     <p className="text-neutral-900 dark:text-white font-medium text-sm mb-4">
-                      Next.js · NestJS · TypeScript · PostgreSQL · Prisma
+                      Next.js · NestJS · TypeScript · PostgreSQL · Prisma ·
+                      Midtrans
                     </p>
                     <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
                       <li>
-                        Built a production-ready e-commerce platform with
-                        distinct dashboards for Admin, Seller, and Customer
-                        roles, enabling multi-vendor product management and
-                        secure transactions.
+                        Designed and shipped a multi-vendor e-commerce platform
+                        from scratch — supporting Admin, Seller, and Customer
+                        roles with independent dashboards, enabling live product
+                        management and real transactions.
                       </li>
                       <li>
-                        Integrated cloud-based media storage and payment
-                        processing to support seamless checkout experiences and
-                        reliable order fulfillment.
+                        Built a type-safe NestJS backend with Prisma ORM
+                        ensuring data integrity across the stack, integrated
+                        cloud-based media storage and Midtrans payment gateway
+                        for a complete production checkout flow.
                       </li>
                       <li>
-                        Designed a type-safe backend with NestJS, PostgreSQL,
-                        and Prisma ORM, ensuring data integrity and maintainable
-                        API contracts across the stack.
+                        Handled the full stack end-to-end: schema design,
+                        RESTful API contracts, frontend implementation, and
+                        cloud deployment — with no external engineering support.
                       </li>
                     </ul>
                   </div>
@@ -307,23 +299,26 @@ export default function Resume() {
                       </span>
                     </div>
                     <p className="text-neutral-900 dark:text-white font-medium text-sm mb-4">
-                      Next.js · TypeScript · Prisma · PostgreSQL · Midtrans
+                      Next.js · TypeScript · Prisma · PostgreSQL · Midtrans ·
+                      Server Actions
                     </p>
                     <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
                       <li>
-                        Developed an automated invoicing SaaS that simplifies
-                        billing and client management for small businesses,
-                        reducing manual administrative overhead.
+                        Built an invoicing SaaS that eliminates manual billing
+                        for small businesses — automating invoice generation,
+                        payment reminders via email, and collection tracking
+                        through Cron-based scheduling.
                       </li>
                       <li>
-                        Enabled scheduled invoice generation and email reminders
-                        through Cron-based automation, improving payment
-                        collection timelines for users.
-                      </li>
-                      <li>
-                        Integrated secure payment flows using Midtrans and
-                        Next.js Server Actions, providing a seamless checkout
+                        Integrated Midtrans payment gateway with secure Next.js
+                        Server Actions, delivering a production-ready checkout
                         experience with modern authentication safeguards.
+                      </li>
+                      <li>
+                        Designed the product end-to-end: from database schema
+                        and billing logic to the client-facing dashboard —
+                        solving a real problem for small business owners who
+                        manage invoices manually.
                       </li>
                     </ul>
                   </div>
@@ -345,22 +340,48 @@ export default function Resume() {
                       Universitas Muhammadiyah Pontianak
                     </h3>
                     <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1 md:mt-0">
-                      2022 - Present (Expected Graduation: 2026)
+                      2022 – Expected 2026
                     </span>
                   </div>
                   <p className="text-neutral-600 dark:text-gray-400 font-light text-sm md:text-base">
                     Bachelor of Computer Science in Informatics Engineering
-                    Universitas Muhammadiyah Pontianak
                   </p>
                   <p className="text-neutral-500 dark:text-gray-500 font-light text-sm mt-1">
-                    IPK: 3.xx / 4.00
+                    GPA: 3.xx / 4.00
                   </p>
                 </div>
               </section>
             </div>
 
-            {/* extra info */}
+            {/* right col */}
             <div className="md:col-span-4 space-y-12">
+              {/* availability — NEW SECTION */}
+              <section>
+                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6">
+                  Available For
+                </h2>
+                <div className="flex flex-col gap-3 text-sm font-light text-neutral-600 dark:text-gray-400">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-neutral-900 dark:text-white font-medium text-sm">
+                      Full-time roles
+                    </span>
+                    <span className="text-xs text-neutral-500 dark:text-gray-500 leading-relaxed">
+                      Software Engineer / Full Stack Developer positions
+                    </span>
+                  </div>
+                  <div className="h-[0.5px] bg-neutral-100 dark:bg-white/5"></div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-neutral-900 dark:text-white font-medium text-sm">
+                      Freelance projects
+                    </span>
+                    <span className="text-xs text-neutral-500 dark:text-gray-500 leading-relaxed">
+                      Full-stack web dev, MVP builds for startups & MSMEs
+                    </span>
+                  </div>
+                </div>
+              </section>
+
+              {/* links */}
               <section>
                 <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6">
                   Links
@@ -405,7 +426,7 @@ export default function Resume() {
                 </div>
               </section>
 
-              {/* skills */}
+              {/* tech stack */}
               <section>
                 <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6">
                   Tech Stack
@@ -414,13 +435,14 @@ export default function Resume() {
                   {[
                     "TypeScript",
                     "JavaScript",
-                    "Node.js",
-                    "NestJS",
                     "Next.js",
+                    "React",
+                    "NestJS",
+                    "Node.js",
                     "PostgreSQL",
                     "Prisma",
-                    "Solidity",
                     "Go (Golang)",
+                    "Solidity",
                   ].map((skill) => (
                     <span
                       key={skill}
