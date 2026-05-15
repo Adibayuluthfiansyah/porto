@@ -1,8 +1,15 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const locale = searchParams.get("locale") === "id" ? "id" : "en";
 
-export async function GET() {
+  const label = locale === "id" ? "Rekayasa Perangkat Lunak" : "Software Engineer";
+  const tagline =
+    locale === "id"
+      ? "Membangun aplikasi web dan sistem backend yang skalabel dengan Go, TypeScript, dan Next.js."
+      : "Building scalable web apps and backend systems with Go, TypeScript, and Next.js.";
+
   return new ImageResponse(
     <div
       style={{
@@ -26,7 +33,7 @@ export async function GET() {
             letterSpacing: "0.14em",
           }}
         >
-          Software Engineer
+          {label}
         </div>
       </div>
       <div
@@ -48,8 +55,7 @@ export async function GET() {
           maxWidth: "92%",
         }}
       >
-        Building scalable web apps and backend systems with Go, TypeScript, and
-        Next.js.
+        {tagline}
       </div>
       <div
         style={{

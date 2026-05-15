@@ -187,7 +187,7 @@ export default async function RootLayout({
                 "Full-Stack Developer & Software Engineer with 1+ years experience specializing in Go, TypeScript, Next.js, and modern web applications.",
       sameAs: [
         "https://github.com/Adibayuluthfiansyah",
-        "https://linkedin.com/in/adibayu-luthfiansyah",
+        "https://linkedin.com/in/adibayuluthfiansyah/",
       ],
               knowsAbout: [
                 "TypeScript",
