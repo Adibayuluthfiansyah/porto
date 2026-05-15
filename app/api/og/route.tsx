@@ -1,11 +1,14 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const locale = searchParams.get("locale") === "id" ? "id" : "en";
 
-export async function GET() {
-  const imageData = await fetch(
-    new URL("https://adibayuluthfiansyah.dev/icon-512.png"),
-  ).then((res) => res.arrayBuffer());
+  const label = locale === "id" ? "Rekayasa Perangkat Lunak" : "Software Engineer";
+  const tagline =
+    locale === "id"
+      ? "Membangun aplikasi web dan sistem backend yang skalabel dengan Go, TypeScript, dan Next.js."
+      : "Building scalable web apps and backend systems with Go, TypeScript, and Next.js.";
 
   return new ImageResponse(
     <div
@@ -13,62 +16,56 @@ export async function GET() {
         height: "100%",
         width: "100%",
         display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "#171717",
+        flexDirection: "column",
+        justifyContent: "center",
+        background: "linear-gradient(135deg, #0f172a 0%, #0a0a0a 100%)",
+        color: "white",
+        padding: "64px",
+        fontFamily: "Inter, sans-serif",
       }}
     >
-      {/* image */}
-      <div style={{ flex: 1, display: "flex", height: "100%" }}>
-        <img
-          // @ts-expect-error - Satori menerima ArrayBuffer untuk properti src
-          src={imageData}
-          alt="hero"
-          width={600}
-          height={630}
+      <div style={{ display: "flex", alignItems: "center", marginBottom: 20 }}>
+        <div
           style={{
-            objectFit: "cover",
-            objectPosition: "center",
+            fontSize: 28,
+            color: "#93c5fd",
+            textTransform: "uppercase",
+            letterSpacing: "0.14em",
           }}
-        />
+        >
+          {label}
+        </div>
       </div>
-
-      {/* content */}
       <div
         style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          padding: "60px",
-          height: "100%",
-          color: "white",
-          fontFamily: "sans-serif",
+          fontSize: 76,
+          fontWeight: 700,
+          marginBottom: 20,
+          lineHeight: 1.05,
+          letterSpacing: "-0.02em",
         }}
       >
-        <div
-          style={{
-            fontSize: 24,
-            color: "#94a3b8",
-            marginBottom: 10,
-            textTransform: "uppercase",
-          }}
-        >
-          Full-Stack Developer
-        </div>
-        <div
-          style={{
-            fontSize: 64,
-            fontWeight: "bold",
-            marginBottom: 20,
-            lineHeight: 1.1,
-          }}
-        >
-          Adibayu Luthfiansyah
-        </div>
-        <div style={{ fontSize: 28, color: "#94a3b8", lineHeight: 1.4 }}>
-          Specializing in backend architecture with Next.js, NestJS, and Go.
-        </div>
+        Adibayu Luthfiansyah
+      </div>
+      <div
+        style={{
+          fontSize: 34,
+          color: "#cbd5e1",
+          lineHeight: 1.3,
+          maxWidth: "92%",
+        }}
+      >
+        {tagline}
+      </div>
+      <div
+        style={{
+          marginTop: 36,
+          fontSize: 24,
+          color: "#93c5fd",
+          letterSpacing: "0.06em",
+        }}
+      >
+        adibayuluthfiansyah.dev
       </div>
     </div>,
     {

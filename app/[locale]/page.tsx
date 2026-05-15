@@ -21,6 +21,21 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: t('homeOgDescription'),
       url: `https://adibayuluthfiansyah.dev/${locale}`,
       type: "website",
+      images: [
+        {
+          url: `https://adibayuluthfiansyah.dev/api/og?locale=${locale}`,
+          width: 1200,
+          height: 630,
+          alt: t('homeTitle'),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t('homeTitle'),
+      description: t('homeOgDescription'),
+      images: [`https://adibayuluthfiansyah.dev/api/og?locale=${locale}`],
+      creator: "@adibayuluthfiansyah",
     },
   };
 }

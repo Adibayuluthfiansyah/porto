@@ -40,38 +40,36 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   
   return {
     metadataBase: new URL("https://adibayuluthfiansyah.dev"),
-    title: "Adibayu Luthfiansyah | Fullstack Dev",
+    title: "Adibayu Luthfiansyah | Full-Stack Developer",
     description:
       "Adibayu Luthfiansyah — Full-Stack Developer - Software Engineer specializing in backend architecture and modern web applications. Focused on building scalable systems",
     keywords: [
       "Pontianak",
       "Indonesia",
-      "Fullstack Developer Pontianak",
+      "Full-Stack Developer Pontianak",
       "Full Stack Developer",
       "Software Engineer",
       "Web Development",
       "Next.js Developer",
       "React Developer",
       "TypeScript Developer",
-      "NestJS Developer",
+      "Go Developer",
       "Backend Developer",
       "Frontend Developer",
       "Pontianak Developer",
       "Indonesia Developer",
       "AI-Assisted Coding",
       "Modern Web Development",
-      "Go Developer",
-      "Golang",
       "PostgreSQL",
       "Prisma ORM",
       "RESTful API",
       "E-Commerce Development",
       "SaaS Development",
       "Hire Next.js Developer",
-      "Freelance Fullstack Developer Indonesia",
+      "Freelance Full-Stack Developer Indonesia",
       "B2B Web App Builder",
       "SaaS Developer",
-      "NestJS Backend Engineer",
+      "Go Backend Engineer",
       "Programmer for Hire",
       "Programmer for Hire Indonesia",
       "Programmer for Hire Pontianak",
@@ -91,13 +89,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       type: "website",
       url: `https://adibayuluthfiansyah.dev/${locale}`,
       siteName: "Adibayu Luthfiansyah",
-      title: "Adibayu Luthfiansyah — FullStack Developer",
+      title: "Adibayu Luthfiansyah — Full-Stack Developer",
       description:
-        "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS.",
+        "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Go, Next.js, and TypeScript.",
       locale: locale === 'id' ? "id_ID" : "en_US",
       images: [
         {
-          url: "https://adibayuluthfiansyah.dev/api/og",
+          url: `https://adibayuluthfiansyah.dev/api/og?locale=${locale}`,
           width: 1200,
           height: 630,
           alt: "Adibayu Luthfiansyah Portfolio",
@@ -106,11 +104,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     twitter: {
       card: "summary_large_image",
-      title: "Adibayu Luthfiansyah — FullStack Developer",
+      title: "Adibayu Luthfiansyah — Full-Stack Developer",
       description:
-        "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Next.js, NestJS.",
-      images: ["https://adibayuluthfiansyah.dev/api/og"],
+        "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Go, Next.js, and TypeScript.",
+      images: [`https://adibayuluthfiansyah.dev/api/og?locale=${locale}`],
       creator: "@adibayuluthfiansyah",
+    },
+    other: {
+      "og:image:secure_url": `https://adibayuluthfiansyah.dev/api/og?locale=${locale}`,
+      "og:image:type": "image/png",
+      "twitter:image": `https://adibayuluthfiansyah.dev/api/og?locale=${locale}`,
     },
     robots: {
       index: true,
@@ -148,7 +151,7 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
   
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound();
   }
 
@@ -181,20 +184,19 @@ export default async function RootLayout({
               url: "https://adibayuluthfiansyah.dev",
               jobTitle: "Full Stack Developer",
               description:
-                "Full-Stack Developer & Software Engineer with 1+ years experience specializing in TypeScript, Next.js, NestJS, and modern web applications.",
-              sameAs: [
-                "https://github.com/adibayuuuu",
-                "https://linkedin.com/in/adibayu-luthfiansyah",
-              ],
+                "Full-Stack Developer & Software Engineer with 1+ years experience specializing in Go, TypeScript, Next.js, and modern web applications.",
+      sameAs: [
+        "https://github.com/Adibayuluthfiansyah",
+        "https://linkedin.com/in/adibayuluthfiansyah/",
+      ],
               knowsAbout: [
                 "TypeScript",
                 "Next.js",
                 "React",
-                "NestJS",
                 "Node.js",
+                "Go",
                 "PostgreSQL",
                 "Prisma",
-                "Go",
                 "AI-Assisted Coding",
               ],
             }),
