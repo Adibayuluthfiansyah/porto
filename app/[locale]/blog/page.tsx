@@ -8,10 +8,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://adibayuluthfiansyah.dev"),
   title: "Blog | Adibayu Luthfiansyah",
-  description: "Tech insights, tutorials, and thoughts on modern web development, fullstack engineering, and software architecture.",
+  description: "Tech insights, tutorials, and thoughts on modern web development, full-stack engineering, Go backend architecture, and software design.",
   openGraph: {
     title: "Blog | Adibayu Luthfiansyah",
-    description: "Tech insights, tutorials, and thoughts on modern web development, fullstack engineering, and software architecture.",
+    description: "Tech insights, tutorials, and thoughts on modern web development, full-stack engineering, Go backend architecture, and software design.",
     type: "website",
   },
 };

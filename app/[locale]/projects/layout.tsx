@@ -4,13 +4,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://adibayuluthfiansyah.dev"),
   title: "Projects | Adibayu Luthfiansyah - E-Commerce, SaaS & Web Applications",
   description:
-    "Explore my portfolio of full-stack projects including E-Commerce platforms, Automated Invoicing SaaS, Government Management Systems, and Cangkir Tech agency. Built with Next.js, NestJS, TypeScript, and PostgreSQL.",
+    "Explore my portfolio of full-stack projects including E-Commerce platforms, Automated Invoicing SaaS, Government Management Systems, and Cangkir Tech agency. Built with Next.js, Go, TypeScript, and PostgreSQL.",
   keywords: [
     "Full Stack Projects",
     "E-Commerce Platform",
     "SaaS Application",
     "Next.js Projects",
-    "NestJS Backend",
+    "Go Backend",
     "TypeScript Projects",
     "PostgreSQL Database",
     "Web Development Portfolio",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Projects | Adibayu Luthfiansyah - E-Commerce, SaaS & Web Apps",
     description:
-      "Explore my portfolio of full-stack projects including E-Commerce platforms, Automated Invoicing SaaS, and more. Built with Next.js, NestJS, TypeScript, and PostgreSQL.",
+      "Explore my portfolio of full-stack projects including E-Commerce platforms, Automated Invoicing SaaS, and more. Built with Next.js, Go, TypeScript, and PostgreSQL.",
     url: "https://adibayuluthfiansyah.dev/projects",
     type: "website",
   },

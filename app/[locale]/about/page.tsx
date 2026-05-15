@@ -77,10 +77,7 @@ export default function About() {
                   TypeScript
                 </li>
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Node.js / NestJS
-                </li>
-                <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Go (Golang)
+                  Go (Golang) / Node.js
                 </li>
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
                   Prisma / PostgreSQL
@@ -104,7 +101,7 @@ export default function About() {
                   Tailwind CSS
                 </li>
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Docker & Nginx
+                  Docker
                 </li>
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
                   Git / DevOps
