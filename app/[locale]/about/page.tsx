@@ -3,10 +3,7 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import FadeInScroll from "@/components/ui/FadeInScroll";
-import {
-  StaggerContainer,
-  StaggerItem,
-} from "@/components/ui/StaggerAnimation";
+import { StaggerContainer, StaggerItem } from "@/components/ui/StaggerAnimation";
 
 export default function About() {
   const t = useTranslations("about");
@@ -23,10 +20,7 @@ export default function About() {
     <section className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24 bg-transparent text-neutral-900 dark:text-white transition-colors duration-500 py-20 md:py-32 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-start">
         {/* left*/}
-        <FadeInScroll
-          direction="left"
-          className="md:col-span-4 md:sticky md:top-32"
-        >
+        <FadeInScroll direction="left" className="md:col-span-4 md:sticky md:top-32">
           <h2 className="text-xs md:text-sm font-sans uppercase tracking-[0.3em] text-neutral-700 dark:text-gray-300 transition-colors mb-4 md:mb-6 ml-1">
             {t("label")}
           </h2>
@@ -77,10 +71,10 @@ export default function About() {
                   TypeScript
                 </li>
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Go (Golang) / Node.js
+                  Go (Golang) / Rust
                 </li>
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Prisma / PostgreSQL
+                  MySQL / PostgreSQL
                 </li>
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
                   RESTful APIs
@@ -104,7 +98,7 @@ export default function About() {
                   Docker
                 </li>
                 <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Git / DevOps
+                  Git / DevOps / Linux
                 </li>
               </ul>
             </FadeInScroll>
