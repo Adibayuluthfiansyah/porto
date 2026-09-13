@@ -4,9 +4,16 @@ export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const locale = searchParams.get("locale") === "id" ? "id" : "en";
 
-  const photoRes = await fetch(`${origin}/hero-og.png`);
-  const photoBuffer = await photoRes.arrayBuffer();
-  const photoBase64 = `data:image/png;base64,${Buffer.from(photoBuffer).toString("base64")}`;
+  let photoBase64: string | null = null;
+  try {
+    const photoRes = await fetch(`${origin}/hero-og.png`);
+    if (photoRes.ok) {
+      const photoBuffer = await photoRes.arrayBuffer();
+      photoBase64 = `data:image/png;base64,${Buffer.from(photoBuffer).toString("base64")}`;
+    }
+  } catch {
+    photoBase64 = null;
+  }
 
   const label = "Software Engineer";
   const tagline =
@@ -34,19 +41,30 @@ export async function GET(request: Request) {
           display: "flex",
         }}
       >
-        <img
-          src={photoBase64}
-          alt="Adibayu Luthfiansyah Setyawan"
-          width={552}
-          height={630}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center top",
-            filter: "grayscale(100%)",
-          }}
-        />
+        {photoBase64 ? (
+          <img
+            src={photoBase64}
+            alt="Adibayu Luthfiansyah Setyawan"
+            width={552}
+            height={630}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center top",
+              filter: "grayscale(100%)",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "#1a1b26",
+              display: "flex",
+            }}
+          />
+        )}
 
         <div
           style={{

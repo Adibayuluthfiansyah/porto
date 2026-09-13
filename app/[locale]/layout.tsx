@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Fraunces, Cormorant_Garamond } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
@@ -8,25 +8,11 @@ import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 
-const poppins = Poppins({
+/* DESIGN.md enforces 100% JetBrains Mono; single family keeps payload small. */
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
-  display: "swap",
-  preload: true,
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-  preload: true,
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-cormorant",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
   preload: true,
 });
@@ -160,6 +146,10 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           strategy="afterInteractive"
@@ -205,12 +195,13 @@ export default async function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={`${poppins.variable} ${fraunces.variable} ${cormorant.variable} bg-neutral-50 dark:bg-[#1a1a1a] text-neutral-900 dark:text-white transition-colors duration-500 antialiased `}
+        className={`${jetbrainsMono.variable} bg-[#12131d] text-[#e2e1f1] transition-colors duration-500 antialiased `}
       >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
+            forcedTheme="dark"
             enableSystem={false}
           >
             {children}

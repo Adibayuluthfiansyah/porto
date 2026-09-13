@@ -89,25 +89,87 @@
     "instagramLabel": "Instagram",
     "instagramValue": "@adibayuluthfiansyah"
   },
-  "contactModal": {
-    "title": "Mari Bangun Sesuatu yang Hebat Bersama.",
-    "description": "Saya terbuka untuk proyek freelance, peran full-time, atau sekadar ngobrol santai soal teknologi. Pilih cara yang paling nyaman untuk terhubung.",
-    "emailLabel": "Email Saya",
-    "emailSubtext": "Respon < 24 jam",
-    "whatsappLabel": "WhatsApp",
-    "whatsappSubtext": "Respon tercepat",
-    "instagramLabel": "Instagram",
-    "instagramSubtext": "Follow untuk update"
-  },
-  "footer": {
-    "copyright": "© {year} Adibayu Luthfiansyah Setyawan",
-    "about": "Tentang",
-    "projects": "Proyek",
-    "contact": "Kontak",
-    "github": "GitHub",
-    "linkedin": "LinkedIn",
-    "instagram": "Instagram",
-    "gmail": "Gmail"
+  "ide": {
+    "explorer": {
+      "title": "EXPLORER",
+      "version": "PORT v0.10",
+      "dashboard": "home.dashboard",
+      "about": "about.md",
+      "projects": "projects/",
+      "writing": "blog/",
+      "resume": "resume.pdf"
+    },
+    "tabs": {
+      "about": "about.md",
+      "projects": "projects/",
+      "home": "~/portfolio"
+    },
+    "header": {
+      "path": "~/Projects/portfolio",
+      "branch": "main",
+      "openMenu": "Buka menu",
+      "closeMenu": "Tutup menu",
+      "avatarAlt": "Potret Adibayu Luthfiansyah"
+    },
+    "tree": {
+      "title": "FILE-TREE",
+      "filterPlaceholder": ":find / filter...",
+      "root": "portfolio-v4",
+      "git": "git:main",
+      "collapseAll": "Ciutkan semua",
+      "expandAll": "Bentangkan semua",
+      "projects": "projects/",
+      "blog": "blog/",
+      "blogIndex": "index -> tulisan",
+      "about": "about.md",
+      "active": "[aktif]",
+      "experience": "experience.json",
+      "skills": "skills.ts",
+      "contact": "contact.tsx",
+      "resume": "resume.pdf",
+      "statusTitle": "STATUS WORKSPACE",
+      "statusOk": "BERSIH",
+      "stackMeta": "stack: go, ts, next",
+      "i18nMeta": "i18n: en / id",
+      "noMatch": "Tidak ada file yang cocok."
+    },
+    "hero": {
+      "role": "Full-Stack Developer",
+      "stack": "Go, TypeScript dan Next.js",
+      "location": "Pontianak, Indonesia",
+      "telemetry": "1+ thn pengalaman, 5 proyek rilis, EN/ID"
+    },
+    "menu": {
+      "about": { "key": "a", "label": "Tentang Saya", "desc": "Bio dan etos backend-first" },
+      "projects": {
+        "key": "p",
+        "label": "Proyek Unggulan",
+        "desc": "E-commerce, Dinsos, invoicing SaaS, open source"
+      },
+      "experience": {
+        "key": "e",
+        "label": "Pengalaman Kerja",
+        "desc": "Lead Cangkir Tech dan magang Dinsos"
+      },
+      "skills": {
+        "key": "s",
+        "label": "Teknologi Inti",
+        "desc": "Go, Next.js, TypeScript, PostgreSQL, Prisma"
+      },
+      "contact": { "key": "c", "label": "Hubungi Saya", "desc": "Email, WhatsApp dan Instagram" },
+      "resume": { "key": "r", "label": "Curriculum Vitae", "desc": "Halaman resume dan unduh PDF" },
+      "writing": { "key": "b", "label": "Tulisan Teknis", "desc": "Esai dan catatan dev" }
+    },
+    "hints": {
+      "select": "'<Enter>' pilih",
+      "navigate": "'<j/k>' navigasi"
+    },
+    "status": {
+      "mode": "[ NORMAL ]",
+      "branch": "main",
+      "encoding": "utf-8",
+      "filetype": "typescript/tsx"
+    }
   },
   "metadata": {
     "homeTitle": "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",

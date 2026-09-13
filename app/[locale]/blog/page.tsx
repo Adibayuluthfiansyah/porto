@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import Navbar from "@/components/ui/Navbar";
+import IdeShell from "@/components/ide/IdeShell";
 import BlogGrid from "@/components/ui/BlogGrid";
 import { Metadata } from "next";
 
@@ -34,9 +34,8 @@ export default function BlogMainPage() {
   });
 
   return (
-    <main className="min-h-screen bg-transparent text-neutral-900 dark:text-white font-sans transition-colors duration-500">
-      <Navbar />
+    <IdeShell>
       <BlogGrid posts={posts} />
-    </main>
+    </IdeShell>
   );
 }
