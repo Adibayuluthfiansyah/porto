@@ -1,110 +1,74 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import FadeInScroll from "@/components/ui/FadeInScroll";
-import { StaggerContainer, StaggerItem } from "@/components/ui/StaggerAnimation";
+import IdeShell from "@/components/ide/IdeShell";
 
 export default function About() {
   const t = useTranslations("about");
-  const fadeUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
-    },
-  };
 
   return (
-    <section className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24 bg-transparent text-neutral-900 dark:text-white transition-colors duration-500 py-20 md:py-32 overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-start">
-        {/* left*/}
-        <FadeInScroll direction="left" className="md:col-span-4 md:sticky md:top-32">
-          <h2 className="text-xs md:text-sm font-sans uppercase tracking-[0.3em] text-neutral-700 dark:text-gray-300 transition-colors mb-4 md:mb-6 ml-1">
-            {t("label")}
-          </h2>
-          <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif italic text-neutral-700 dark:text-gray-300 transition-colors leading-tight">
-            {t("heading1")} <br />
-            <span className="text-gray-500">{t("heading2")}</span>
-          </h3>
-        </FadeInScroll>
+    <IdeShell>
+    <section id="about" className="px-space-md md:px-space-xl py-space-md md:py-space-lg">
+      <div className="max-w-5xl mx-auto bg-surface-container-lowest border border-outline-variant/40">
+        <div className="px-space-md py-space-sm bg-surface-container flex items-center gap-space-xs">
+          <span aria-hidden="true" className="material-symbols-outlined text-secondary text-[16px]">
+            description
+          </span>
+          <span className="font-code-inline text-code-inline text-on-surface-variant">
+            ~/about.md
+          </span>
+        </div>
 
-        {/* right */}
-        <StaggerContainer className="md:col-span-8 space-y-8 md:space-y-12 mt-2 md:mt-0">
-          {/* bio */}
-          <StaggerItem className="text-base md:text-lg lg:text-xl font-light leading-relaxed text-neutral-700 dark:text-gray-300 transition-colors font-sans">
-            <p className="mb-6">
+        <div className="p-space-md md:p-space-xl grid grid-cols-1 md:grid-cols-12 gap-space-lg">
+          <div className="md:col-span-4">
+            <p className="font-label-lg text-label-lg text-primary tracking-wider uppercase mb-space-xs">
+              {t("label")}
+            </p>
+            <h2 className="font-headline-lg text-headline-lg md:text-headline-xl md:leading-[44px] text-on-surface font-bold">
+              {t("heading1")} {t("heading2")}
+            </h2>
+          </div>
+
+          <div className="md:col-span-8">
+            <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md">
               {t.rich("bio1", {
-                b: (chunks) => (
-                  <span className="text-neutral-900 dark:text-white transition-colors font-medium">
-                    {chunks}
-                  </span>
-                ),
+                b: (chunks) => <span className="text-on-surface font-semibold">{chunks}</span>,
               })}
             </p>
-            <p>
-              {t("bio2")}
-              <br />
-              <br />
+            <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">{t("bio2")}</p>
+            <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mt-space-md">
               {t("bio3")}
-              <br />
-              <br />
-              {t("bio4")}
             </p>
-          </StaggerItem>
+            <p className="font-body-md text-body-md text-secondary mt-space-md">{t("bio4")}</p>
 
-          {/* dot*/}
-          <StaggerItem>
-            <div className="w-full h-[1px] bg-neutral-300 dark:bg-white/10 transition-colors" />
-          </StaggerItem>
-
-          {/* Tech Stack & Fokus */}
-          <StaggerItem className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
-            {/* Backend & Database */}
-            <FadeInScroll direction="up" delay={0.1}>
-              <h4 className="text-xs font-sans uppercase tracking-[0.2em] text-gray-500 mb-4 md:mb-6">
-                {t("techStack1Title")}
-              </h4>
-              <ul className="space-y-3 md:space-y-4 font-serif italic text-base md:text-lg text-neutral-700 dark:text-gray-300 transition-colors">
-                <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  TypeScript
-                </li>
-                <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Go (Golang) / Rust
-                </li>
-                <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  MySQL / PostgreSQL
-                </li>
-                <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  RESTful APIs
-                </li>
-              </ul>
-            </FadeInScroll>
-
-            {/* Frontend & Tools */}
-            <FadeInScroll direction="up" delay={0.2}>
-              <h4 className="text-xs font-sans uppercase tracking-[0.2em] text-gray-500 mb-4 md:mb-6">
-                {t("techStack2Title")}
-              </h4>
-              <ul className="space-y-3 md:space-y-4 font-sans font-light text-base md:text-lg text-neutral-700 dark:text-gray-300 transition-colors">
-                <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  React / Next.js
-                </li>
-                <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Tailwind CSS
-                </li>
-                <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Docker
-                </li>
-                <li className="hover:text-neutral-900 dark:hover:text-white transition-colors duration-300 cursor-default">
-                  Git / DevOps / Linux
-                </li>
-              </ul>
-            </FadeInScroll>
-          </StaggerItem>
-        </StaggerContainer>
+            <div id="skills" className="grid grid-cols-1 sm:grid-cols-2 gap-space-lg mt-space-xl scroll-mt-20">
+              <div>
+                <h3 className="font-label-md text-label-md text-primary tracking-widest uppercase mb-space-sm">
+                  {t("techStack1Title")}
+                </h3>
+                <ul className="font-code-inline text-code-inline text-on-surface-variant flex flex-col gap-space-xs">
+                  <li>TypeScript</li>
+                  <li>Go (Golang) / Rust</li>
+                  <li>MySQL / PostgreSQL</li>
+                  <li>RESTful APIs</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-label-md text-label-md text-primary tracking-widest uppercase mb-space-sm">
+                  {t("techStack2Title")}
+                </h3>
+                <ul className="font-code-inline text-code-inline text-on-surface-variant flex flex-col gap-space-xs">
+                  <li>React / Next.js</li>
+                  <li>Tailwind CSS</li>
+                  <li>Docker</li>
+                  <li>Git / DevOps / Linux</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+    </IdeShell>
   );
 }

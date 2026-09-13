@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Native smooth scroll */
+/* Native smooth scroll (single source; Lenis provider removed in phase 1) */
 html {
   scroll-behavior: smooth;
 }
@@ -12,9 +12,13 @@ html {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --font-sans: var(--font-poppins);
-  --font-serif: var(--font-fraunces);
-  --font-display: var(--font-cormorant);
+  /* DESIGN.md enforces 100% monospaced type: every font role maps to JetBrains Mono
+     so existing font-sans / font-serif classes keep working while turning mono. */
+  --font-sans: var(--font-jetbrains-mono);
+  --font-serif: var(--font-jetbrains-mono);
+  --font-display: var(--font-jetbrains-mono);
+  --font-mono: var(--font-jetbrains-mono);
+
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -44,86 +48,141 @@ html {
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* DESIGN.md shapes: strict 0px radius everywhere. */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  /* Full Tokyo Night ramp as utilities (bg-tn-buffer, text-tn-fg, border-tn-border ...). */
+  --color-tn-canvas: var(--tn-canvas);
+  --color-tn-buffer: var(--tn-buffer);
+  --color-tn-elevated: var(--tn-elevated);
+  --color-tn-border: var(--tn-border);
+  --color-tn-border-active: var(--tn-border-active);
+  --color-tn-blue: var(--tn-blue);
+  --color-tn-cyan: var(--tn-cyan);
+  --color-tn-purple: var(--tn-purple);
+  --color-tn-green: var(--tn-green);
+  --color-tn-red: var(--tn-red);
+  --color-tn-amber: var(--tn-amber);
+  --color-tn-orange: var(--tn-orange);
+  --color-tn-fg: var(--tn-fg);
+  --color-tn-comment: var(--tn-comment);
 }
 
 body {
-  font-family: var(--font-poppins), system-ui, sans-serif, var(--font-fraunces), var(--font-cormorant);
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
+/* Dark-only system (DESIGN.md has no light variant).
+   Tokens live on :root and are mirrored under .dark so the forced-dark
+   html class keeps every existing dark: variant working until phase 3. */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --radius: 0rem;
+  --background: #12131d;
+  --foreground: #e2e1f1;
+  --card: #1a1b26;
+  --card-foreground: #c0caf5;
+  --popover: #24283b;
+  --popover-foreground: #c0caf5;
+  --primary: #7aa2f7;
+  --primary-foreground: #16161e;
+  --secondary: #24283b;
+  --secondary-foreground: #c0caf5;
+  --muted: #1e1f2a;
+  /* #565f89 comment grey fails AA on dark bg, so running text uses the
+     in-system outline tone #8d909d (passes AA); #565f89 stays for
+     decorative meta only via --tn-comment. */
+  --muted-foreground: #8d909d;
+  --accent: #24283b;
+  --accent-foreground: #7dcfff;
+  --destructive: #f7768e;
+  --border: #292e42;
+  --input: #292e42;
+  --ring: #7aa2f7;
+  --chart-1: #7aa2f7;
+  --chart-2: #7dcfff;
+  --chart-3: #bb9af7;
+  --chart-4: #9ece6a;
+  --chart-5: #f7768e;
+  --sidebar: #16161e;
+  --sidebar-foreground: #c0caf5;
+  --sidebar-primary: #7aa2f7;
+  --sidebar-primary-foreground: #16161e;
+  --sidebar-accent: #24283b;
+  --sidebar-accent-foreground: #7dcfff;
+  --sidebar-border: #292e42;
+  --sidebar-ring: #7aa2f7;
+
+  --tn-canvas: #16161e;
+  --tn-buffer: #1a1b26;
+  --tn-elevated: #24283b;
+  --tn-border: #292e42;
+  --tn-border-active: #414868;
+  --tn-blue: #7aa2f7;
+  --tn-cyan: #7dcfff;
+  --tn-purple: #bb9af7;
+  --tn-green: #9ece6a;
+  --tn-red: #f7768e;
+  --tn-amber: #e0af68;
+  --tn-orange: #ff9e64;
+  --tn-fg: #c0caf5;
+  --tn-comment: #565f89;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --radius: 0rem;
+  --background: #12131d;
+  --foreground: #e2e1f1;
+  --card: #1a1b26;
+  --card-foreground: #c0caf5;
+  --popover: #24283b;
+  --popover-foreground: #c0caf5;
+  --primary: #7aa2f7;
+  --primary-foreground: #16161e;
+  --secondary: #24283b;
+  --secondary-foreground: #c0caf5;
+  --muted: #1e1f2a;
+  --muted-foreground: #8d909d;
+  --accent: #24283b;
+  --accent-foreground: #7dcfff;
+  --destructive: #f7768e;
+  --border: #292e42;
+  --input: #292e42;
+  --ring: #7aa2f7;
+  --chart-1: #7aa2f7;
+  --chart-2: #7dcfff;
+  --chart-3: #bb9af7;
+  --chart-4: #9ece6a;
+  --chart-5: #f7768e;
+  --sidebar: #16161e;
+  --sidebar-foreground: #c0caf5;
+  --sidebar-primary: #7aa2f7;
+  --sidebar-primary-foreground: #16161e;
+  --sidebar-accent: #24283b;
+  --sidebar-accent-foreground: #7dcfff;
+  --sidebar-border: #292e42;
+  --sidebar-ring: #7aa2f7;
+
+  --tn-canvas: #16161e;
+  --tn-buffer: #1a1b26;
+  --tn-elevated: #24283b;
+  --tn-border: #292e42;
+  --tn-border-active: #414868;
+  --tn-blue: #7aa2f7;
+  --tn-cyan: #7dcfff;
+  --tn-purple: #bb9af7;
+  --tn-green: #9ece6a;
+  --tn-red: #f7768e;
+  --tn-amber: #e0af68;
+  --tn-orange: #ff9e64;
+  --tn-fg: #c0caf5;
+  --tn-comment: #565f89;
 }
 
 @layer base {
@@ -132,10 +191,135 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    overscroll-behavior: none;
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Stitch terminal chrome hides scrollbars; keyboard scroll is unaffected. */
+::-webkit-scrollbar {
+  display: none;
 }
 
+/* Stitch palette verbatim (DESIGN.md dark frontmatter) so Stitch-derived
+   classes work unchanged: bg-surface-container, text-primary, etc. */
+@theme {
+  --color-surface: #12131d;
+  --color-surface-dim: #12131d;
+  --color-surface-bright: #383844;
+  --color-surface-container-lowest: #0c0d18;
+  --color-surface-container-low: #1a1b26;
+  --color-surface-container: #1e1f2a;
+  --color-surface-container-high: #282935;
+  --color-surface-container-highest: #333440;
+  --color-on-surface: #e2e1f1;
+  --color-on-surface-variant: #c3c6d3;
+  --color-inverse-surface: #e2e1f1;
+  --color-inverse-on-surface: #2f303b;
+  --color-outline: #8d909d;
+  --color-outline-variant: #434751;
+  --color-surface-tint: #aec6ff;
+  --color-primary: #aec6ff;
+  --color-on-primary: #002e6b;
+  --color-primary-container: #7aa2f7;
+  --color-on-primary-container: #00367d;
+  --color-inverse-primary: #305cac;
+  --color-secondary: #7fd0ff;
+  --color-on-secondary: #00344a;
+  --color-secondary-container: #0075a1;
+  --color-on-secondary-container: #e2f2ff;
+  --color-tertiary: #d4bbff;
+  --color-on-tertiary: #3d1b72;
+  --color-tertiary-container: #b493ef;
+  --color-on-tertiary-container: #46267c;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-primary-fixed: #d8e2ff;
+  --color-primary-fixed-dim: #aec6ff;
+  --color-on-primary-fixed: #001a43;
+  --color-on-primary-fixed-variant: #0c4393;
+  --color-secondary-fixed: #c5e7ff;
+  --color-secondary-fixed-dim: #7fd0ff;
+  --color-on-secondary-fixed: #001e2d;
+  --color-on-secondary-fixed-variant: #004c6a;
+  --color-tertiary-fixed: #ebdcff;
+  --color-tertiary-fixed-dim: #d4bbff;
+  --color-on-tertiary-fixed: #260058;
+  --color-on-tertiary-fixed-variant: #54358a;
+  --color-background: #12131d;
+  --color-on-background: #e2e1f1;
+  --color-surface-variant: #333440;
+
+  --font-headline-xl: "JetBrains Mono", ui-monospace, monospace;
+  --font-headline-xl-mobile: "JetBrains Mono", ui-monospace, monospace;
+  --font-headline-lg: "JetBrains Mono", ui-monospace, monospace;
+  --font-headline-lg-mobile: "JetBrains Mono", ui-monospace, monospace;
+  --font-headline-md: "JetBrains Mono", ui-monospace, monospace;
+  --font-body-lg: "JetBrains Mono", ui-monospace, monospace;
+  --font-body-md: "JetBrains Mono", ui-monospace, monospace;
+  --font-body-sm: "JetBrains Mono", ui-monospace, monospace;
+  --font-label-lg: "JetBrains Mono", ui-monospace, monospace;
+  --font-label-md: "JetBrains Mono", ui-monospace, monospace;
+  --font-label-sm: "JetBrains Mono", ui-monospace, monospace;
+  --font-code-inline: "JetBrains Mono", ui-monospace, monospace;
+
+  --text-headline-xl: 36px;
+  --text-headline-xl--line-height: 44px;
+  --text-headline-xl--letter-spacing: -0.04em;
+  --text-headline-xl--font-weight: 700;
+  --text-headline-xl-mobile: 26px;
+  --text-headline-xl-mobile--line-height: 34px;
+  --text-headline-xl-mobile--letter-spacing: -0.03em;
+  --text-headline-xl-mobile--font-weight: 700;
+  --text-headline-lg: 28px;
+  --text-headline-lg--line-height: 36px;
+  --text-headline-lg--letter-spacing: -0.03em;
+  --text-headline-lg--font-weight: 600;
+  --text-headline-lg-mobile: 22px;
+  --text-headline-lg-mobile--line-height: 30px;
+  --text-headline-lg-mobile--letter-spacing: -0.02em;
+  --text-headline-lg-mobile--font-weight: 600;
+  --text-headline-md: 20px;
+  --text-headline-md--line-height: 28px;
+  --text-headline-md--letter-spacing: -0.02em;
+  --text-headline-md--font-weight: 600;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+  --text-body-lg--letter-spacing: -0.01em;
+  --text-body-lg--font-weight: 400;
+  --text-body-md: 14px;
+  --text-body-md--line-height: 22px;
+  --text-body-md--letter-spacing: 0em;
+  --text-body-md--font-weight: 400;
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 18px;
+  --text-body-sm--letter-spacing: 0em;
+  --text-body-sm--font-weight: 400;
+  --text-label-lg: 13px;
+  --text-label-lg--line-height: 16px;
+  --text-label-lg--letter-spacing: 0.02em;
+  --text-label-lg--font-weight: 600;
+  --text-label-md: 11px;
+  --text-label-md--line-height: 14px;
+  --text-label-md--letter-spacing: 0.04em;
+  --text-label-md--font-weight: 500;
+  --text-label-sm: 10px;
+  --text-label-sm--line-height: 12px;
+  --text-label-sm--letter-spacing: 0.06em;
+  --text-label-sm--font-weight: 500;
+  --text-code-inline: 13px;
+  --text-code-inline--line-height: 18px;
+  --text-code-inline--letter-spacing: 0em;
+  --text-code-inline--font-weight: 400;
+
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-gutter: 1rem;
+  --spacing-gutter-mobile: 0.5rem;
+  --spacing-margin: 2rem;
+  --spacing-margin-mobile: 1rem;
+}

@@ -89,25 +89,87 @@
     "instagramLabel": "Instagram",
     "instagramValue": "@adibayuluthfiansyah"
   },
-  "contactModal": {
-    "title": "Let's Build Something Great Together.",
-    "description": "I'm available for freelance projects, full-time roles, or just a friendly chat about tech. Choose your preferred way to connect.",
-    "emailLabel": "Email Me",
-    "emailSubtext": "Response < 24h",
-    "whatsappLabel": "WhatsApp",
-    "whatsappSubtext": "Fastest response",
-    "instagramLabel": "Instagram",
-    "instagramSubtext": "Follow for updates"
-  },
-  "footer": {
-    "copyright": "© {year} Adibayu Luthfiansyah Setyawan",
-    "about": "About",
-    "projects": "Projects",
-    "contact": "Contact",
-    "github": "GitHub",
-    "linkedin": "LinkedIn",
-    "instagram": "Instagram",
-    "gmail": "Gmail"
+  "ide": {
+    "explorer": {
+      "title": "EXPLORER",
+      "version": "PORT v0.10",
+      "dashboard": "home.dashboard",
+      "about": "about.md",
+      "projects": "projects/",
+      "writing": "blog/",
+      "resume": "resume.pdf"
+    },
+    "tabs": {
+      "about": "about.md",
+      "projects": "projects/",
+      "home": "~/portfolio"
+    },
+    "header": {
+      "path": "~/Projects/portfolio",
+      "branch": "main",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "avatarAlt": "Portrait of Adibayu Luthfiansyah"
+    },
+    "tree": {
+      "title": "FILE-TREE",
+      "filterPlaceholder": ":find / filter...",
+      "root": "portfolio-v4",
+      "git": "git:main",
+      "collapseAll": "Collapse all",
+      "expandAll": "Expand all",
+      "projects": "projects/",
+      "blog": "blog/",
+      "blogIndex": "index -> writing",
+      "about": "about.md",
+      "active": "[active]",
+      "experience": "experience.json",
+      "skills": "skills.ts",
+      "contact": "contact.tsx",
+      "resume": "resume.pdf",
+      "statusTitle": "WORKSPACE STATUS",
+      "statusOk": "ALL CLEAN",
+      "stackMeta": "stack: go, ts, next",
+      "i18nMeta": "i18n: en / id",
+      "noMatch": "No file matches."
+    },
+    "hero": {
+      "role": "Full-Stack Developer",
+      "stack": "Go, TypeScript and Next.js",
+      "location": "Pontianak, Indonesia",
+      "telemetry": "1+ yrs exp, 5 projects shipped, EN/ID"
+    },
+    "menu": {
+      "about": { "key": "a", "label": "About Me", "desc": "Bio and backend-focused ethos" },
+      "projects": {
+        "key": "p",
+        "label": "Featured Projects",
+        "desc": "E-commerce, Dinsos, invoicing SaaS, open source"
+      },
+      "experience": {
+        "key": "e",
+        "label": "Work Experience",
+        "desc": "Cangkir Tech lead and Dinsos internship"
+      },
+      "skills": {
+        "key": "s",
+        "label": "Core Tech and Skills",
+        "desc": "Go, Next.js, TypeScript, PostgreSQL, Prisma"
+      },
+      "contact": { "key": "c", "label": "Get in Touch", "desc": "Email, WhatsApp and Instagram" },
+      "resume": { "key": "r", "label": "Curriculum Vitae", "desc": "Resume page and PDF download" },
+      "writing": { "key": "b", "label": "Technical Writing", "desc": "Essays and dev notes" }
+    },
+    "hints": {
+      "select": "'<Enter>' select",
+      "navigate": "'<j/k>' navigate"
+    },
+    "status": {
+      "mode": "[ NORMAL ]",
+      "branch": "main",
+      "encoding": "utf-8",
+      "filetype": "typescript/tsx"
+    }
   },
   "metadata": {
     "homeTitle": "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",

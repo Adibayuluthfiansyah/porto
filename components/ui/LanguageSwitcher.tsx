@@ -4,6 +4,31 @@ import { usePathname, useRouter } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { useTransition } from "react";
 
+function LocaleButton({
+  code,
+  active,
+  onSelect,
+  disabled,
+}: {
+  code: string;
+  active: boolean;
+  onSelect: (locale: string) => void;
+  disabled: boolean;
+}) {
+  return (
+    <button
+      onClick={() => onSelect(code)}
+      disabled={disabled}
+      aria-pressed={active}
+      className={`px-1 font-code-inline text-code-inline transition-colors cursor-pointer ${
+        active ? "text-secondary font-bold" : "text-outline hover:text-on-surface"
+      }`}
+    >
+      {code.toUpperCase()}
+    </button>
+  );
+}
+
 export default function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
@@ -17,30 +42,10 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex items-center gap-2 h-4">
-      <button
-        onClick={() => onSelectChange("en")}
-        disabled={isPending}
-        className={`font-sans text-xs font-semibold uppercase tracking-widest transition-colors duration-200 cursor-pointer ${
-          locale === "en"
-            ? "text-neutral-900 dark:text-white"
-            : "text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
-        }`}
-      >
-        EN
-      </button>
-      <span className="text-neutral-300 dark:text-neutral-700 text-xs">|</span>
-      <button
-        onClick={() => onSelectChange("id")}
-        disabled={isPending}
-        className={`font-sans text-xs font-semibold uppercase tracking-widest transition-colors duration-200 cursor-pointer ${
-          locale === "id"
-            ? "text-neutral-900 dark:text-white"
-            : "text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
-        }`}
-      >
-        ID
-      </button>
+    <div className="flex items-center" role="group" aria-label="Language">
+      <LocaleButton code="en" active={locale === "en"} onSelect={onSelectChange} disabled={isPending} />
+      <span aria-hidden="true" className="text-outline text-code-inline">|</span>
+      <LocaleButton code="id" active={locale === "id"} onSelect={onSelectChange} disabled={isPending} />
     </div>
   );
 }

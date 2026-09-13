@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import {
   Download,
   Mail,
@@ -10,8 +9,7 @@ import {
   Linkedin,
   Instagram,
 } from "lucide-react";
-import Navbar from "@/components/ui/Navbar";
-import Footer from "@/components/ui/Footer";
+import IdeShell from "@/components/ide/IdeShell";
 import { useLocale } from "next-intl";
 
 export default function Resume() {
@@ -44,20 +42,14 @@ export default function Resume() {
     toolsTitle: "Tools",
   };
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" } as const,
-    },
-  };
-
   return (
-    <main className="min-h-screen bg-neutral-100 dark:bg-[#0a0a0a] text-neutral-900 dark:text-white font-sans transition-colors duration-500">
+    <IdeShell>
+    <main className="bg-surface-container-low text-on-surface font-sans">
       <style jsx global>{`
         @media print {
           nav,
+          header,
+          aside,
           footer,
           .no-print {
             display: none !important;
@@ -96,57 +88,40 @@ export default function Resume() {
           }
         }
       `}</style>
-      <Navbar />
-
-      <div className="pt-32 pb-12 md:pt-40 md:pb-20 px-4 md:px-8">
+      <div className="pt-24 pb-12 md:pt-28 md:pb-20 px-4 md:px-8">
         {/* download pdf */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="max-w-5xl mx-auto mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6"
-        >
-          <motion.a
+        <div className="max-w-5xl mx-auto mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+          <a
             href="/CV.pdf"
             download="Adibayu_Luthfiansyah_Resume.pdf"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 px-6 py-3 rounded-none hover:bg-neutral-700 dark:hover:bg-gray-200 transition-all shadow-lg"
+            className="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest bg-primary-container text-on-primary-container px-6 py-3 min-h-[44px] hover:bg-secondary-container transition-colors"
           >
             <Download
               size={16}
               className="group-hover:translate-y-0.5 transition-transform"
             />
             {copy.downloadPdf}
-          </motion.a>
-        </motion.div>
+          </a>
+        </div>
 
         {/* resume */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="max-w-5xl mx-auto bg-white dark:bg-[#141414] shadow-2xl ring-1 ring-neutral-200 dark:ring-white/5 overflow-hidden transition-colors duration-500"
-        >
+        <div className="max-w-5xl mx-auto bg-surface-container-lowest border border-outline-variant/40 overflow-hidden">
           {/* header */}
-          <div className="px-8 md:px-16 py-12 md:py-16 border-b border-neutral-200 dark:border-white/10 bg-neutral-50 dark:bg-[#1a1a1a] transition-colors duration-500">
+          <div className="px-8 md:px-16 py-12 md:py-16 border-b border-outline-variant/40 bg-surface-container transition-colors duration-500">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
               <div>
-                <h1 className="text-[9vw] sm:text-5xl md:text-6xl lg:text-7xl font-serif italic text-neutral-900 dark:text-white transition-colors leading-tight break-words">
+                <h1 className="text-[9vw] sm:text-5xl md:text-6xl lg:text-7xl font-serif italic text-on-surface transition-colors leading-tight break-words">
                   Adibayu Luthfiansyah Setyawan
                 </h1>
-                <p className="text-sm font-sans uppercase tracking-[0.3em] text-neutral-500 dark:text-gray-400">
+                <p className="text-sm font-sans uppercase tracking-[0.3em] text-outline">
                   {copy.role}
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 text-sm text-neutral-600 dark:text-gray-400 font-light w-full">
+              <div className="flex flex-col gap-3 text-sm text-on-surface-variant font-light w-full">
                 <a
                   href="mailto:adibayu@adibayuluthfiansyah.dev"
-                  className="flex items-start sm:items-center gap-3 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                  className="flex items-start sm:items-center gap-3 hover:text-secondary transition-colors"
                 >
                   <Mail size={16} className="shrink-0 mt-0.5 sm:mt-0" />
                   <span className="break-all sm:break-normal">
@@ -171,39 +146,39 @@ export default function Resume() {
             <div className="md:col-span-8 space-y-16">
               {/* profile */}
               <section>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6 flex items-center gap-4">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6 flex items-center gap-4">
                   {copy.profileTitle}
-                  <span className="h-[1px] flex-1 bg-neutral-200 dark:bg-white/10"></span>
+                  <span className="h-[1px] flex-1 bg-outline-variant/40"></span>
                 </h2>
-                <p className="text-neutral-700 dark:text-gray-300 font-light leading-relaxed text-base md:text-lg max-w-prose">
+                <p className="text-on-surface-variant font-light leading-relaxed text-base md:text-lg max-w-prose">
                   {copy.profileText}
                 </p>
               </section>
 
               {/* experience */}
               <section>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6 flex items-center gap-4">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6 flex items-center gap-4">
                   {copy.experienceTitle}
-                  <span className="h-[1px] flex-1 bg-neutral-200 dark:bg-white/10"></span>
+                  <span className="h-[1px] flex-1 bg-outline-variant/40"></span>
                 </h2>
 
                 <div className="space-y-10 md:space-y-14">
                   {/* PT Cangkir Tech */}
-                  <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
-                    <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
+                  <div className="relative border-l border-outline-variant ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-primary-container">
+                    <span className="absolute -left-[5px] top-2 w-2 h-2 bg-primary-container ring-4 ring-surface-container-lowest"></span>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-                      <h3 className="text-xl font-serif italic text-neutral-900 dark:text-white">
+                      <h3 className="text-xl font-serif italic text-on-surface">
                         Co-Founder & Lead Engineer
                       </h3>
-                      <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1 md:mt-0">
+                      <span className="text-xs font-sans text-outline uppercase tracking-widest mt-1 md:mt-0">
                         January 2026 – Present
                       </span>
                     </div>
-                    <p className="text-neutral-900 dark:text-white font-medium text-sm mb-4">
-                      PT Cangkir Tech — Pontianak, Indonesia
+                    <p className="text-on-surface font-medium text-sm mb-4">
+                      PT Cangkir Tech, Pontianak, Indonesia
                     </p>
-                    <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
+                    <ul className="list-disc list-outside ml-4 space-y-2 text-on-surface-variant font-light leading-relaxed text-sm md:text-base">
                       <li>
                         {isId
                           ? "Mendirikan PT Cangkir Tech dari nol, mengambil tanggung jawab delivery mulai dari discovery klien, technical scoping, keputusan arsitektur, hingga deployment ke production."
@@ -223,21 +198,21 @@ export default function Resume() {
                   </div>
 
                   {/* Dinas Sosial */}
-                  <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
-                    <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
+                  <div className="relative border-l border-outline-variant ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-primary-container">
+                    <span className="absolute -left-[5px] top-2 w-2 h-2 bg-primary-container ring-4 ring-surface-container-lowest"></span>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-                      <h3 className="text-xl font-serif italic text-neutral-900 dark:text-white">
+                      <h3 className="text-xl font-serif italic text-on-surface">
                         Frontend Developer Intern
                       </h3>
-                      <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1 md:mt-0">
+                      <span className="text-xs font-sans text-outline uppercase tracking-widest mt-1 md:mt-0">
                         November 2025 – January 2026
                       </span>
                     </div>
-                    <p className="text-neutral-900 dark:text-white font-medium text-sm mb-4">
-                      Dinas Sosial Kabupaten Kubu Raya — Pontianak, Indonesia
+                    <p className="text-on-surface font-medium text-sm mb-4">
+                      Dinas Sosial Kabupaten Kubu Raya, Pontianak, Indonesia
                     </p>
-                    <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
+                    <ul className="list-disc list-outside ml-4 space-y-2 text-on-surface-variant font-light leading-relaxed text-sm md:text-base">
                       <li>
                         {isId
                           ? "Mengganti proses dokumen manual menjadi dashboard berbasis peran untuk instansi sosial pemerintah, sehingga pengelolaan dokumen lebih aman dan mudah ditelusuri."
@@ -260,29 +235,29 @@ export default function Resume() {
 
               {/* projects */}
               <section>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6 flex items-center gap-4">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6 flex items-center gap-4">
                   {copy.projectsTitle}
-                  <span className="h-[1px] flex-1 bg-neutral-200 dark:bg-white/10"></span>
+                  <span className="h-[1px] flex-1 bg-outline-variant/40"></span>
                 </h2>
 
                 <div className="space-y-10 md:space-y-14">
                   {/* E-Commerce */}
-                  <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
-                    <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
+                  <div className="relative border-l border-outline-variant ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-primary-container">
+                    <span className="absolute -left-[5px] top-2 w-2 h-2 bg-primary-container ring-4 ring-surface-container-lowest"></span>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-                      <h3 className="text-xl font-serif italic text-neutral-900 dark:text-white">
+                      <h3 className="text-xl font-serif italic text-on-surface">
                         Full-Stack E-Commerce Platform
                       </h3>
-                      <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1 md:mt-0">
+                      <span className="text-xs font-sans text-outline uppercase tracking-widest mt-1 md:mt-0">
                         {isId ? "Proyek Pribadi" : "Personal Project"}
                       </span>
                     </div>
-                    <p className="text-neutral-900 dark:text-white font-medium text-sm mb-4">
+                    <p className="text-on-surface font-medium text-sm mb-4">
                       Next.js · Go · TypeScript · PostgreSQL · Prisma ·
                       Midtrans
                     </p>
-                    <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
+                    <ul className="list-disc list-outside ml-4 space-y-2 text-on-surface-variant font-light leading-relaxed text-sm md:text-base">
                       <li>
                         {isId
                           ? "Merancang dan merilis platform e-commerce multi-vendor dari nol dengan dashboard khusus untuk Admin, Seller, dan Customer agar siap dipakai untuk operasional nyata."
@@ -302,22 +277,22 @@ export default function Resume() {
                   </div>
 
                   {/* Invoicing SaaS */}
-                  <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-neutral-900 dark:hover:border-white/50">
-                    <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-900 dark:bg-white ring-4 ring-white dark:ring-[#141414]"></span>
+                  <div className="relative border-l border-outline-variant ml-2 pl-8 pb-2 transition-all duration-300 hover:pl-10 hover:border-primary-container">
+                    <span className="absolute -left-[5px] top-2 w-2 h-2 bg-primary-container ring-4 ring-surface-container-lowest"></span>
 
                     <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-                      <h3 className="text-xl font-serif italic text-neutral-900 dark:text-white">
+                      <h3 className="text-xl font-serif italic text-on-surface">
                         Automated Invoicing SaaS
                       </h3>
-                      <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1 md:mt-0">
+                      <span className="text-xs font-sans text-outline uppercase tracking-widest mt-1 md:mt-0">
                         {isId ? "Proyek Pribadi" : "Personal Project"}
                       </span>
                     </div>
-                    <p className="text-neutral-900 dark:text-white font-medium text-sm mb-4">
+                    <p className="text-on-surface font-medium text-sm mb-4">
                       Next.js · TypeScript · Prisma · PostgreSQL · Midtrans ·
                       Server Actions
                     </p>
-                    <ul className="list-disc list-outside ml-4 space-y-2 text-neutral-600 dark:text-gray-400 font-light leading-relaxed text-sm md:text-base">
+                    <ul className="list-disc list-outside ml-4 space-y-2 text-on-surface-variant font-light leading-relaxed text-sm md:text-base">
                       <li>
                         {isId
                           ? "Membangun SaaS invoicing untuk bisnis kecil yang mengotomatisasi pembuatan invoice, pengingat email, dan pelacakan pembayaran dengan scheduled jobs."
@@ -340,28 +315,28 @@ export default function Resume() {
 
               {/* education */}
               <section>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6 flex items-center gap-4">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6 flex items-center gap-4">
                   {copy.educationTitle}
-                  <span className="h-[1px] flex-1 bg-neutral-200 dark:bg-white/10"></span>
+                  <span className="h-[1px] flex-1 bg-outline-variant/40"></span>
                 </h2>
 
-                <div className="relative border-l border-neutral-300 dark:border-neutral-600 ml-2 pl-8">
-                  <span className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600 ring-4 ring-white dark:ring-[#141414]"></span>
+                <div className="relative border-l border-outline-variant ml-2 pl-8">
+                  <span className="absolute -left-[5px] top-2 w-2 h-2 bg-outline ring-4 ring-surface-container-lowest"></span>
 
                   <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-                    <h3 className="text-xl font-serif italic text-neutral-900 dark:text-white">
+                    <h3 className="text-xl font-serif italic text-on-surface">
                       Universitas Muhammadiyah Pontianak
                     </h3>
-                    <span className="text-xs font-sans text-neutral-500 uppercase tracking-widest mt-1 md:mt-0">
+                    <span className="text-xs font-sans text-outline uppercase tracking-widest mt-1 md:mt-0">
                       {isId ? "2022 – Estimasi lulus 2026" : "2022 – Expected 2026"}
                     </span>
                   </div>
-                  <p className="text-neutral-600 dark:text-gray-400 font-light text-sm md:text-base">
+                  <p className="text-on-surface-variant font-light text-sm md:text-base">
                     {isId
                       ? "S1 Informatika (Teknik Informatika)"
                       : "Bachelor of Computer Science in Informatics Engineering"}
                   </p>
-                  <p className="text-neutral-500 dark:text-gray-500 font-light text-sm mt-1">
+                  <p className="text-outline font-light text-sm mt-1">
                     GPA: 3.xx / 4.00
                   </p>
                 </div>
@@ -370,26 +345,26 @@ export default function Resume() {
 
             {/* right col */}
             <div className="md:col-span-4 space-y-12">
-              {/* availability — NEW SECTION */}
+              {/* availability section */}
               <section>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6">
                   {copy.availableFor}
                 </h2>
-                <div className="flex flex-col gap-3 text-sm font-light text-neutral-600 dark:text-gray-400">
+                <div className="flex flex-col gap-3 text-sm font-light text-on-surface-variant">
                   <div className="flex flex-col gap-1">
-                    <span className="text-neutral-900 dark:text-white font-medium text-sm">
+                    <span className="text-on-surface font-medium text-sm">
                       {copy.fullTimeRoles}
                     </span>
-                    <span className="text-xs text-neutral-500 dark:text-gray-500 leading-relaxed">
+                    <span className="text-xs text-outline leading-relaxed">
                       {copy.fullTimeDesc}
                     </span>
                   </div>
-                  <div className="h-[0.5px] bg-neutral-100 dark:bg-white/5"></div>
+                  <div className="h-[0.5px] bg-surface-container"></div>
                   <div className="flex flex-col gap-1">
-                    <span className="text-neutral-900 dark:text-white font-medium text-sm">
+                    <span className="text-on-surface font-medium text-sm">
                       {copy.freelanceProjects}
                     </span>
-                    <span className="text-xs text-neutral-500 dark:text-gray-500 leading-relaxed">
+                    <span className="text-xs text-outline leading-relaxed">
                       {copy.freelanceDesc}
                     </span>
                   </div>
@@ -398,19 +373,19 @@ export default function Resume() {
 
               {/* links */}
               <section>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6">
                   {copy.linksTitle}
                 </h2>
-                <div className="flex flex-col gap-4 text-sm font-light text-neutral-600 dark:text-gray-400">
+                <div className="flex flex-col gap-4 text-sm font-light text-on-surface-variant">
                   <a
                     href="https://github.com/Adibayuluthfiansyah"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-neutral-900 dark:hover:text-white transition-colors group"
+                    className="flex items-center gap-3 hover:text-secondary transition-colors group"
                   >
                     <Github
                       size={18}
-                      className="group-hover:text-black dark:group-hover:text-white transition-colors"
+                      className="group-hover:text-secondary transition-colors"
                     />
                     GitHub
                   </a>
@@ -418,11 +393,11 @@ export default function Resume() {
                     href="https://www.linkedin.com/in/adibayuluthfiansyah/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-neutral-900 dark:hover:text-white transition-colors group"
+                    className="flex items-center gap-3 hover:text-secondary transition-colors group"
                   >
                     <Linkedin
                       size={18}
-                      className="group-hover:text-[#0A66C2] dark:group-hover:text-[#0A66C2] transition-colors"
+                      className="group-hover:text-secondary transition-colors"
                     />
                     LinkedIn
                   </a>
@@ -430,11 +405,11 @@ export default function Resume() {
                     href="https://instagram.com/adibayuluthfiansyah"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 hover:text-neutral-900 dark:hover:text-white transition-colors group"
+                    className="flex items-center gap-3 hover:text-secondary transition-colors group"
                   >
                     <Instagram
                       size={18}
-                      className="group-hover:text-[#E1306C] dark:group-hover:text-[#E1306C] transition-colors"
+                      className="group-hover:text-secondary transition-colors"
                     />
                     Instagram
                   </a>
@@ -443,7 +418,7 @@ export default function Resume() {
 
               {/* tech stack */}
               <section>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6">
                   {copy.techStackTitle}
                 </h2>
                 <div className="flex flex-wrap gap-2">
@@ -459,7 +434,7 @@ export default function Resume() {
                   ].map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-neutral-700 dark:text-gray-300 text-xs font-sans tracking-wide"
+                      className="px-3 py-1.5 bg-surface-container border border-outline-variant/40 text-on-surface-variant text-xs font-sans tracking-wide"
                     >
                       {skill}
                     </span>
@@ -469,14 +444,14 @@ export default function Resume() {
 
               {/* tools */}
               <section>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-6">
                   {copy.toolsTitle}
                 </h2>
                 <div className="flex flex-wrap gap-2">
                   {["Docker", "Nginx", "Git", "Bruno"].map((tool) => (
                     <span
                       key={tool}
-                      className="px-3 py-1.5 bg-neutral-100 dark:bg-white/5 border border-neutral-200 dark:border-white/10 text-neutral-700 dark:text-gray-300 text-xs font-sans tracking-wide"
+                      className="px-3 py-1.5 bg-surface-container border border-outline-variant/40 text-on-surface-variant text-xs font-sans tracking-wide"
                     >
                       {tool}
                     </span>
@@ -485,9 +460,9 @@ export default function Resume() {
               </section>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
-      <Footer />
     </main>
+    </IdeShell>
   );
 }

@@ -1,19 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { ArrowUpRight } from "lucide-react";
+import IdeShell from "@/components/ide/IdeShell";
 
 export default function Contact() {
   const t = useTranslations("contact");
-  const fadeUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
-    },
-  };
 
   const contactLinks = [
     {
@@ -34,62 +25,51 @@ export default function Contact() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24 bg-transparent text-neutral-900 dark:text-white transition-colors duration-500 py-20 md:py-32 overflow-hidden">
-      <div className="w-full max-w-7xl mx-auto flex flex-col justify-center">
-        {/* header */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-          className="mb-16 md:mb-24"
-        >
-          <h2 className="text-sm font-sans uppercase tracking-[0.3em] text-neutral-500 dark:text-gray-400 transition-colors mb-6 ml-1">
-            {t("label")}
-          </h2>
-          <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-serif italic text-neutral-900 dark:text-white transition-colors leading-[0.85] tracking-tight">
-            {t("heading1")}
-            <br />
-            <span className="text-neutral-500 dark:text-gray-500 transition-colors">
-              {t("heading2")}
-            </span>
-          </h3>
-        </motion.div>
+    <IdeShell>
+    <section id="contact" className="px-space-md md:px-space-xl py-space-md md:py-space-lg">
+      <div className="max-w-5xl mx-auto bg-surface-container-lowest border border-outline-variant/40">
+        <div className="px-space-md py-space-sm bg-surface-container flex items-center gap-space-xs">
+          <span aria-hidden="true" className="material-symbols-outlined text-[16px] text-primary-container">
+            alternate_email
+          </span>
+          <span className="font-code-inline text-code-inline text-on-surface-variant">
+            ~/contact.tsx
+          </span>
+        </div>
 
-        {/* contact links */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8">
-          {contactLinks.map((link, index) => (
-            <motion.a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { delay: index * 0.1, duration: 0.8 },
-                },
-              }}
-              className="group flex flex-col gap-2 border-t border-neutral-300 dark:border-white/10 pt-6 hover:border-neutral-900 dark:hover:border-white transition-colors duration-500"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-sans uppercase tracking-[0.2em] text-neutral-500 dark:text-gray-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">
+        <div className="p-space-md md:p-space-xl">
+          <p className="font-label-lg text-label-lg text-primary tracking-wider uppercase mb-space-xs">
+            {t("label")}
+          </p>
+          <h2 className="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface font-bold mb-space-lg">
+            {t("heading1")} {t("heading2")}
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+            {contactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-space-xs border border-outline-variant/40 bg-surface-container-low p-space-md min-h-[44px] hover:border-primary-container transition-colors"
+              >
+                <span className="flex items-center justify-between font-label-md text-label-md text-outline group-hover:text-secondary transition-colors">
                   {link.label}
+                  {/* External-link cue: the single arrow in this pane, marks off-site targets. */}
+                  <span aria-hidden="true" className="material-symbols-outlined text-[16px]">
+                    arrow_outward
+                  </span>
                 </span>
-                <ArrowUpRight className="w-4 h-4 text-neutral-500 dark:text-gray-500 group-hover:text-neutral-900 dark:group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-              </div>
-              <span className="text-xl md:text-2xl font-serif italic text-neutral-700 dark:text-white/80 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors break-all">
-                {link.value}
-              </span>
-            </motion.a>
-          ))}
+                <span className="font-code-inline text-code-inline text-on-surface break-all">
+                  {link.value}
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
+    </IdeShell>
   );
 }
