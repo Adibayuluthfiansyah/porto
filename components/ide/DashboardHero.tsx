@@ -56,14 +56,14 @@ export default function DashboardHero() {
   });
 
   return (
-    <div className="min-h-[calc(100vh-2.5rem-1.5rem)] flex flex-col items-center justify-center px-space-md md:px-space-xl py-space-xl">
-      <div className="w-full max-w-2xl flex flex-col items-center">
+    <div className="min-h-[calc(100vh-2.5rem-1.5rem)] w-full min-w-0 overflow-x-clip flex flex-col items-center justify-center px-space-md md:px-space-xl py-space-xl">
+      <div className="w-full max-w-2xl min-w-0 flex flex-col items-center">
         <h1 className="sr-only">
           {tn("firstName")} {tn("middleName")} {tn("lastName")}
         </h1>
         <pre
           aria-label="ADIBAYU.DEV"
-          className="font-code-inline text-code-inline text-secondary font-bold text-center leading-[14px] sm:leading-[16px] select-none overflow-x-auto max-w-full mb-space-xs"
+          className="block w-full max-w-full min-w-0 font-code-inline text-secondary font-bold text-center whitespace-pre select-none overflow-hidden mb-space-xs text-[clamp(5.5px,1.75vw,13px)] leading-[1.3]"
         >
           {ascii}
         </pre>
