@@ -56,7 +56,7 @@ export default function DashboardHero() {
   });
 
   return (
-    <div className="min-h-[calc(100vh-2.5rem-1.5rem)] w-full min-w-0 overflow-x-clip flex flex-col items-center justify-center px-space-md md:px-space-xl py-space-xl">
+    <div className="min-h-[calc(100vh-2.75rem-1.5rem)] w-full min-w-0 overflow-x-clip flex flex-col items-center justify-center px-space-md md:px-space-xl py-space-xl">
       <div className="w-full max-w-2xl min-w-0 flex flex-col items-center">
         <h1 className="sr-only">
           {tn("firstName")} {tn("middleName")} {tn("lastName")}
