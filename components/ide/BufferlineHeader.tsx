@@ -23,13 +23,13 @@ export default function BufferlineHeader({
   const active = tabs.find((tab) => tab.href === pathname)?.id ?? "";
 
   return (
-    <header className="fixed top-0 left-0 lg:left-[34rem] right-0 h-10 bg-surface-container-lowest z-30 flex items-center justify-between">
+    <header className="fixed top-0 left-0 lg:left-[34rem] right-0 h-11 bg-surface-container-lowest z-30 flex items-center justify-between">
       <div className="flex items-center h-full overflow-x-auto">
         <button
           ref={menuBtnRef}
           onClick={onMenu}
           aria-label={th("openMenu")}
-          className="lg:hidden shrink-0 w-10 h-10 flex items-center justify-center text-outline hover:text-on-surface"
+          className="lg:hidden shrink-0 w-11 h-11 flex items-center justify-center text-outline hover:text-on-surface"
         >
           <span aria-hidden="true" className="material-symbols-outlined text-[20px]">
             menu
