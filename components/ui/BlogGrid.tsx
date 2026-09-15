@@ -23,9 +23,9 @@ export default function BlogGrid({ posts }: BlogGridProps) {
           <p className="font-label-lg text-label-lg text-primary tracking-wider uppercase mb-space-xs">
             ~/blog/
           </p>
-          <h2 className="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface font-bold">
+          <h1 className="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface font-bold">
             Writings and Thoughts.
-          </h2>
+          </h1>
         </div>
 
         {posts.length === 0 ? (

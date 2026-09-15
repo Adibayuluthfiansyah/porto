@@ -25,40 +25,23 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   
   return {
     metadataBase: new URL("https://adibayuluthfiansyah.dev"),
-    title: "Adibayu Luthfiansyah | Full-Stack Developer",
+    title: {
+      default: "Adibayu Luthfiansyah | Full-Stack Developer",
+      template: "%s | Adibayu Luthfiansyah",
+    },
     description:
-      "Adibayu Luthfiansyah — Full-Stack Developer - Software Engineer specializing in backend architecture and modern web applications. Focused on building scalable systems",
+      "Full-Stack Developer specializing in backend architecture and modern web applications with Go, Next.js, and TypeScript.",
     keywords: [
-      "Pontianak",
-      "Indonesia",
-      "Full-Stack Developer Pontianak",
-      "Full Stack Developer",
+      "Full-Stack Developer",
       "Software Engineer",
-      "Web Development",
       "Next.js Developer",
-      "React Developer",
       "TypeScript Developer",
       "Go Developer",
-      "Backend Developer",
-      "Frontend Developer",
       "Pontianak Developer",
       "Indonesia Developer",
-      "AI-Assisted Coding",
-      "Modern Web Development",
-      "PostgreSQL",
-      "Prisma ORM",
-      "RESTful API",
-      "E-Commerce Development",
-      "SaaS Development",
-      "Hire Next.js Developer",
       "Freelance Full-Stack Developer Indonesia",
-      "B2B Web App Builder",
-      "SaaS Developer",
-      "Go Backend Engineer",
-      "Programmer for Hire",
-      "Programmer for Hire Indonesia",
-      "Programmer for Hire Pontianak",
-      "Programmer Pontianak",
+      "SaaS Development",
+      "E-Commerce Development",
     ],
     authors: [{ name: "Adibayu Luthfiansyah Setyawan" }],
     creator: "Adibayu Luthfiansyah Setyawan",
@@ -74,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       type: "website",
       url: `https://adibayuluthfiansyah.dev/${locale}`,
       siteName: "Adibayu Luthfiansyah",
-      title: "Adibayu Luthfiansyah — Full-Stack Developer",
+      title: "Adibayu Luthfiansyah, Full-Stack Developer",
       description:
         "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Go, Next.js, and TypeScript.",
       locale: locale === 'id' ? "id_ID" : "en_US",
@@ -89,7 +72,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     twitter: {
       card: "summary_large_image",
-      title: "Adibayu Luthfiansyah — Full-Stack Developer",
+      title: "Adibayu Luthfiansyah, Full-Stack Developer",
       description:
         "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Go, Next.js, and TypeScript.",
       images: [`https://adibayuluthfiansyah.dev/api/og?locale=${locale}`],
@@ -145,6 +128,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="dark scroll-smooth" suppressHydrationWarning>
       <head>
+        <meta name="theme-color" content="#12131d" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

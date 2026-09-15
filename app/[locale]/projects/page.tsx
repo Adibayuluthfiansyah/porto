@@ -150,9 +150,9 @@ export default function Project() {
           <p className="font-label-lg text-label-lg text-primary tracking-wider uppercase mb-space-xs">
             {t("label")}
           </p>
-          <h2 className="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface font-bold">
+          <h1 className="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface font-bold">
             {t("heading1")} {t("heading2")}
-          </h2>
+          </h1>
         </div>
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />

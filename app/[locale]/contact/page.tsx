@@ -41,9 +41,9 @@ export default function Contact() {
           <p className="font-label-lg text-label-lg text-primary tracking-wider uppercase mb-space-xs">
             {t("label")}
           </p>
-          <h2 className="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface font-bold mb-space-lg">
+          <h1 className="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface font-bold mb-space-lg">
             {t("heading1")} {t("heading2")}
-          </h2>
+          </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md">
             {contactLinks.map((link) => (
