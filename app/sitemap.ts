@@ -2,10 +2,16 @@ import fs from "fs";
 import path from "path";
 import { MetadataRoute } from "next";
 
+export const revalidate = 86400;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://adibayuluthfiansyah.dev";
   const locales = ["en", "id"];
-  const pages: { path: string; changeFrequency: "monthly" | "weekly" | "yearly"; priority: number }[] = [
+  const pages: {
+    path: string;
+    changeFrequency: "monthly" | "weekly" | "yearly";
+    priority: number;
+  }[] = [
     { path: "", changeFrequency: "monthly", priority: 1.0 },
     { path: "/about", changeFrequency: "monthly", priority: 0.8 },
     { path: "/projects", changeFrequency: "weekly", priority: 0.9 },
@@ -20,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: page.changeFrequency,
       priority: page.priority,
-    }))
+    })),
   );
 
   const blogDir = path.join(process.cwd(), "app/content/blog");
