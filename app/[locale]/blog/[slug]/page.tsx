@@ -24,20 +24,29 @@ export async function generateMetadata({
   if (!fs.existsSync(filePath)) return {};
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data } = matter(fileContent);
+  const canonical = `https://adibayuluthfiansyah.dev/${locale}/blog/${slug}`;
+  const ogImage = data.image || `https://adibayuluthfiansyah.dev/api/og?locale=${locale}`;
 
   return {
     metadataBase: new URL("https://adibayuluthfiansyah.dev"),
-    title: `${data.title} | Adibayu Luthfiansyah`,
+    title: data.title,
     description: data.description || "Read this article on my blog",
+    alternates: {
+      canonical,
+      languages: {
+        en: `https://adibayuluthfiansyah.dev/en/blog/${slug}`,
+        id: `https://adibayuluthfiansyah.dev/id/blog/${slug}`,
+      },
+    },
     openGraph: {
       title: `${data.title} | Adibayu Luthfiansyah`,
       description: data.description || "Read this article on my blog",
       type: "article",
       publishedTime: data.date,
-      url: `https://adibayuluthfiansyah.dev/${locale}/blog/${slug}`,
+      url: canonical,
       images: [
         {
-          url: data.image || "/default-blog-image.webp",
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: data.title,
@@ -48,7 +57,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${data.title} | Adibayu Luthfiansyah`,
       description: data.description || "Read this article on my blog",
-      images: [data.image || "/default-blog-image.webp"],
+      images: [ogImage],
     },
   };
 }
@@ -64,8 +73,25 @@ export default async function BlogPost({
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: data.title,
+    description: data.description || "Read this article on my blog",
+    datePublished: data.date,
+    author: {
+      "@type": "Person",
+      name: "Adibayu Luthfiansyah Setyawan",
+      url: "https://adibayuluthfiansyah.dev",
+    },
+  };
+
   return (
     <IdeShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <article className="max-w-3xl mx-auto w-full px-space-md md:px-space-xl pt-space-lg pb-space-xl">
         <p className="font-label-lg text-label-lg text-primary tracking-wider uppercase mb-space-xs">
           ~/blog/{slug}.mdx
