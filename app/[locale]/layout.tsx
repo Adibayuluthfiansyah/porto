@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import Script from "next/script";
-import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
@@ -144,8 +143,10 @@ export default async function RootLayout({
   const messages = await getMessages();
   
   return (
-    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
+    <html lang={locale} className="dark scroll-smooth" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -198,14 +199,7 @@ export default async function RootLayout({
         className={`${jetbrainsMono.variable} bg-[#12131d] text-[#e2e1f1] transition-colors duration-500 antialiased `}
       >
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            forcedTheme="dark"
-            enableSystem={false}
-          >
-            {children}
-          </ThemeProvider>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

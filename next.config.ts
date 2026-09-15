@@ -16,12 +16,7 @@ const nextConfig: NextConfig = {
   },
 
   experimental: {
-    optimizePackageImports: [
-      "framer-motion",
-      "lucide-react",
-      "react-icons",
-      "@tabler/icons-react",
-    ],
+    optimizePackageImports: ["lucide-react"],
   },
 
   // Optimize production build

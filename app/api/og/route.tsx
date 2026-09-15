@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+export const revalidate = 86400;
+
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const locale = searchParams.get("locale") === "id" ? "id" : "en";
