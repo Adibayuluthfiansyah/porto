@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import IdeShell from "@/components/ide/IdeShell";
-import BlogGrid from "@/components/ui/BlogGrid";
+import LazyBlogGrid from "@/components/ui/LazyBlogGrid";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -68,7 +68,7 @@ export default function BlogMainPage() {
 
   return (
     <IdeShell>
-      <BlogGrid posts={posts} />
+      <LazyBlogGrid posts={posts} />
     </IdeShell>
   );
 }
