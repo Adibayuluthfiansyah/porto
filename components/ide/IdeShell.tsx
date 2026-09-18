@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import ExplorerSidebar from "./ExplorerSidebar";
-import FileTreePanel from "./FileTreePanel";
 import BufferlineHeader from "./BufferlineHeader";
 import StatuslineFooter from "./StatuslineFooter";
+
+const ExplorerSidebar = lazy(() => import("./ExplorerSidebar"));
+const FileTreePanel = lazy(() => import("./FileTreePanel"));
 
 export default function IdeShell({ children }: { children: React.ReactNode }) {
   const t = useTranslations("ide.header");
@@ -37,11 +38,15 @@ export default function IdeShell({ children }: { children: React.ReactNode }) {
       </a>
       <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-64 bg-surface-container-lowest z-40 flex-col pt-11 pb-8">
         <div className="flex-1 min-h-0 overflow-y-auto">
-          <ExplorerSidebar />
+          <Suspense fallback={null}>
+            <ExplorerSidebar />
+          </Suspense>
         </div>
       </aside>
       <div className="hidden lg:block fixed left-64 top-11 bottom-6 w-72 bg-surface-container-lowest z-30 border-r border-outline-variant/40">
-        <FileTreePanel />
+        <Suspense fallback={null}>
+          <FileTreePanel />
+        </Suspense>
       </div>
       <div className="lg:pl-[34rem] flex flex-col min-h-screen">
         <BufferlineHeader onMenu={() => setDrawer(true)} menuBtnRef={menuBtn} />
@@ -67,9 +72,13 @@ export default function IdeShell({ children }: { children: React.ReactNode }) {
                 close
               </span>
             </button>
-            <ExplorerSidebar onNavigate={() => setDrawer(false)} />
+            <Suspense fallback={null}>
+              <ExplorerSidebar onNavigate={() => setDrawer(false)} />
+            </Suspense>
             <div className="mx-space-md h-px bg-outline-variant/40" aria-hidden="true" />
-            <FileTreePanel onNavigate={() => setDrawer(false)} />
+            <Suspense fallback={null}>
+              <FileTreePanel onNavigate={() => setDrawer(false)} />
+            </Suspense>
           </div>
         </div>
       )}
