@@ -31,6 +31,7 @@ export async function generateMetadata({
       languages: {
         en: "https://adibayuluthfiansyah.dev/en/projects",
         id: "https://adibayuluthfiansyah.dev/id/projects",
+        "x-default": "https://adibayuluthfiansyah.dev/en/projects",
       },
     },
     openGraph: {
