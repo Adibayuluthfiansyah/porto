@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico|css|js)",
+        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico)",
         headers: [
           {
             key: "Cache-Control",
@@ -34,7 +34,16 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/:path*",
+        source: "/_next/image",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/en/:path*",
         headers: [
           {
             key: "Cache-Control",
@@ -43,11 +52,11 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/fonts/:all*",
+        source: "/id/:path*",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: "public, s-maxage=60, stale-while-revalidate=300",
           },
         ],
       },
