@@ -171,6 +171,12 @@
       "filetype": "typescript/tsx"
     }
   },
+  "notFound": {
+    "label": "Error 404",
+    "title": "File tidak ditemukan.",
+    "description": "Halaman yang kamu cari tidak ada atau sudah dipindahkan. Periksa URL atau kembali ke dashboard.",
+    "backHome": "Kembali ke dashboard"
+  },
   "metadata": {
     "homeTitle": "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",
     "homeDescription": "Full-Stack Developer yang membangun aplikasi web dan sistem backend skalabel dengan Go, Next.js, dan TypeScript.",

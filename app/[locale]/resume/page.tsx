@@ -328,7 +328,7 @@ export default function Resume() {
                       Universitas Muhammadiyah Pontianak
                     </h3>
                     <span className="text-xs font-sans text-outline uppercase tracking-widest mt-1 md:mt-0">
-                      {isId ? "2022 – Estimasi lulus 2026" : "2022 – Expected 2026"}
+                      2022 – 2026
                     </span>
                   </div>
                   <p className="text-on-surface-variant font-light text-sm md:text-base">
@@ -337,7 +337,7 @@ export default function Resume() {
                       : "Bachelor of Computer Science in Informatics Engineering"}
                   </p>
                   <p className="text-outline font-light text-sm mt-1">
-                    GPA: 3.xx / 4.00
+                    GPA: 3.63 / 4.00
                   </p>
                 </div>
               </section>

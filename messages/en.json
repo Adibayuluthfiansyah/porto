@@ -171,6 +171,12 @@
       "filetype": "typescript/tsx"
     }
   },
+  "notFound": {
+    "label": "Error 404",
+    "title": "File not found.",
+    "description": "The page you are looking for does not exist or has been moved. Check the URL or head back to the dashboard.",
+    "backHome": "Back to dashboard"
+  },
   "metadata": {
     "homeTitle": "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",
     "homeDescription": "Full-Stack Developer building scalable web applications and backend systems with Go, Next.js, and TypeScript.",

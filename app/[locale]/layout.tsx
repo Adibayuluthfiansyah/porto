@@ -3,7 +3,7 @@ import { JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 
@@ -125,7 +125,9 @@ export default async function RootLayout({
     notFound();
   }
 
-  const messages = await getMessages();
+  setRequestLocale(locale);
+
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale} className="dark scroll-smooth" suppressHydrationWarning>

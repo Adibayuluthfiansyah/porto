@@ -8,7 +8,9 @@ export async function GET(request: Request) {
 
   let photoBase64: string | null = null;
   try {
-    const photoRes = await fetch(`${origin}/hero-og.png`);
+    const photoRes = await fetch(`${origin}/hero-og.png`, {
+      next: { revalidate: 86400 },
+    });
     if (photoRes.ok) {
       const photoBuffer = await photoRes.arrayBuffer();
       photoBase64 = `data:image/png;base64,${Buffer.from(photoBuffer).toString("base64")}`;
@@ -198,10 +200,16 @@ export async function GET(request: Request) {
             display: "flex",
           }}
         >
-          www.adibayuluthfiansyah.dev
+          adibayuluthfiansyah.dev
         </div>
       </div>
     </div>,
-    { width: 1200, height: 630 },
+    {
+      width: 1200,
+      height: 630,
+      headers: {
+        "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800",
+      },
+    },
   );
 }
