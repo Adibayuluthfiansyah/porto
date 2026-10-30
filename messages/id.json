@@ -72,20 +72,18 @@
     "heading2": "sesuatu yang hebat.",
     "emailLabel": "Email",
     "emailValue": "adibayu@adibayuluthfiansyah.dev",
-    "whatsappLabel": "WhatsApp",
-    "whatsappValue": "+62 895 7041 19180",
     "instagramLabel": "Instagram",
     "instagramValue": "@adibayuluthfiansyah"
   },
   "blog": {
-    "heading": "Tulisan dan Pemikiran.",
-    "empty": "Belum ada tulisan. Esai baru akan muncul di sini.",
-    "readMore": "Baca Selengkapnya"
+    "heading": "Catatan.",
+    "empty": "Belum ada tulisan.",
+    "readMore": "Baca catatan"
   },
   "ide": {
     "explorer": {
       "title": "EXPLORER",
-      "version": "PORT v0.10",
+      "version": "PORT v0.12",
       "dashboard": "home.dashboard",
       "about": "about.md",
       "projects": "projects/",
@@ -149,7 +147,7 @@
         "label": "Teknologi Inti",
         "desc": "Teknologi full-stack, sedang belajar keamanan siber"
       },
-      "contact": { "key": "c", "label": "Hubungi Saya", "desc": "Email, WhatsApp dan Instagram" },
+      "contact": { "key": "c", "label": "Hubungi Saya", "desc": "Email dan Instagram" },
       "resume": { "key": "r", "label": "Curriculum Vitae", "desc": "Halaman resume dan unduh PDF" },
       "writing": { "key": "b", "label": "Tulisan Teknis", "desc": "Catatan software dan keamanan siber" }
     },
@@ -188,7 +186,7 @@
       },
       "contact": {
         "title": "Kontak",
-        "description": "Hubungi saya untuk peluang freelance, kolaborasi, atau pertanyaan proyek. Tersedia via email, WhatsApp, dan Instagram. Berbasis di Pontianak, Indonesia."
+        "description": "Hubungi saya untuk peluang freelance, kolaborasi, atau pertanyaan proyek. Tersedia via email dan Instagram. Berbasis di Pontianak, Indonesia."
       },
       "projects": {
         "title": "Proyek",
@@ -196,12 +194,12 @@
       },
       "resume": {
         "title": "Resume",
-        "description": "Lihat resume profesional saya: Full-Stack Developer dengan pengalaman Go, Next.js, TypeScript, dan PostgreSQL. Co-Founder Cangkir Tech. Unduh CV PDF."
+        "description": "Resume Adibayu Luthfiansyah, Full-Stack Developer dengan pengalaman membangun aplikasi web. Saat ini sedang belajar keamanan siber dan berlatih bug hunting."
       },
       "blog": {
         "title": "Blog",
-        "description": "Wawasan teknologi, tutorial, dan pemikiran tentang pengembangan web modern, rekayasa full-stack, dan arsitektur backend Go.",
-        "postFallbackDescription": "Baca artikel ini di blog saya."
+        "description": "Catatan tentang pengembangan full-stack dan pembelajaran keamanan siber.",
+        "postFallbackDescription": "Baca catatan ini."
       }
     }
   }

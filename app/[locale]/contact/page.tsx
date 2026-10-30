@@ -13,11 +13,6 @@ export default function Contact() {
       href: "mailto:adibayu@adibayuluthfiansyah.dev",
     },
     {
-      label: t("whatsappLabel"),
-      value: t("whatsappValue"),
-      href: "https://wa.me/62895704119180",
-    },
-    {
       label: t("instagramLabel"),
       value: t("instagramValue"),
       href: "https://instagram.com/adibayuluthfiansyah",
@@ -45,7 +40,7 @@ export default function Contact() {
             {t("heading1")} {t("heading2")}
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
             {contactLinks.map((link) => (
               <a
                 key={link.label}
