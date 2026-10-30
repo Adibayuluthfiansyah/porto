@@ -72,20 +72,18 @@
     "heading2": "something great.",
     "emailLabel": "Email",
     "emailValue": "adibayu@adibayuluthfiansyah.dev",
-    "whatsappLabel": "WhatsApp",
-    "whatsappValue": "+62 895 7041 19180",
     "instagramLabel": "Instagram",
     "instagramValue": "@adibayuluthfiansyah"
   },
   "blog": {
-    "heading": "Writings and Thoughts.",
-    "empty": "No posts yet. New essays land here when they are written.",
-    "readMore": "Read More"
+    "heading": "Notes.",
+    "empty": "No posts yet.",
+    "readMore": "Read post"
   },
   "ide": {
     "explorer": {
       "title": "EXPLORER",
-      "version": "PORT v0.10",
+      "version": "PORT v0.12",
       "dashboard": "home.dashboard",
       "about": "about.md",
       "projects": "projects/",
@@ -149,7 +147,7 @@
         "label": "Core Tech and Skills",
         "desc": "Full-stack tech and security learning"
       },
-      "contact": { "key": "c", "label": "Get in Touch", "desc": "Email, WhatsApp and Instagram" },
+      "contact": { "key": "c", "label": "Get in Touch", "desc": "Email and Instagram" },
       "resume": { "key": "r", "label": "Curriculum Vitae", "desc": "Resume page and PDF download" },
       "writing": { "key": "b", "label": "Technical Writing", "desc": "Notes on software and security" }
     },
@@ -188,7 +186,7 @@
       },
       "contact": {
         "title": "Contact",
-        "description": "Get in touch for freelance opportunities, collaboration, or project inquiries. Available via email, WhatsApp, and Instagram. Based in Pontianak, Indonesia."
+        "description": "Get in touch for freelance opportunities, collaboration, or project inquiries. Available via email and Instagram. Based in Pontianak, Indonesia."
       },
       "projects": {
         "title": "Projects",
@@ -196,12 +194,12 @@
       },
       "resume": {
         "title": "Resume",
-        "description": "View my professional resume: Full-Stack Developer with experience in Go, Next.js, TypeScript, and PostgreSQL. Co-Founder at Cangkir Tech. Download PDF resume."
+        "description": "Resume of Adibayu Luthfiansyah, a Full-Stack Developer with experience building web applications. Currently learning cybersecurity and practicing bug hunting."
       },
       "blog": {
         "title": "Blog",
-        "description": "Tech insights, tutorials, and thoughts on modern web development, full-stack engineering, and Go backend architecture.",
-        "postFallbackDescription": "Read this article on my blog."
+        "description": "Notes on full-stack development and cybersecurity learning.",
+        "postFallbackDescription": "Read this post."
       }
     }
   }
