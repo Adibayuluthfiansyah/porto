@@ -1,5 +1,6 @@
 import IdeShell from "@/components/ide/IdeShell";
 import DashboardHero from "@/components/ide/DashboardHero";
+import { indexableRobots } from "@/lib/seo";
 import { Metadata } from "next";
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
@@ -13,6 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       absolute: t('homeTitle'),
     },
     description: t('homeDescription'),
+    robots: indexableRobots,
     openGraph: {
       title: t('homeTitle'),
       description: t('homeOgDescription'),

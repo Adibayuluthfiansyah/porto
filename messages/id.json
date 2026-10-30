@@ -1,16 +1,4 @@
 {
-  "nav": {
-    "logo": "ADIBAYU",
-    "location": "Pontianak, ID",
-    "about": "TENTANG",
-    "projects": "PROYEK",
-    "contact": "KONTAK",
-    "resume": "RESUME",
-    "blog": "BLOG",
-    "toggleDarkMode": "Toggle Mode Gelap",
-    "openMenu": "Buka menu",
-    "closeMenu": "Tutup menu"
-  },
   "hero": {
     "title": "SOFTWARE ENGINEER",
     "firstName": "Adibayu",
@@ -40,6 +28,7 @@
     "prevImage": "Gambar sebelumnya",
     "nextImage": "Gambar berikutnya",
     "goToImage": "Ke gambar {number}",
+    "noImage": "Pratinjau tidak tersedia",
     "items": [
       {
         "id": "project-1",
@@ -85,9 +74,14 @@
     "emailLabel": "Email",
     "emailValue": "adibayu@adibayuluthfiansyah.dev",
     "whatsappLabel": "WhatsApp",
-    "whatsappValue": "+62 895 7041 xxxx",
+    "whatsappValue": "+62 895 7041 19180",
     "instagramLabel": "Instagram",
     "instagramValue": "@adibayuluthfiansyah"
+  },
+  "blog": {
+    "heading": "Tulisan dan Pemikiran.",
+    "empty": "Belum ada tulisan. Esai baru akan muncul di sini.",
+    "readMore": "Baca Selengkapnya"
   },
   "ide": {
     "explorer": {
@@ -187,6 +181,29 @@
     "ariaAbout": "Tentang saya",
     "ariaProjects": "Proyek portofolio",
     "ariaContact": "Informasi kontak",
-    "ariaFooter": "Footer"
+    "ariaFooter": "Footer",
+    "pages": {
+      "about": {
+        "title": "Tentang Saya",
+        "description": "Kenali saya: Full-Stack Developer yang membangun aplikasi web modern dan sistem backend skalabel dengan Go, TypeScript, Next.js, dan PostgreSQL."
+      },
+      "contact": {
+        "title": "Kontak",
+        "description": "Hubungi saya untuk peluang freelance, kolaborasi, atau pertanyaan proyek. Tersedia via email, WhatsApp, dan Instagram. Berbasis di Pontianak, Indonesia."
+      },
+      "projects": {
+        "title": "Proyek",
+        "description": "Jelajahi portofolio proyek full-stack saya, termasuk platform e-commerce, SaaS invoicing otomatis, dan sistem manajemen pemerintahan. Dibangun dengan Next.js, Go, TypeScript, dan PostgreSQL."
+      },
+      "resume": {
+        "title": "Resume",
+        "description": "Lihat resume profesional saya: Full-Stack Developer dengan pengalaman Go, Next.js, TypeScript, dan PostgreSQL. Co-Founder Cangkir Tech. Unduh CV PDF."
+      },
+      "blog": {
+        "title": "Blog",
+        "description": "Wawasan teknologi, tutorial, dan pemikiran tentang pengembangan web modern, rekayasa full-stack, dan arsitektur backend Go.",
+        "postFallbackDescription": "Baca artikel ini di blog saya."
+      }
+    }
   }
 }

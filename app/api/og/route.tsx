@@ -25,7 +25,7 @@ export async function GET(request: Request) {
       ? "Solusi teknis untuk masalah bisnis yang nyata."
       : "Turning complex problems into software that actually ships.";
 
-  return new ImageResponse(
+  const image = new ImageResponse(
     <div
       style={{
         height: "100%",
@@ -204,12 +204,13 @@ export async function GET(request: Request) {
         </div>
       </div>
     </div>,
-    {
-      width: 1200,
-      height: 630,
-      headers: {
-        "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800",
-      },
-    },
+    { width: 1200, height: 630 },
   );
+
+  return new Response(image.body, {
+    headers: {
+      "Content-Type": "image/png",
+      "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=604800",
+    },
+  });
 }

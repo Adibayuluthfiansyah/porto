@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, lazy } from "react";
+import { useTranslations } from "next-intl";
 
 const BlogGrid = lazy(() => import("./BlogGrid"));
 
@@ -17,6 +18,8 @@ interface LazyBlogGridProps {
 }
 
 export default function LazyBlogGrid({ posts }: LazyBlogGridProps) {
+  const t = useTranslations("blog");
+
   return (
     <Suspense
       fallback={
@@ -27,7 +30,7 @@ export default function LazyBlogGrid({ posts }: LazyBlogGridProps) {
                 ~/blog/
               </p>
               <h1 className="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface font-bold">
-                Writings and Thoughts.
+                {t("heading")}
               </h1>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">

@@ -23,22 +23,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const urls: MetadataRoute.Sitemap = locales.flatMap((locale) =>
     pages.map((page) => ({
       url: `${baseUrl}/${locale}${page.path}`,
-      lastModified: new Date(),
       changeFrequency: page.changeFrequency,
       priority: page.priority,
     })),
   );
 
   const blogDir = path.join(process.cwd(), "app/content/blog");
-  const slugs = fs
+  const posts = fs
     .readdirSync(blogDir)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(".mdx", ""));
-  slugs.forEach((slug) => {
+    .filter((file) => file.endsWith(".mdx"))
+    .map((file) => ({
+      slug: file.replace(".mdx", ""),
+      lastModified: fs.statSync(path.join(blogDir, file)).mtime,
+    }));
+  posts.forEach((post) => {
     locales.forEach((locale) => {
       urls.push({
-        url: `${baseUrl}/${locale}/blog/${slug}`,
-        lastModified: new Date(),
+        url: `${baseUrl}/${locale}/blog/${post.slug}`,
+        lastModified: post.lastModified,
         changeFrequency: "monthly",
         priority: 0.6,
       });

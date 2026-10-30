@@ -1,4 +1,6 @@
+import { indexableRobots } from "@/lib/seo";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
   params,
@@ -6,14 +8,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.pages.contact" });
   const canonical = `https://adibayuluthfiansyah.dev/${locale}/contact`;
-  const description =
-    "Get in touch for freelance opportunities, collaboration, or project inquiries. Available via email, WhatsApp, and Instagram. Based in Pontianak, Indonesia.";
+  const description = t("description");
+  const title = t("title");
 
   return {
     metadataBase: new URL("https://adibayuluthfiansyah.dev"),
-    title: "Contact",
+    title,
     description,
+    robots: indexableRobots,
     alternates: {
       canonical,
       languages: {
@@ -23,7 +27,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: "Contact | Adibayu Luthfiansyah",
+      title: `${title} | Adibayu Luthfiansyah`,
       description,
       url: canonical,
       type: "website",
@@ -38,7 +42,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: "Contact | Adibayu Luthfiansyah",
+      title: `${title} | Adibayu Luthfiansyah`,
       description,
       images: [`https://adibayuluthfiansyah.dev/api/og?locale=${locale}`],
     },
