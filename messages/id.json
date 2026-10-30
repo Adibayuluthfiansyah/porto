@@ -1,10 +1,10 @@
 {
   "hero": {
-    "title": "SOFTWARE ENGINEER",
+    "title": "FULL-STACK DEVELOPER",
     "firstName": "Adibayu",
     "middleName": "Luthfiansyah",
     "lastName": "Setyawan",
-    "description": "Saya membangun aplikasi web berkinerja tinggi yang menyelesaikan masalah bisnis nyata dan mendorong pertumbuhan. Saat ini saya berfokus memperdalam arsitektur backend yang skalabel dengan Go, serta membangun sistem full-stack modern menggunakan TypeScript dan Next.js.",
+    "description": "Full-Stack Developer. Saat ini sedang belajar keamanan siber dan mencoba bug hunting.",
     "cta1": "Mari Bekerja Sama",
     "cta2": "Lihat Proyek",
     "imageAlt": "Foto profil Adibayu Luthfiansyah"
@@ -129,30 +129,30 @@
     },
     "hero": {
       "role": "Full-Stack Developer",
-      "stack": "Go, TypeScript dan Next.js",
+      "stack": "Belajar keamanan siber",
       "location": "Pontianak, Indonesia",
-      "telemetry": "1+ thn pengalaman, 5 proyek rilis, EN/ID"
+      "telemetry": "Latar full-stack, EN/ID"
     },
     "menu": {
-      "about": { "key": "a", "label": "Tentang Saya", "desc": "Bio dan etos backend-first" },
+      "about": { "key": "a", "label": "Tentang Saya", "desc": "Bio, kerja full-stack, belajar security" },
       "projects": {
         "key": "p",
         "label": "Proyek Unggulan",
-        "desc": "E-commerce, Dinsos, invoicing SaaS, open source"
+        "desc": "E-commerce, Dinsos, invoicing, Cangkir Tech"
       },
       "experience": {
         "key": "e",
         "label": "Pengalaman Kerja",
-        "desc": "Lead Cangkir Tech dan magang Dinsos"
+        "desc": "Pengalaman Cangkir Tech dan Dinsos"
       },
       "skills": {
         "key": "s",
         "label": "Teknologi Inti",
-        "desc": "Go, Next.js, TypeScript, PostgreSQL, Prisma"
+        "desc": "Teknologi full-stack, belajar security"
       },
       "contact": { "key": "c", "label": "Hubungi Saya", "desc": "Email, WhatsApp dan Instagram" },
       "resume": { "key": "r", "label": "Curriculum Vitae", "desc": "Halaman resume dan unduh PDF" },
-      "writing": { "key": "b", "label": "Tulisan Teknis", "desc": "Esai dan catatan dev" }
+      "writing": { "key": "b", "label": "Tulisan Teknis", "desc": "Catatan software dan security" }
     },
     "hints": {
       "select": "'<Enter>' pilih",
@@ -172,10 +172,10 @@
     "backHome": "Kembali ke dashboard"
   },
   "metadata": {
-    "homeTitle": "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",
-    "homeDescription": "Full-Stack Developer yang membangun aplikasi web dan sistem backend skalabel dengan Go, Next.js, dan TypeScript.",
-    "homeOgDescription": "Saya membangun aplikasi web dan sistem backend yang skalabel serta berperforma tinggi. Fokus pada Go, Next.js, dan TypeScript untuk startup maupun bisnis B2B.",
-    "scrollingText": "MEMBANGUN APLIKASI WEB SKALABEL • FULL-STACK DEVELOPER • ",
+    "homeTitle": "Adibayu Luthfiansyah | Full-Stack Developer",
+    "homeDescription": "Full-Stack Developer. Saat ini sedang belajar keamanan siber dan mencoba bug hunting.",
+    "homeOgDescription": "Full-Stack Developer. Saat ini sedang belajar keamanan siber dan mencoba bug hunting.",
+    "scrollingText": "FULL-STACK DEVELOPER • BELAJAR KEAMANAN SIBER • ",
     "ariaHero": "Bagian hero",
     "ariaTitles": "Judul profesional",
     "ariaAbout": "Tentang saya",

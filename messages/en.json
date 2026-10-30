@@ -1,10 +1,10 @@
 {
   "hero": {
-    "title": "SOFTWARE ENGINEER",
+    "title": "FULL-STACK DEVELOPER",
     "firstName": "Adibayu",
     "middleName": "Luthfiansyah",
     "lastName": "Setyawan",
-    "description": "I build high-performance web applications that solve real business problems and drive growth. I focus on scalable backend architecture and modern full-stack systems with Go, TypeScript, and Next.js.",
+    "description": "Full-Stack Developer. Currently learning cybersecurity and trying bug hunting.",
     "cta1": "Let's Work Together",
     "cta2": "View Projects",
     "imageAlt": "Profile photo of Adibayu Luthfiansyah"
@@ -129,30 +129,30 @@
     },
     "hero": {
       "role": "Full-Stack Developer",
-      "stack": "Go, TypeScript and Next.js",
+      "stack": "Learning cybersecurity",
       "location": "Pontianak, Indonesia",
-      "telemetry": "1+ yrs exp, 5 projects shipped, EN/ID"
+      "telemetry": "Full-stack background, EN/ID"
     },
     "menu": {
-      "about": { "key": "a", "label": "About Me", "desc": "Bio and backend-focused ethos" },
+      "about": { "key": "a", "label": "About Me", "desc": "Bio, full-stack work, security learning" },
       "projects": {
         "key": "p",
         "label": "Featured Projects",
-        "desc": "E-commerce, Dinsos, invoicing SaaS, open source"
+        "desc": "E-commerce, Dinsos, invoicing, Cangkir Tech"
       },
       "experience": {
         "key": "e",
         "label": "Work Experience",
-        "desc": "Cangkir Tech lead and Dinsos internship"
+        "desc": "Cangkir Tech and Dinsos experience"
       },
       "skills": {
         "key": "s",
         "label": "Core Tech and Skills",
-        "desc": "Go, Next.js, TypeScript, PostgreSQL, Prisma"
+        "desc": "Full-stack tech, security learning"
       },
       "contact": { "key": "c", "label": "Get in Touch", "desc": "Email, WhatsApp and Instagram" },
       "resume": { "key": "r", "label": "Curriculum Vitae", "desc": "Resume page and PDF download" },
-      "writing": { "key": "b", "label": "Technical Writing", "desc": "Essays and dev notes" }
+      "writing": { "key": "b", "label": "Technical Writing", "desc": "Notes on software and security" }
     },
     "hints": {
       "select": "'<Enter>' select",
@@ -172,10 +172,10 @@
     "backHome": "Back to dashboard"
   },
   "metadata": {
-    "homeTitle": "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",
-    "homeDescription": "Full-Stack Developer building scalable web applications and backend systems with Go, Next.js, and TypeScript.",
-    "homeOgDescription": "I build scalable, high-performance web applications and backend systems. Focused on Go, Next.js, and TypeScript for startups and B2B businesses.",
-    "scrollingText": "BUILDING SCALABLE WEB APPS • FULL STACK DEVELOPER • ",
+    "homeTitle": "Adibayu Luthfiansyah | Full-Stack Developer",
+    "homeDescription": "Full-Stack Developer. Currently learning cybersecurity and trying bug hunting.",
+    "homeOgDescription": "Full-Stack Developer. Currently learning cybersecurity and trying bug hunting.",
+    "scrollingText": "FULL-STACK DEVELOPER • LEARNING CYBERSECURITY • ",
     "ariaHero": "Hero section",
     "ariaTitles": "Professional titles",
     "ariaAbout": "About me",

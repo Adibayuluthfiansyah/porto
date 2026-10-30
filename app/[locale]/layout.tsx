@@ -33,13 +33,14 @@ export async function generateMetadata({
       template: "%s | Adibayu Luthfiansyah",
     },
     description:
-      "Full-Stack Developer specializing in backend architecture and modern web applications with Go, Next.js, and TypeScript.",
+      "Full-Stack Developer. Currently learning cybersecurity and trying bug hunting. Building web applications with Go, Next.js, and TypeScript.",
     keywords: [
       "Full-Stack Developer",
-      "Software Engineer",
       "Next.js Developer",
       "TypeScript Developer",
       "Go Developer",
+      "Cybersecurity Learning",
+      "Bug Hunting",
       "Pontianak Developer",
       "Indonesia Developer",
       "Freelance Full-Stack Developer Indonesia",
@@ -63,7 +64,7 @@ export async function generateMetadata({
       siteName: "Adibayu Luthfiansyah",
       title: "Adibayu Luthfiansyah, Full-Stack Developer",
       description:
-        "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Go, Next.js, and TypeScript.",
+        "Full-Stack Developer learning cybersecurity and trying bug hunting. Building web applications with Go, Next.js, and TypeScript.",
       locale: locale === "id" ? "id_ID" : "en_US",
       images: [
         {
@@ -78,7 +79,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: "Adibayu Luthfiansyah, Full-Stack Developer",
       description:
-        "Full-Stack Developer & Software Engineer specializing in backend architecture and modern web applications. Building scalable systems with Go, Next.js, and TypeScript.",
+        "Full-Stack Developer learning cybersecurity and trying bug hunting. Building web applications with Go, Next.js, and TypeScript.",
       images: [`https://adibayuluthfiansyah.dev/api/og?locale=${locale}`],
       creator: "@adibayuluthfiansyah",
     },
@@ -155,9 +156,9 @@ export default async function RootLayout({
               "@type": "Person",
               name: "Adibayu Luthfiansyah Setyawan",
               url: "https://adibayuluthfiansyah.dev",
-              jobTitle: "Full Stack Developer",
+              jobTitle: "Full-Stack Developer",
               description:
-                "Full-Stack Developer & Software Engineer with 1+ years experience specializing in Go, TypeScript, Next.js, and modern web applications.",
+                "Full-Stack Developer learning cybersecurity and trying bug hunting. Building web applications with Go, TypeScript, and Next.js.",
               sameAs: [
                 "https://github.com/Adibayuluthfiansyah",
                 "https://linkedin.com/in/adibayuluthfiansyah/",
