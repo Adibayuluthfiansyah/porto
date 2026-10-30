@@ -36,10 +36,9 @@ export default function About() {
               })}
             </p>
             <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">{t("bio2")}</p>
-            <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mt-space-md">
+            <p className="font-body-md text-body-md text-secondary mt-space-md">
               {t("bio3")}
             </p>
-            <p className="font-body-md text-body-md text-secondary mt-space-md">{t("bio4")}</p>
 
             <div id="skills" className="grid grid-cols-1 sm:grid-cols-2 gap-space-lg mt-space-xl scroll-mt-20">
               <div>

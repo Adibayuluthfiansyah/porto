@@ -21,7 +21,9 @@ export async function GET(request: Request) {
 
   const label = "Full-Stack Developer";
   const tagline =
-    locale === "id" ? "Belajar keamanan siber." : "Learning cybersecurity.";
+    locale === "id"
+      ? "Sedang belajar keamanan siber."
+      : "Currently learning cybersecurity.";
 
   const image = new ImageResponse(
     <div

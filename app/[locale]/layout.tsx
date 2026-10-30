@@ -33,7 +33,7 @@ export async function generateMetadata({
       template: "%s | Adibayu Luthfiansyah",
     },
     description:
-      "Full-Stack Developer. Currently learning cybersecurity and trying bug hunting. Building web applications with Go, Next.js, and TypeScript.",
+      "I'm a Full-Stack Developer learning cybersecurity and practicing bug hunting. I build web applications with Go, Next.js, and TypeScript.",
     keywords: [
       "Full-Stack Developer",
       "Next.js Developer",
@@ -64,7 +64,7 @@ export async function generateMetadata({
       siteName: "Adibayu Luthfiansyah",
       title: "Adibayu Luthfiansyah, Full-Stack Developer",
       description:
-        "Full-Stack Developer learning cybersecurity and trying bug hunting. Building web applications with Go, Next.js, and TypeScript.",
+        "I'm a Full-Stack Developer learning cybersecurity and practicing bug hunting. I build web applications with Go, Next.js, and TypeScript.",
       locale: locale === "id" ? "id_ID" : "en_US",
       images: [
         {
@@ -79,7 +79,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: "Adibayu Luthfiansyah, Full-Stack Developer",
       description:
-        "Full-Stack Developer learning cybersecurity and trying bug hunting. Building web applications with Go, Next.js, and TypeScript.",
+        "I'm a Full-Stack Developer learning cybersecurity and practicing bug hunting. I build web applications with Go, Next.js, and TypeScript.",
       images: [`https://adibayuluthfiansyah.dev/api/og?locale=${locale}`],
       creator: "@adibayuluthfiansyah",
     },
@@ -158,7 +158,7 @@ export default async function RootLayout({
               url: "https://adibayuluthfiansyah.dev",
               jobTitle: "Full-Stack Developer",
               description:
-                "Full-Stack Developer learning cybersecurity and trying bug hunting. Building web applications with Go, TypeScript, and Next.js.",
+                "I'm a Full-Stack Developer learning cybersecurity and practicing bug hunting. I build web applications with Go, TypeScript, and Next.js.",
               sameAs: [
                 "https://github.com/Adibayuluthfiansyah",
                 "https://linkedin.com/in/adibayuluthfiansyah/",
