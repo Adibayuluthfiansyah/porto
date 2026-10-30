@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 interface BlogPost {
   slug: string;
@@ -16,6 +17,8 @@ interface BlogGridProps {
 }
 
 export default function BlogGrid({ posts }: BlogGridProps) {
+  const t = useTranslations("blog");
+
   return (
     <section className="px-space-md md:px-space-xl py-space-md md:py-space-lg">
       <div className="max-w-5xl mx-auto flex flex-col gap-space-lg">
@@ -24,13 +27,13 @@ export default function BlogGrid({ posts }: BlogGridProps) {
             ~/blog/
           </p>
           <h1 className="font-headline-lg text-headline-lg md:text-headline-xl text-on-surface font-bold">
-            Writings and Thoughts.
+            {t("heading")}
           </h1>
         </div>
 
         {posts.length === 0 ? (
           <p role="status" className="font-body-md text-body-md text-outline">
-            No posts yet. New essays land here when they are written.
+            {t("empty")}
           </p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
@@ -60,7 +63,7 @@ export default function BlogGrid({ posts }: BlogGridProps) {
                     {post.description}
                   </p>
                   <span className="inline-flex items-center gap-space-xs pt-space-sm border-t border-outline-variant/40 font-label-lg text-label-lg text-primary">
-                    Read More
+                    {t("readMore")}
                     <span aria-hidden="true" className="material-symbols-outlined text-[16px]">
                       arrow_forward
                     </span>

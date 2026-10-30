@@ -1,4 +1,6 @@
+import { indexableRobots } from "@/lib/seo";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
   params,
@@ -6,14 +8,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.pages.projects" });
   const canonical = `https://adibayuluthfiansyah.dev/${locale}/projects`;
-  const description =
-    "Explore my portfolio of full-stack projects including E-Commerce platforms, Automated Invoicing SaaS, and Government Management Systems. Built with Next.js, Go, TypeScript, and PostgreSQL.";
+  const description = t("description");
+  const title = t("title");
 
   return {
     metadataBase: new URL("https://adibayuluthfiansyah.dev"),
-    title: "Projects",
+    title,
     description,
+    robots: indexableRobots,
     keywords: [
       "Full Stack Projects",
       "E-Commerce Platform",
@@ -35,7 +39,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: "Projects | Adibayu Luthfiansyah",
+      title: `${title} | Adibayu Luthfiansyah`,
       description,
       url: canonical,
       type: "website",
@@ -50,7 +54,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: "Projects | Adibayu Luthfiansyah",
+      title: `${title} | Adibayu Luthfiansyah`,
       description,
       images: [`https://adibayuluthfiansyah.dev/api/og?locale=${locale}`],
     },

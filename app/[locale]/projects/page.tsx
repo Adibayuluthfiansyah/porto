@@ -35,10 +35,15 @@ function ProjectCard({ project }: { project: ProjectItem }) {
   const t = useTranslations("projects");
   const [imgIndex, setImgIndex] = useState(0);
   const images = projectImages[project.id] || [];
+  const image = images[imgIndex] ?? images[0];
   const link = projectLinks[project.id] || "#";
 
-  const nextImg = () => setImgIndex((prev) => (prev + 1) % images.length);
-  const prevImg = () => setImgIndex((prev) => (prev - 1 + images.length) % images.length);
+  const nextImg = () =>
+    setImgIndex((prev) => (images.length > 0 ? (prev + 1) % images.length : 0));
+  const prevImg = () =>
+    setImgIndex((prev) =>
+      images.length > 0 ? (prev - 1 + images.length) % images.length : 0,
+    );
 
   return (
     <article className="bg-surface-container-lowest border border-outline-variant/40 hover:border-outline transition-colors">
@@ -54,15 +59,21 @@ function ProjectCard({ project }: { project: ProjectItem }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-space-lg p-space-md md:p-space-lg">
         <div className="relative border border-outline-variant/40 bg-surface">
           <div className="aspect-video relative">
-            <Image
-              src={images[imgIndex]}
-              alt={`${project.title} - Slide ${imgIndex + 1}`}
-              fill
-              priority={project.id === "project-1" && imgIndex === 0}
-              loading={project.id === "project-1" && imgIndex === 0 ? undefined : "lazy"}
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
-              className="object-contain"
-            />
+            {image ? (
+              <Image
+                src={image}
+                alt={`${project.title} - Slide ${imgIndex + 1}`}
+                fill
+                priority={project.id === "project-1" && imgIndex === 0}
+                loading={project.id === "project-1" && imgIndex === 0 ? undefined : "lazy"}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                className="object-contain"
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center font-label-md text-label-md text-outline">
+                {t("noImage")}
+              </div>
+            )}
             {images.length > 1 && (
               <>
                 <button

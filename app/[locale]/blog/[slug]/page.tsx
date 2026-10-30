@@ -3,11 +3,15 @@ import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import IdeShell from "@/components/ide/IdeShell";
+import { indexableRobots } from "@/lib/seo";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  const files = fs.readdirSync(path.join(process.cwd(), "app/content/blog"));
+  const files = fs
+    .readdirSync(path.join(process.cwd(), "app/content/blog"))
+    .filter((file) => file.endsWith(".mdx"));
 
   return files.map((filename) => ({
     slug: filename.replace(".mdx", ""),
@@ -24,13 +28,16 @@ export async function generateMetadata({
   if (!fs.existsSync(filePath)) return {};
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data } = matter(fileContent);
+  const t = await getTranslations({ locale, namespace: "metadata.pages.blog" });
+  const description = data.description || t("postFallbackDescription");
   const canonical = `https://adibayuluthfiansyah.dev/${locale}/blog/${slug}`;
   const ogImage = data.image || `https://adibayuluthfiansyah.dev/api/og?locale=${locale}`;
 
   return {
     metadataBase: new URL("https://adibayuluthfiansyah.dev"),
     title: data.title,
-    description: data.description || "Read this article on my blog",
+    description,
+    robots: indexableRobots,
     alternates: {
       canonical,
       languages: {
@@ -41,7 +48,7 @@ export async function generateMetadata({
     },
     openGraph: {
       title: `${data.title} | Adibayu Luthfiansyah`,
-      description: data.description || "Read this article on my blog",
+      description,
       type: "article",
       publishedTime: data.date,
       url: canonical,
@@ -57,7 +64,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: `${data.title} | Adibayu Luthfiansyah`,
-      description: data.description || "Read this article on my blog",
+      description,
       images: [ogImage],
     },
   };
@@ -66,19 +73,21 @@ export async function generateMetadata({
 export default async function BlogPost({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const filePath = path.join(process.cwd(), "app/content/blog", `${slug}.mdx`);
   if (!fs.existsSync(filePath)) notFound();
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
+  const t = await getTranslations({ locale, namespace: "metadata.pages.blog" });
+  const description = data.description || t("postFallbackDescription");
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: data.title,
-    description: data.description || "Read this article on my blog",
+    description,
     datePublished: data.date,
     author: {
       "@type": "Person",
