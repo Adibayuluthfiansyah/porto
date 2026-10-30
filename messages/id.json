@@ -1,24 +1,23 @@
 {
   "hero": {
-    "title": "SOFTWARE ENGINEER",
+    "title": "FULL-STACK DEVELOPER",
     "firstName": "Adibayu",
     "middleName": "Luthfiansyah",
     "lastName": "Setyawan",
-    "description": "Saya membangun aplikasi web berkinerja tinggi yang menyelesaikan masalah bisnis nyata dan mendorong pertumbuhan. Saat ini saya berfokus memperdalam arsitektur backend yang skalabel dengan Go, serta membangun sistem full-stack modern menggunakan TypeScript dan Next.js.",
+    "description": "Saat ini saya sedang belajar keamanan siber dan mencoba bug hunting.",
     "cta1": "Mari Bekerja Sama",
     "cta2": "Lihat Proyek",
     "imageAlt": "Foto profil Adibayu Luthfiansyah"
   },
   "about": {
     "label": "Tentang Saya",
-    "heading1": "Mari",
-    "heading2": "Berkenalan.",
-    "bio1": "Saya adalah <b>Full Stack Developer</b> dengan pengalaman 1+ tahun membangun aplikasi web siap produksi. Perjalanan saya dimulai dari ketertarikan pada coding dan rasa ingin tahu tentang cara kerja web, lalu berkembang menjadi karier yang berfokus pada arsitektur backend dan sistem yang skalabel. Saya pernah mengerjakan proyek mulai dari transaksi e-commerce hingga sistem manajemen pemerintahan. Keahlian utama saya adalah menerjemahkan kebutuhan bisnis yang kompleks menjadi kode yang bersih dan mudah dirawat.",
-    "bio2": "Saya memiliki pengalaman langsung membangun sistem end-to-end - mulai dari merancang REST API dan mengelola database hingga mengimplementasikan antarmuka pengguna yang responsif dan berperforma tinggi. Proyek saya mencakup ekosistem e-commerce modern, platform SaaS dengan alur kerja otomatis, serta inisiatif transformasi digital pemerintahan.",
-    "bio3": "Saat ini, saya aktif mengeksplorasi alur kerja coding berbasis AI - mempelajari bagaimana alat seperti GitHub Copilot dan IDE bertenaga AI dapat mempercepat pengembangan sambil menjaga kualitas kode. Menurut saya, masa depan pengembangan perangkat lunak adalah kolaborasi cerdas antara manusia dan AI, dan saya ingin tumbuh di persimpangan tersebut.",
-    "bio4": "Saya terbuka untuk peluang freelance, kolaborasi, dan pertumbuhan berkelanjutan sebagai engineer.",
-    "techStack1Title": "Backend & Database",
-    "techStack2Title": "Frontend & Tools"
+    "heading1": "Full-Stack",
+    "heading2": "Developer.",
+    "bio1": "Saya seorang <b>Full-Stack Developer</b> yang berbasis di Pontianak, Indonesia. Saya sudah membangun aplikasi web siap produksi untuk instansi pemerintah dan UMKM.",
+    "bio2": "Fokus saya sekarang adalah keamanan siber. Saya masih belajar dan berlatih bug hunting.",
+    "bio3": "Saya terbuka untuk posisi full-stack dan proyek web freelance.",
+    "techStack1Title": "Stack Inti",
+    "techStack2Title": "Tools"
   },
   "projects": {
     "label": "Proyek",
@@ -129,30 +128,30 @@
     },
     "hero": {
       "role": "Full-Stack Developer",
-      "stack": "Go, TypeScript dan Next.js",
+      "stack": "Sedang belajar keamanan siber",
       "location": "Pontianak, Indonesia",
-      "telemetry": "1+ thn pengalaman, 5 proyek rilis, EN/ID"
+      "telemetry": "Latar belakang full-stack, EN/ID"
     },
     "menu": {
-      "about": { "key": "a", "label": "Tentang Saya", "desc": "Bio dan etos backend-first" },
+      "about": { "key": "a", "label": "Tentang Saya", "desc": "Bio, kerja full-stack, dan sedang belajar keamanan siber" },
       "projects": {
         "key": "p",
         "label": "Proyek Unggulan",
-        "desc": "E-commerce, Dinsos, invoicing SaaS, open source"
+        "desc": "E-commerce, Dinsos, invoicing, Cangkir Tech"
       },
       "experience": {
         "key": "e",
         "label": "Pengalaman Kerja",
-        "desc": "Lead Cangkir Tech dan magang Dinsos"
+        "desc": "Pengalaman Cangkir Tech dan Dinsos"
       },
       "skills": {
         "key": "s",
         "label": "Teknologi Inti",
-        "desc": "Go, Next.js, TypeScript, PostgreSQL, Prisma"
+        "desc": "Teknologi full-stack, sedang belajar keamanan siber"
       },
       "contact": { "key": "c", "label": "Hubungi Saya", "desc": "Email, WhatsApp dan Instagram" },
       "resume": { "key": "r", "label": "Curriculum Vitae", "desc": "Halaman resume dan unduh PDF" },
-      "writing": { "key": "b", "label": "Tulisan Teknis", "desc": "Esai dan catatan dev" }
+      "writing": { "key": "b", "label": "Tulisan Teknis", "desc": "Catatan software dan keamanan siber" }
     },
     "hints": {
       "select": "'<Enter>' pilih",
@@ -172,10 +171,10 @@
     "backHome": "Kembali ke dashboard"
   },
   "metadata": {
-    "homeTitle": "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",
-    "homeDescription": "Full-Stack Developer yang membangun aplikasi web dan sistem backend skalabel dengan Go, Next.js, dan TypeScript.",
-    "homeOgDescription": "Saya membangun aplikasi web dan sistem backend yang skalabel serta berperforma tinggi. Fokus pada Go, Next.js, dan TypeScript untuk startup maupun bisnis B2B.",
-    "scrollingText": "MEMBANGUN APLIKASI WEB SKALABEL • FULL-STACK DEVELOPER • ",
+    "homeTitle": "Adibayu Luthfiansyah | Full-Stack Developer",
+    "homeDescription": "Saya seorang Full-Stack Developer yang sedang belajar keamanan siber dan mencoba bug hunting.",
+    "homeOgDescription": "Saya seorang Full-Stack Developer yang sedang belajar keamanan siber dan mencoba bug hunting.",
+    "scrollingText": "FULL-STACK DEVELOPER • BELAJAR KEAMANAN SIBER • ",
     "ariaHero": "Bagian hero",
     "ariaTitles": "Judul profesional",
     "ariaAbout": "Tentang saya",
@@ -185,7 +184,7 @@
     "pages": {
       "about": {
         "title": "Tentang Saya",
-        "description": "Kenali saya: Full-Stack Developer yang membangun aplikasi web modern dan sistem backend skalabel dengan Go, TypeScript, Next.js, dan PostgreSQL."
+        "description": "Adibayu Luthfiansyah adalah Full-Stack Developer dengan pengalaman membangun aplikasi web. Saat ini ia sedang belajar keamanan siber dan berlatih bug hunting."
       },
       "contact": {
         "title": "Kontak",

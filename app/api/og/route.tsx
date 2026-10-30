@@ -19,11 +19,11 @@ export async function GET(request: Request) {
     photoBase64 = null;
   }
 
-  const label = "Software Engineer";
+  const label = "Full-Stack Developer";
   const tagline =
     locale === "id"
-      ? "Solusi teknis untuk masalah bisnis yang nyata."
-      : "Turning complex problems into software that actually ships.";
+      ? "Sedang belajar keamanan siber."
+      : "Currently learning cybersecurity.";
 
   const image = new ImageResponse(
     <div

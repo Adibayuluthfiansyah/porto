@@ -1,24 +1,23 @@
 {
   "hero": {
-    "title": "SOFTWARE ENGINEER",
+    "title": "FULL-STACK DEVELOPER",
     "firstName": "Adibayu",
     "middleName": "Luthfiansyah",
     "lastName": "Setyawan",
-    "description": "I build high-performance web applications that solve real business problems and drive growth. I focus on scalable backend architecture and modern full-stack systems with Go, TypeScript, and Next.js.",
+    "description": "I'm currently learning cybersecurity and practicing bug hunting.",
     "cta1": "Let's Work Together",
     "cta2": "View Projects",
     "imageAlt": "Profile photo of Adibayu Luthfiansyah"
   },
   "about": {
     "label": "About Me",
-    "heading1": "Get To Know",
-    "heading2": "Me.",
-    "bio1": "I'm a <b>Full Stack Developer</b> with 1+ years of experience building production-grade web applications. My journey started with a passion for coding and curiosity about how the web works, and it quickly evolved into a career focused on backend architecture and scalable systems. I've worked on projects ranging from e-commerce transactions to government management systems. My specialty is turning complex business requirements into clean, maintainable code.",
-    "bio2": "I have hands-on experience developing end-to-end systems - from designing REST APIs and managing databases to implementing responsive, high-performance user interfaces. My projects span modern e-commerce ecosystems, SaaS platforms with automated workflows, and government digital transformation initiatives.",
-    "bio3": "Currently, I'm actively exploring AI-assisted coding workflows - learning how tools like GitHub Copilot and AI-powered IDEs can accelerate development while maintaining code quality. The future of software development is collaborative intelligence between humans and AI, and I'm positioning myself at that intersection.",
-    "bio4": "I am open to freelance opportunities, collaboration, and continuous growth as an engineer.",
-    "techStack1Title": "Backend & Database",
-    "techStack2Title": "Frontend & Tools"
+    "heading1": "Full-Stack",
+    "heading2": "Developer.",
+    "bio1": "I'm a <b>Full-Stack Developer</b> based in Pontianak, Indonesia. I've built production web applications for government agencies and MSMEs.",
+    "bio2": "My current focus is cybersecurity. I'm still learning and practicing bug hunting.",
+    "bio3": "I'm open to full-stack roles and freelance web projects.",
+    "techStack1Title": "Core Stack",
+    "techStack2Title": "Tools"
   },
   "projects": {
     "label": "Projects",
@@ -129,30 +128,30 @@
     },
     "hero": {
       "role": "Full-Stack Developer",
-      "stack": "Go, TypeScript and Next.js",
+      "stack": "Learning cybersecurity",
       "location": "Pontianak, Indonesia",
-      "telemetry": "1+ yrs exp, 5 projects shipped, EN/ID"
+      "telemetry": "Full-stack background, EN/ID"
     },
     "menu": {
-      "about": { "key": "a", "label": "About Me", "desc": "Bio and backend-focused ethos" },
+      "about": { "key": "a", "label": "About Me", "desc": "Bio, full-stack work, and security learning" },
       "projects": {
         "key": "p",
         "label": "Featured Projects",
-        "desc": "E-commerce, Dinsos, invoicing SaaS, open source"
+        "desc": "E-commerce, Dinsos, invoicing, Cangkir Tech"
       },
       "experience": {
         "key": "e",
         "label": "Work Experience",
-        "desc": "Cangkir Tech lead and Dinsos internship"
+        "desc": "Cangkir Tech and Dinsos experience"
       },
       "skills": {
         "key": "s",
         "label": "Core Tech and Skills",
-        "desc": "Go, Next.js, TypeScript, PostgreSQL, Prisma"
+        "desc": "Full-stack tech and security learning"
       },
       "contact": { "key": "c", "label": "Get in Touch", "desc": "Email, WhatsApp and Instagram" },
       "resume": { "key": "r", "label": "Curriculum Vitae", "desc": "Resume page and PDF download" },
-      "writing": { "key": "b", "label": "Technical Writing", "desc": "Essays and dev notes" }
+      "writing": { "key": "b", "label": "Technical Writing", "desc": "Notes on software and security" }
     },
     "hints": {
       "select": "'<Enter>' select",
@@ -172,10 +171,10 @@
     "backHome": "Back to dashboard"
   },
   "metadata": {
-    "homeTitle": "Adibayu Luthfiansyah | Full Stack Developer & Software Engineer",
-    "homeDescription": "Full-Stack Developer building scalable web applications and backend systems with Go, Next.js, and TypeScript.",
-    "homeOgDescription": "I build scalable, high-performance web applications and backend systems. Focused on Go, Next.js, and TypeScript for startups and B2B businesses.",
-    "scrollingText": "BUILDING SCALABLE WEB APPS • FULL STACK DEVELOPER • ",
+    "homeTitle": "Adibayu Luthfiansyah | Full-Stack Developer",
+    "homeDescription": "I'm a Full-Stack Developer currently learning cybersecurity and practicing bug hunting.",
+    "homeOgDescription": "I'm a Full-Stack Developer currently learning cybersecurity and practicing bug hunting.",
+    "scrollingText": "FULL-STACK DEVELOPER • LEARNING CYBERSECURITY • ",
     "ariaHero": "Hero section",
     "ariaTitles": "Professional titles",
     "ariaAbout": "About me",
@@ -185,7 +184,7 @@
     "pages": {
       "about": {
         "title": "About Me",
-        "description": "Get to know me: a Full-Stack Developer building modern, scalable web applications and backend systems with Go, TypeScript, Next.js, and PostgreSQL."
+        "description": "Adibayu Luthfiansyah is a Full-Stack Developer with experience building web applications. He is currently learning cybersecurity and practicing bug hunting."
       },
       "contact": {
         "title": "Contact",
