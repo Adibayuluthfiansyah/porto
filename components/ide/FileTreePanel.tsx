@@ -8,7 +8,7 @@ import FileIcon from "./FileIcon";
 const projectFiles = [
   { name: "ecommerce-platform.ts", href: "/projects" as const },
   { name: "dinsos-management.tsx", href: "/projects" as const },
-  { name: "invoicing-saas.go", href: "/projects" as const },
+  { name: "invoicing-saas.tsx", href: "/projects" as const },
   { name: "physicshub-contrib.md", href: "/projects" as const },
 ];
 
@@ -99,7 +99,7 @@ export default function FileTreePanel({ onNavigate }: { onNavigate?: () => void 
             placeholder={t("filterPlaceholder")}
             aria-label={t("filterPlaceholder")}
             type="text"
-            className="w-full bg-transparent font-code-inline text-code-inline text-on-surface placeholder:text-outline focus:outline-none"
+            className="w-full bg-transparent font-code-inline text-code-inline text-on-surface placeholder:text-outline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           />
           <span
             aria-hidden="true"

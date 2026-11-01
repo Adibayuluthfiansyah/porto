@@ -1,23 +1,29 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 export default function StatuslineFooter() {
   const t = useTranslations("ide.status");
+  const locale = useLocale();
   const [time, setTime] = useState("");
 
   useEffect(() => {
     const update = () =>
-      setTime(new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" }));
+      setTime(
+        new Date().toLocaleTimeString(locale === "id" ? "id-ID" : "en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      );
     update();
     const id = setInterval(update, 15000);
     return () => clearInterval(id);
-  }, []);
+  }, [locale]);
 
   return (
-    <footer className="fixed bottom-0 left-0 lg:left-[34rem] right-0 h-6 bg-surface-container z-30 flex items-center justify-between font-code-inline text-code-inline">
+    <footer className="fixed bottom-0 left-0 lg:left-[34rem] right-0 h-11 lg:h-6 bg-surface-container z-30 flex items-center justify-between font-code-inline text-code-inline">
       <div className="flex items-center h-full">
         <div className="h-full px-space-md bg-primary-container text-on-primary-container font-label-md text-label-md font-bold flex items-center tracking-wider">
           {t("mode")}

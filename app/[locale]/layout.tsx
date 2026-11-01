@@ -5,6 +5,7 @@ import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { notFound } from "next/navigation";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -25,9 +26,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const ogImage = `${SITE_URL}/api/og?locale=${locale}`;
 
   return {
-    metadataBase: new URL("https://adibayuluthfiansyah.dev"),
+    metadataBase: new URL(SITE_URL),
     title: {
       default: "Adibayu Luthfiansyah | Full-Stack Developer",
       template: "%s | Adibayu Luthfiansyah",
@@ -51,24 +53,26 @@ export async function generateMetadata({
     creator: "Adibayu Luthfiansyah Setyawan",
     publisher: "Adibayu Luthfiansyah Setyawan",
     alternates: {
-      canonical: `https://adibayuluthfiansyah.dev/${locale}`,
+      canonical: `${SITE_URL}/${locale}`,
       languages: {
-        en: "https://adibayuluthfiansyah.dev/en",
-        id: "https://adibayuluthfiansyah.dev/id",
-        "x-default": "https://adibayuluthfiansyah.dev/en",
+        en: `${SITE_URL}/en`,
+        id: `${SITE_URL}/id`,
+        "x-default": `${SITE_URL}/en`,
       },
     },
     openGraph: {
       type: "website",
-      url: `https://adibayuluthfiansyah.dev/${locale}`,
-      siteName: "Adibayu Luthfiansyah",
+      url: `${SITE_URL}/${locale}`,
+      siteName: SITE_NAME,
       title: "Adibayu Luthfiansyah, Full-Stack Developer",
       description:
         "I'm a Full-Stack Developer learning cybersecurity and practicing bug hunting. I build web applications with Go, Next.js, and TypeScript.",
       locale: locale === "id" ? "id_ID" : "en_US",
       images: [
         {
-          url: `https://adibayuluthfiansyah.dev/api/og?locale=${locale}`,
+          url: ogImage,
+          secureUrl: ogImage,
+          type: "image/png",
           width: 1200,
           height: 630,
           alt: "Adibayu Luthfiansyah Portfolio",
@@ -80,13 +84,8 @@ export async function generateMetadata({
       title: "Adibayu Luthfiansyah, Full-Stack Developer",
       description:
         "I'm a Full-Stack Developer learning cybersecurity and practicing bug hunting. I build web applications with Go, Next.js, and TypeScript.",
-      images: [`https://adibayuluthfiansyah.dev/api/og?locale=${locale}`],
+      images: [ogImage],
       creator: "@adibayuluthfiansyah",
-    },
-    other: {
-      "og:image:secure_url": `https://adibayuluthfiansyah.dev/api/og?locale=${locale}`,
-      "og:image:type": "image/png",
-      "twitter:image": `https://adibayuluthfiansyah.dev/api/og?locale=${locale}`,
     },
     verification: {
       google: "ONZuM0_P9Ru2Ghg4oC4o9CHljxECU6MXONQ8qxmiLhE",
@@ -155,7 +154,7 @@ export default async function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Adibayu Luthfiansyah Setyawan",
-              url: "https://adibayuluthfiansyah.dev",
+              url: SITE_URL,
               jobTitle: "Full-Stack Developer",
               description:
                 "I'm a Full-Stack Developer learning cybersecurity and practicing bug hunting. I build web applications with Go, TypeScript, and Next.js.",
