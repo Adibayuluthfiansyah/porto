@@ -190,7 +190,7 @@
       },
       "projects": {
         "title": "Projects",
-        "description": "Explore my portfolio of full-stack projects including e-commerce platforms, automated invoicing SaaS, and government management systems. Built with Next.js, Go, TypeScript, and PostgreSQL."
+        "description": "Explore my portfolio of full-stack projects including e-commerce platforms, automated invoicing SaaS, and government management systems. Built with Next.js, NestJS, Go, TypeScript, and PostgreSQL."
       },
       "resume": {
         "title": "Resume",
