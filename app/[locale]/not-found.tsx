@@ -1,6 +1,23 @@
+import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import IdeShell from "@/components/ide/IdeShell";
+
+export async function generateMetadata({
+  params,
+}: {
+  params?: Promise<{ locale: string }>;
+} = {}): Promise<Metadata> {
+  const locale = (await params)?.locale ?? (await getLocale());
+  const t = await getTranslations({ locale, namespace: "notFound" });
+
+  return {
+    title: "404",
+    description: t("description"),
+    alternates: { canonical: null },
+  };
+}
 
 export default function NotFound() {
   const t = useTranslations("notFound");

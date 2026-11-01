@@ -282,8 +282,8 @@ export default function Resume() {
                       </span>
                     </div>
                     <p className="text-on-surface font-medium text-sm mb-4">
-                      Next.js · TypeScript · PostgreSQL · Midtrans · Server
-                      Actions
+                      Next.js · TypeScript · Prisma · PostgreSQL · Midtrans ·
+                      Server Actions
                     </p>
                     <ul className="list-disc list-outside ml-4 space-y-2 text-on-surface-variant font-light leading-relaxed text-sm md:text-base">
                       <li>

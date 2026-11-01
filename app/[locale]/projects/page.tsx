@@ -19,7 +19,7 @@ const projectLinks: Record<string, string> = {
   "project-1": "https://github.com/Adibayuluthfiansyah/shop-frontend",
   "project-2": "https://github.com/DinsosKubuRaya/DinsosFrontend",
   "project-3": "https://o7ong.me/",
-  "project-4": "https://cangkir.tech/id",
+  "project-4": "https://www.cangkir.tech/",
   "project-5": "https://github.com/physicshub/physicshub.github.io/pull/203",
 };
 

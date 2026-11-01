@@ -190,7 +190,7 @@
       },
       "projects": {
         "title": "Proyek",
-        "description": "Jelajahi portofolio proyek full-stack saya, termasuk platform e-commerce, SaaS invoicing otomatis, dan sistem manajemen pemerintahan. Dibangun dengan Next.js, Go, TypeScript, dan PostgreSQL."
+        "description": "Jelajahi portofolio proyek full-stack saya, termasuk platform e-commerce, SaaS invoicing otomatis, dan sistem manajemen pemerintahan. Dibangun dengan Next.js, NestJS, Go, TypeScript, dan PostgreSQL."
       },
       "resume": {
         "title": "Resume",
