@@ -1,14 +1,15 @@
 import { ImageResponse } from "next/og";
+import { SITE_URL } from "@/lib/seo";
 
 export const revalidate = 86400;
 
 export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url);
+  const { searchParams } = new URL(request.url);
   const locale = searchParams.get("locale") === "id" ? "id" : "en";
 
   let photoBase64: string | null = null;
   try {
-    const photoRes = await fetch(`${origin}/hero-og.png`, {
+    const photoRes = await fetch(new URL("/hero-og.png", SITE_URL), {
       next: { revalidate: 86400 },
     });
     if (photoRes.ok) {

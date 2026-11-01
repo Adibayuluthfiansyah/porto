@@ -27,6 +27,7 @@
     "prevImage": "Previous image",
     "nextImage": "Next image",
     "goToImage": "Go to image {number}",
+    "imageAlt": "{title} - image {number}",
     "noImage": "Preview unavailable",
     "items": [
       {
@@ -100,6 +101,12 @@
       "branch": "main",
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
+      "menuLabel": "Menu",
+      "dashboardLabel": "Dashboard",
+      "skipToContent": "Skip to content",
+      "languageLabel": "Language",
+      "switchToEnglish": "Switch to English",
+      "switchToIndonesian": "Switch to Indonesian",
       "avatarAlt": "Portrait of Adibayu Luthfiansyah"
     },
     "tree": {

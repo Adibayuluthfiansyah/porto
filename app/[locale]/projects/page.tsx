@@ -62,7 +62,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
             {image ? (
               <Image
                 src={image}
-                alt={`${project.title} - Slide ${imgIndex + 1}`}
+                alt={t("imageAlt", { title: project.title, number: imgIndex + 1 })}
                 fill
                 priority={project.id === "project-1" && imgIndex === 0}
                 loading={project.id === "project-1" && imgIndex === 0 ? undefined : "lazy"}
@@ -77,6 +77,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
             {images.length > 1 && (
               <>
                 <button
+                  type="button"
                   onClick={prevImg}
                   aria-label={t("prevImage")}
                   className="absolute left-2 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center bg-surface-container-lowest/80 text-on-surface hover:text-secondary transition-colors"
@@ -86,6 +87,7 @@ function ProjectCard({ project }: { project: ProjectItem }) {
                   </span>
                 </button>
                 <button
+                  type="button"
                   onClick={nextImg}
                   aria-label={t("nextImage")}
                   className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center bg-surface-container-lowest/80 text-on-surface hover:text-secondary transition-colors"
@@ -98,13 +100,19 @@ function ProjectCard({ project }: { project: ProjectItem }) {
                   {images.map((_, idx) => (
                     <button
                       key={idx}
+                      type="button"
                       onClick={() => setImgIndex(idx)}
                       aria-label={t("goToImage", { number: idx + 1 })}
                       aria-current={idx === imgIndex ? "true" : undefined}
-                      className={`h-1.5 transition-all ${
-                        idx === imgIndex ? "bg-secondary w-6" : "bg-outline w-1.5"
-                      }`}
-                    />
+                      className="flex h-11 w-11 items-center justify-center focus-visible:outline focus-visible:outline-1 focus-visible:outline-primary"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`block h-1.5 transition-all ${
+                          idx === imgIndex ? "bg-secondary w-6" : "bg-outline w-1.5"
+                        }`}
+                      />
+                    </button>
                   ))}
                 </div>
               </>

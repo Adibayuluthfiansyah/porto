@@ -32,6 +32,7 @@ const menuItems: MenuItem[] = [
 export default function DashboardHero() {
   const t = useTranslations("ide.menu");
   const th = useTranslations("ide.hero");
+  const tHeader = useTranslations("ide.header");
   const tn = useTranslations("hero");
   const ti = useTranslations("ide.hints");
   const [index, setIndex] = useState(0);
@@ -62,7 +63,7 @@ export default function DashboardHero() {
           {tn("firstName")} {tn("middleName")} {tn("lastName")}
         </h1>
         <pre
-          aria-label="ADIBAYU.DEV"
+          aria-hidden="true"
           className="block w-full max-w-full min-w-0 font-code-inline text-secondary font-bold text-center whitespace-pre select-none overflow-hidden mb-space-xs text-[clamp(5.5px,1.75vw,13px)] leading-[1.3]"
         >
           {ascii}
@@ -85,7 +86,7 @@ export default function DashboardHero() {
         </div>
 
         <nav
-          aria-label="Dashboard"
+          aria-label={tHeader("dashboardLabel")}
           className="w-full flex flex-col gap-space-xs font-code-inline text-code-inline"
         >
           {menuItems.map((item, i) => (

@@ -1,11 +1,13 @@
 import fs from "fs";
 import path from "path";
 import { MetadataRoute } from "next";
+import { BLOG_DIR } from "@/lib/blog";
+import { SITE_URL } from "@/lib/seo";
 
 export const revalidate = 86400;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://adibayuluthfiansyah.dev";
+  const baseUrl = SITE_URL;
   const locales = ["en", "id"];
   const pages: {
     path: string;
@@ -28,13 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  const blogDir = path.join(process.cwd(), "app/content/blog");
   const posts = fs
-    .readdirSync(blogDir)
+    .readdirSync(BLOG_DIR)
     .filter((file) => file.endsWith(".mdx"))
     .map((file) => ({
       slug: file.replace(".mdx", ""),
-      lastModified: fs.statSync(path.join(blogDir, file)).mtime,
+      lastModified: fs.statSync(path.join(BLOG_DIR, file)).mtime,
     }));
   posts.forEach((post) => {
     locales.forEach((locale) => {

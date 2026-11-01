@@ -1,16 +1,16 @@
 import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import IdeShell from "@/components/ide/IdeShell";
-import { indexableRobots } from "@/lib/seo";
+import { BLOG_DIR, getBlogPostPath } from "@/lib/blog";
+import { SITE_URL, buildPageMetadata } from "@/lib/seo";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const files = fs
-    .readdirSync(path.join(process.cwd(), "app/content/blog"))
+    .readdirSync(BLOG_DIR)
     .filter((file) => file.endsWith(".mdx"));
 
   return files.map((filename) => ({
@@ -24,50 +24,24 @@ export async function generateMetadata({
   params: Promise<{ slug: string; locale: string }>;
 }): Promise<Metadata> {
   const { slug, locale } = await params;
-  const filePath = path.join(process.cwd(), "app/content/blog", `${slug}.mdx`);
-  if (!fs.existsSync(filePath)) return {};
+  const filePath = getBlogPostPath(slug);
+  if (!filePath || !fs.existsSync(filePath)) return {};
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data } = matter(fileContent);
   const t = await getTranslations({ locale, namespace: "metadata.pages.blog" });
+  const title = typeof data.title === "string" && data.title ? data.title : t("title");
   const description = data.description || t("postFallbackDescription");
-  const canonical = `https://adibayuluthfiansyah.dev/${locale}/blog/${slug}`;
-  const ogImage = data.image || `https://adibayuluthfiansyah.dev/api/og?locale=${locale}`;
 
-  return {
-    metadataBase: new URL("https://adibayuluthfiansyah.dev"),
-    title: data.title,
+  return buildPageMetadata({
+    locale,
+    title,
     description,
-    robots: indexableRobots,
-    alternates: {
-      canonical,
-      languages: {
-        en: `https://adibayuluthfiansyah.dev/en/blog/${slug}`,
-        id: `https://adibayuluthfiansyah.dev/id/blog/${slug}`,
-        "x-default": `https://adibayuluthfiansyah.dev/en/blog/${slug}`,
-      },
-    },
-    openGraph: {
-      title: `${data.title} | Adibayu Luthfiansyah`,
-      description,
-      type: "article",
-      publishedTime: data.date,
-      url: canonical,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: data.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${data.title} | Adibayu Luthfiansyah`,
-      description,
-      images: [ogImage],
-    },
-  };
+    path: `/blog/${slug}`,
+    type: "article",
+    image: typeof data.image === "string" ? data.image : undefined,
+    imageAlt: title,
+    publishedTime: typeof data.date === "string" ? data.date : undefined,
+  });
 }
 
 export default async function BlogPost({
@@ -76,8 +50,8 @@ export default async function BlogPost({
   params: Promise<{ slug: string; locale: string }>;
 }) {
   const { slug, locale } = await params;
-  const filePath = path.join(process.cwd(), "app/content/blog", `${slug}.mdx`);
-  if (!fs.existsSync(filePath)) notFound();
+  const filePath = getBlogPostPath(slug);
+  if (!filePath || !fs.existsSync(filePath)) notFound();
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
   const t = await getTranslations({ locale, namespace: "metadata.pages.blog" });
@@ -92,7 +66,7 @@ export default async function BlogPost({
     author: {
       "@type": "Person",
       name: "Adibayu Luthfiansyah Setyawan",
-      url: "https://adibayuluthfiansyah.dev",
+      url: SITE_URL,
     },
   };
 

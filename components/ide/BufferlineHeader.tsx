@@ -7,9 +7,13 @@ import { useTranslations } from "next-intl";
 export default function BufferlineHeader({
   onMenu,
   menuBtnRef,
+  menuExpanded,
+  menuControls,
 }: {
   onMenu: () => void;
   menuBtnRef?: React.Ref<HTMLButtonElement>;
+  menuExpanded?: boolean;
+  menuControls?: string;
 }) {
   const t = useTranslations("ide.tabs");
   const th = useTranslations("ide.header");
@@ -29,6 +33,8 @@ export default function BufferlineHeader({
           ref={menuBtnRef}
           onClick={onMenu}
           aria-label={th("openMenu")}
+          aria-expanded={menuExpanded}
+          aria-controls={menuControls}
           className="lg:hidden shrink-0 w-11 h-11 flex items-center justify-center text-outline hover:text-on-surface"
         >
           <span aria-hidden="true" className="material-symbols-outlined text-[20px]">

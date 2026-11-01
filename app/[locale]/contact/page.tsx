@@ -11,11 +11,13 @@ export default function Contact() {
       label: t("emailLabel"),
       value: t("emailValue"),
       href: "mailto:adibayu@adibayuluthfiansyah.dev",
+      external: false,
     },
     {
       label: t("instagramLabel"),
       value: t("instagramValue"),
       href: "https://instagram.com/adibayuluthfiansyah",
+      external: true,
     },
   ];
 
@@ -45,8 +47,8 @@ export default function Contact() {
               <a
                 key={link.label}
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
                 className="group flex flex-col gap-space-xs border border-outline-variant/40 bg-surface-container-low p-space-md min-h-[44px] hover:border-primary-container transition-colors"
               >
                 <span className="flex items-center justify-between font-label-md text-label-md text-outline group-hover:text-secondary transition-colors">
